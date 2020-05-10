@@ -30,8 +30,9 @@ public class MainController {
    private ProductService productservice;
    @GetMapping("/main")
    public void main(Model model) {
-      model.addAttribute("read",productservice.readSoldout());
-      model.addAttribute("readHot", productservice.readHot());
+	      model.addAttribute("read",productservice.readSoldout());
+	      model.addAttribute("readHot", productservice.readHot());
+	      model.addAttribute("readNew", productservice.readNew());
    }
 
    @GetMapping("/faq")
