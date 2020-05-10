@@ -33,7 +33,7 @@
 </nav>
 
 <!-- CONTENT -->
-<section class="pt-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
+<section class="pt-7 pb-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row">
          <div class="col-12 text-center">
@@ -44,7 +44,7 @@
          </div>
       </div>
       <div class="row">
-          <div class="col-12 col-md-3" style="right: 60px;">
+          <div class="col-12 col-md-3" style="right: 45px;">
 
             <!-- Nav -->
             <nav class="mb-10 mb-md-0">
@@ -70,14 +70,11 @@
             </nav>
             <!-- 옆메뉴 종료 -->
           </div>
-         <div class="col-auto col-md-col-auto col-lg-10 offset-lg-1">
 
             <!-- Order -->
-            <div class="row">
-               <div class="col-12">
                   <!-- 상품 선택영역 -->
                   <!-- 상품 테이블 시작 -->
-                  <div class="col-12" style="left: 200px; bottom: 400px;">
+                  <div class="col-9" style="bottom: 20px;">
                      <br>
                      <!-- Info -->
  	                    <div class="row" style="width: 800px;">
@@ -85,11 +82,10 @@
                            		<input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">전체선택 / </label>
                         	</div>
                         <div class="delBtn">
-                            <button class="btn btn-outline-border btn-underline" id="selectDelete_btn"
-                            type="button" style="width: 20px; height: 20px;">삭제</button>
+                            <button id="selectDelete_btn"
+                            type="button" style="width: 50px; height: 25px;">삭제</button>
                         </div>
                               <table style="width:100%; text-align:center; font-size: 40px;" class="table">
-
                                  <thead class="thead-dark">
                                   <tr>
                                     <th>상품 선택</th>
@@ -100,9 +96,7 @@
                                     <th>배송비</th>
                                   </tr>
                                  </thead>
-
                                  <tbody style="border-bottom:1px solid #dcdcda;" id="pc_list">
-                                 	
                                  </tbody>
                               </table>
                                  
@@ -119,7 +113,7 @@
                      </div>
                      <br />
                   <!-- 1개 끝 -->
-                  <div class="col-12" style="width:100%; bottom: 200px;">
+                  <div class="col-12" style="width:100%;">
                      <div class="form-row" style="text-align:center">
                         <div class="col-6">
                            <!-- Button -->
@@ -134,9 +128,6 @@
                   </div>
                </div>
             </div>
-         </div>
-      </div>
-   </div>
 	<form action="/payment/checkout" id='actionForm' method='get'>
 		<input type = hidden name=m_no value='<sec:authentication property="principal.member.m_no"/>'>
 	</form>
