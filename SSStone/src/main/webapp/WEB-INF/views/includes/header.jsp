@@ -73,12 +73,12 @@
               <a class="nav-link font-weight-bold font-size-xl" href="/shop/main" onclick="self.location='/shop/main'" title="홈으로">Home</a>
             </li>
           
-            <li class="nav-item dropdown">
+            <li class="no-js nav-item dropdown position-static">
               <!-- Toggle -->
               
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="귀걸이 / 목걸이">귀걸이 / 목걸이</a>
               <!-- Menu -->
-              <div class="dropdown-menu w-100" style="min-width:650px; margin-left:230px">
+              <div class="dropdown-menu" style="min-width:1000px; height:250px">
                 <div class="card card-lg">
                   <div class="card-body">
                     <div class="container">
@@ -102,11 +102,11 @@
                             </li> 
                           </ul>
                         </div>
-                        <div class="col-4 col-md">
+                        <div class="col-6 col-md">
                           <!-- Heading -->
-                          <div class="mb-5 font-weight-bold" style="font-size:25px">목걸이</div>
+                          <div class="mb-5 font-weight-bold" style="font-size:25px; padding-left:50px">목걸이</div>
                           <!-- Links -->
-                          <ul class="list-styled mb-0 font-size-h6">
+                          <ul class="list-styled mb-0 font-size-h6" style="padding-left:50px">
                         <li class="list-styled-item">
                               <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=골드">Gold</a>
                             </li>
@@ -120,7 +120,7 @@
                               <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=써지컬">Surgical</a>
                             </li>
                             <li class="list-styled-item">
-                              <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=">목걸이 전체보러가기</a>
+                              <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=">목걸이 전체보기</a>
                             </li> 
                           </ul>
                         </div>
@@ -141,11 +141,11 @@
               </div>
             </li>
             
-            <li class="nav-item dropdown position-relative">
+            <li class="no-js nav-item dropdown position-static">
               <!-- Toggle -->
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="팔찌 / 시계">팔찌 / 시계</a>
               <!-- Menu -->
-              <div class="dropdown-menu" style="min-width: 650px; margin-left:230px">
+              <div class="dropdown-menu" style="min-width:700px;">
                 <div class="card card-lg">
                   <div class="card-body">
                    <div class="container">
@@ -168,7 +168,7 @@
                             <a class="list-styled-link" href="/product/shop?p_category1=팔찌&p_category2=써지컬">Surgical</a>
                           </li>
                           <li class="list-styled-item">
-                            <a class="list-styled-link" href="/product/shop?p_category1=팔찌&p_category2=">팔찌 전체보러가기</a>
+                            <a class="list-styled-link" href="/product/shop?p_category1=팔찌&p_category2=">팔찌 전체보기</a>
                           </li>
                         </ul>
                       </div>
@@ -184,7 +184,7 @@
                             <a class="list-styled-link" href="/product/shop?p_category1=시계&p_category2=메탈">metal</a>
                           </li>
                           <li class="list-styled-item">
-                            <a class="list-styled-link" href="/product/shop?p_category1=시계&p_category2=">시계 전체보러가기</a>
+                            <a class="list-styled-link" href="/product/shop?p_category1=시계&p_category2=">시계 전체보기</a>
                           </li>
                         </ul>
                       </div>
@@ -194,11 +194,12 @@
                 </div>
               </div>
             </li>
-            <li class="no-js nav-item dropdown">
+            
+            <li class="no-js nav-item dropdown position-static">
                  <!-- Toggle -->
                  <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="반지 / 헤어">반지 / 헤어</a>
                  <!-- Menu -->
-                 <div class="dropdown-menu" style="min-width:650px; margin-left:270px">
+                 <div class="dropdown-menu" style="width:530px; padding:16px">
                    <div class="card">
                      <div class="card-body">
                        <div class="row">
@@ -217,7 +218,7 @@
                                <a class="list-styled-link" href="/product/shop?p_category1=반지&p_category2=써지컬">Surgical</a>
                              </li>
                              <li class="list-styled-item">
-                               <a class="list-styled-link" href="/product/shop?p_category1=반지&p_category2=">반지 전체보러가기</a>
+                               <a class="list-styled-link" href="/product/shop?p_category1=반지&p_category2=">반지 전체보기</a>
                              </li>
                            </ul>
                            <!-- Heading -->
@@ -247,7 +248,7 @@
                                <a class="list-styled-link" href="/product/shop?p_category1=헤어&p_category2=집게핀">Tongs</a>
                              </li>
                              <li class="list-styled-item">
-                               <a class="list-styled-link" href="/product/shop?p_category1=헤어&p_category2=">헤어용품 전체보러가기</a>
+                               <a class="list-styled-link" href="/product/shop?p_category1=헤어&p_category2=">헤어용품 전체보기</a>
                              </li>
                            </ul>
                         </div>
