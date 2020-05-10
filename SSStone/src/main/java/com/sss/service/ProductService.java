@@ -27,4 +27,5 @@ public interface ProductService {
 	public long countStockShartage();
 	public List<ProductVO> readSoldout(); /*품절임박 상품을 메인페이지에 보여줌 */
 	public List<ProductVO> readHot(); /* 인기상품을 메인페이지에 보여줌 */
+	public List<ProductVO> readNew(); /* 새로등록한 상품을 메인페이지에 보여줌 */
 }
