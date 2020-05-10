@@ -10,72 +10,90 @@
    uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/adminheader.jsp"%>
 
-<!-- Page Content -->
-<div id="page-wrapper">
-      <div class="row">
-         <div class="col-lg-12">
-            <h1 class="page-header">상품등록</h1>
-         </div>
+<!-- BREADCRUMB -->
+    <nav class="py-3" style="font-family: 'Do Hyeon', sans-serif;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active">
+                   관리자 상품등록
+              </li>
+            </ol>
+
+          </div>
+        </div>
       </div>
-    <div class="row">
-	 <div class="col-lg-12">
-		<div class="panel panel-default">
-         <div class="panel-heading">
-            </div>
+    </nav>
+
+<section class="py-5" style="margin-left:230px">
+	<div class="container">
+      <div class="row">
+          <div class="col-12 text-center">
+            <!-- Heading -->
+            <h3 class="mb-10 mr-13">관리자 상품등록</h3>
+            <hr>
+          </div>
+        </div>
+
             <!-- /.panel-heading -->
-	<div class="panel-body">
-      <div style="margin-left: 0%; font-size: 15px">
          <form method="post" action="/admin/productRegister" role="form">
-            <div class="col-md-12">
-               <div class="col-md-5">
+            <div class="col-12">
+               <div class="col-md-6">
                   <div class="form-group">
                      <label for="P_CONTENT"> 상품 이름 </label>
-                     <div style="display: flex; float: right">
-                        <input class="form-control" id="P_NAME" type="text" name="p_name" >
+                     <div style="display: flex;">
+                        <input class="form-control" id="P_NAME" type="text" name="p_name">
                      </div>
                   </div>
                </div>
             </div>
 
-            <div class="col-md-12">
-               <div class="col-md-5">
+            <div class="col-12">
+               <div class="col-md-6">
                   <div class="form-group">
-                     <label for="P_PRICE"> 상품가격 </label>
-                     <div style="display: flex; float: right">
+                     <label for="P_PRICE"> 상품 가격 </label>
+                     <div style="display: flex;">
                         <input class="form-control" id="P_PRICE" type="text" name="p_price">
                      </div>
                   </div>
                </div>
             </div>
 
-            <div class="col-md-12">
-               <div class="col-md-5">
+            <div class="col-12">
+               <div class="col-md-6">
                   <div class="form-group">
-                     <label for="P_COUNT"> 상품재고 </label>
-                     <div style="display: flex; float: right">
+                     <label for="P_COUNT"> 상품 재고 </label>
+                     <div style="display: flex;">
                         <input class="form-control" id="P_COUNT" type="text" name="p_stock">
                      </div>
                   </div>
                </div>
             </div>
 
-            <div class="col-md-12">
-               <div class="col-md-5">
+            <div class="col-12">
+               <div class="col-md-6">
                   <div class="form-group">
-                     <label for="P_OPTION"> 상품옵션 </label>
-                     <div style="display: flex; float: right">
+                     <label for="P_OPTION"> 상품 옵션 </label>
+                     <div style="display: flex;">
                         <input class="form-control" id="P_OPTION" type="text" name="p_option">
                      </div>
                   </div>
                </div>
             </div>
-            <div class="col-md-12">
-               <div class="col-md-5">
+            
+            <div class="col-12" style="text-align:center">
+               <div class="col-md-6">
                   <div class="form-group">
                      <label for="p_category"> 상품 카테고리 </label>
-                     <div style="display: flex;">
+                     <div style="display:flex;">
 
-                        <select onchange="categoryChange(this)" style="width: 60%" name ="p_category1">
+                        <select onchange="categoryChange(this)" style="width:270px; height:30px" name ="p_category1">
                            <option>대분류를 선택해주세요.</option>
                            <option value="목걸이">목걸이</option>
                            <option value="반지">반지</option>
@@ -83,7 +101,7 @@
                            <option value="팔찌">팔찌</option>
                            <option value="헤어">헤어</option>
                            <option value="귀걸이">귀걸이</option>
-                        </select> <select id="good" style="width: 60%" name ="p_category2">
+                        </select> <select id="good" style="width:270px; margin-left:5px" name ="p_category2">
                            <option>소분류를 선택해주세요.</option>
                         </select>
                      </div>
@@ -91,12 +109,12 @@
                </div>
             </div>
             
-            <div class="col-md-12">
+            <div class="col-12">
                <div class="col-md-5">
                   <div class="form-group">
                      <label for="P_CONTENT"> 상품설명 </label>
-                     <textarea class="form-control" cols="30" rows="5"
-                        style="resize: none;" name="p_content"></textarea>
+                     <textarea class="form-control" rows="5"
+                        style="resize: none; width:540px" name="p_content"></textarea>
                   </div>
                </div>
             </div>
@@ -127,12 +145,12 @@
                    </div>
                    <!-- end panel -->
                 </div>
-            <div class="col-md-5" style="display:flex">
+            <div class="col-md-5" style="display:flex; margin-left:510px" >
                <div class="form-group" style="margin-left:5px">
-                  <button type="submit" class="btn btn-outline btn-success btn-lg">등록</button>
+                  <button type="submit" class="btn btn-outline btn-default btn-lg">등록</button>
                </div>
                <div class="form-group" style="margin-left:5px">
-               <button id="regBtn" type="button" class="btn btn-outline btn-success btn-lg" onclick="self.location ='/admin/productList'">이전 페이지</button>
+               <button id="regBtn" type="button" class="btn btn-outline btn-default btn-lg" onclick="self.location ='/admin/productList'">이전</button>
             </div>
             </div>
                 <!-- end col-lg-12 -->
@@ -144,11 +162,8 @@
          </form>
       </div>
       <!-- /.row -->
-   </div>
    <!-- /.container-fluid -->
-</div>
-</div>
-</div>
+</section>
 <!-- /#page-wrapper -->
 
 <!-- /#wrapper -->

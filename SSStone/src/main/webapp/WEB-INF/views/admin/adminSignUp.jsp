@@ -40,20 +40,20 @@
 
           </div>
         </div>
+        
             <!-- Form -->
             <form method="post" action="/admin/adminSignUp" role="form">
               <div class="row">
                 <div class="col-9">
-
                   <!-- Email -->
                   <div class="form-group">
                     <label for="accountEmail">
                       Email (ID) *
                     </label>
                     <input class="form-control form-control-sm" id="accountEmail" type="email" maxlength="140" placeholder="Email (ID) *" name="m_email" required>
-              
                   </div>
                 </div>
+                
                 <div style="margin-top:2rem">
                 <button type="button" class="btn btn-outline-success btn-sm" style="float:right">중복확인</button>
                 </div>
