@@ -132,15 +132,17 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.getProductTotal(cri);
 	}
 
-	@Override
 	public List<ProductVO> readSoldout() {
-
+		
 		return mapper.readSoldout();
 	}
-
 	@Override
 	public List<ProductVO> readHot() {
 		return mapper.readHot();
+	}
+	@Override
+	public List<ProductVO> readNew() {
+		return mapper.readNew();
 	}
 
 }

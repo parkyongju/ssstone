@@ -252,6 +252,11 @@
           		 on pm.pc_no=pc.pc_no
     	where pc.pc_no=#{pc_no}	
    </select>
-
+    <!-- 관리자만 보여주기 -->
+   <select id="readManager" resultType="com.sss.domain.MemberVO">
+        <![CDATA[
+        select * from TBL_MEMBER a inner join TBL_MEMBER_AUTH b on a.M_NO = b.M_NO where b.M_AUTH like '%MANAGER'
+      ]]>
+   </select>
 
 </mapper>

@@ -12,19 +12,18 @@
 
 <!-- Page Content -->
 <div id="page-wrapper">
-   <div class="container-fluid">
       <div class="row">
          <div class="col-lg-12">
             <h1 class="page-header">상품등록</h1>
          </div>
-         <!-- /.col-lg-12 -->
-         
+      </div>
+    <div class="row">
+	 <div class="col-lg-12">
+		<div class="panel panel-default">
          <div class="panel-heading">
-               <button id="regBtn" type="button" class="btn btn-xs pull-right" onclick="self.location ='/admin/productList'">이전 페이지</button>
             </div>
             <!-- /.panel-heading -->
-      </div>
-
+	<div class="panel-body">
       <div style="margin-left: 0%; font-size: 15px">
          <form method="post" action="/admin/productRegister" role="form">
             <div class="col-md-12">
@@ -34,16 +33,6 @@
                      <div style="display: flex; float: right">
                         <input class="form-control" id="P_NAME" type="text" name="p_name" >
                      </div>
-                  </div>
-               </div>
-            </div>
-
-            <div class="col-md-12">
-               <div class="col-md-5">
-                  <div class="form-group">
-                     <label for="P_CONTENT"> 상품설명 </label>
-                     <textarea class="form-control" cols="30" rows="5"
-                        style="resize: none" name="p_content"></textarea>
                   </div>
                </div>
             </div>
@@ -101,11 +90,22 @@
                   </div>
                </div>
             </div>
+            
+            <div class="col-md-12">
+               <div class="col-md-5">
+                  <div class="form-group">
+                     <label for="P_CONTENT"> 상품설명 </label>
+                     <textarea class="form-control" cols="30" rows="5"
+                        style="resize: none;" name="p_content"></textarea>
+                  </div>
+               </div>
+            </div>
+          
             <div class="row">
                 <div class="col-lg-12">
                    <div class="panel panel-default">
                       <div class="panel-heading">파일 업로드</div>
-                      <div class="panel-body">
+                      <div class="panel-body" style="list-style:none">
                          <div class="form-group uploadMainDiv">
                             메인 이미지 파일<input class = "mainFile" type=file name='uploadMainFile' multiple>
                          </div>
@@ -127,21 +127,27 @@
                    </div>
                    <!-- end panel -->
                 </div>
+            <div class="col-md-5" style="display:flex">
+               <div class="form-group" style="margin-left:5px">
+                  <button type="submit" class="btn btn-outline btn-success btn-lg">등록</button>
+               </div>
+               <div class="form-group" style="margin-left:5px">
+               <button id="regBtn" type="button" class="btn btn-outline btn-success btn-lg" onclick="self.location ='/admin/productList'">이전 페이지</button>
+            </div>
+            </div>
                 <!-- end col-lg-12 -->
              </div>
             
 
-            <div class="col-md-5">
-               <div class="form-group">
-                  <button type="submit" class="btn btn-outline btn-success btn-lg">등록</button>
-               </div>
-            </div>
+            
             <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" > 
          </form>
       </div>
       <!-- /.row -->
    </div>
    <!-- /.container-fluid -->
+</div>
+</div>
 </div>
 <!-- /#page-wrapper -->
 
