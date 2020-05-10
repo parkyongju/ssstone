@@ -6,31 +6,27 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ include file="../includes/header.jsp" %>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
+<sec:authorize access="isAuthenticated()">
+   <sec:authentication property="principal.member.m_no" var='m_no'/>
+   
     <!-- BREADCRUMB -->
-    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
+    <nav class="py-5">
       <div class="container">
         <div class="row">
           <div class="col-12">
-
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item">
-                <a class="text-gray-400" href="/shop/main">Home</a>
-              </li>
-              <li class="breadcrumb-item active">
-                <a class="text-gray-400" href="/member/mypage"> My Page</a>
-              </li>        
+              <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+              <li class="breadcrumb-item active"><a class="text-gray-400" href="/member/mypage?m_no=${m_no}">My Page</a></li>        
             </ol>
-
           </div>
         </div>
       </div>
     </nav>
+    <!-- BREADCRUMB end -->
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12" 
-    	style="font-family: 'Do Hyeon', sans-serif;">
+    <section class="pt-7 pb-12">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -45,16 +41,16 @@
 
             <!-- Nav -->
             <nav class="mb-10 mb-md-0">
-              <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-                <sec:authentication property="principal.member.m_no" var='m_no'/>
+              <div class="list-group list-group-sm list-group-strong list-group-flush-x">            
+             	<a class="list-group-item-action" ><c:out value="${member.m_name}"/>님 환영합니다<i class="fe fe-heart"></i></a>
               <!--  회원번호 가져오기 -->
               <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
-                  배송현황
+                  My Page
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   회원 정보 수정
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/order?m_no=${m_no}">
                   구매목록
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
@@ -68,317 +64,78 @@
             <!-- 옆메뉴 종료 -->
 
           </div>
-          <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
-
+          
+          <div class="col-12 col-md-9 col-lg-8 offset-lg-1">   
             <!-- Order -->
-            <div class="card card-lg mb-5 border">
+             <c:forEach items="${mypage}" var="member">
+            <div class="card card-lg mb-5 border">           
               <div class="card-body pb-0">
-
                 <!-- Info -->
                 <div class="card card-sm">
                   <div class="card-body bg-light">
-                    <div class="row">
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order No:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          673290789
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Shipped date:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          <time datetime="2019-10-01">  01 Oct, 2019
-                          </time>
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Status:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          Awating Delivery
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order Amount:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          $259.00
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="card-footer">
-                <div class="row align-items-center">
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row mb-4 mb-lg-0">
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-5.jpg);"></div>
-
-                      </div>
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-112.jpg);"></div>
-
-                      </div>
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></div>
-
-                      </div>
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-light">
-                          <a class="embed-responsive-item embed-responsive-item-text text-reset" href="#!">
-                            <div class="font-size-xxs font-weight-bold">
-                              +2 <br> more
-                            </div>
-                          </a>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row">
-                      <div class="col-6">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm btn-block btn-outline-dark" href="/member/mypageOrderDetail">
-                          Order Details
-                        </a>
-
-                      </div>
-                      <div class="col-6">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm btn-block btn-outline-dark" href="#!">
-                          Track order
-                        </a>
-
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Order -->
-            <div class="card card-lg mb-5 border">
-              <div class="card-body pb-0">
-
-                <!-- Info -->
-                <div class="card card-sm">
-                  <div class="card-body bg-light">
-                    <div class="row">
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order No:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          871090437
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Shipped date:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          <time datetime="2019-09-25">
-                            25 Sep, 2019
-                          </time>
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Status:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          In Processing
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order Amount:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          $75.00
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="card-footer">
-                <div class="row align-items-center">
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row mb-4 mb-lg-0">
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-11.jpg);"></div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row">
-                      <div class="col-6">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm btn-block btn-outline-dark" href="account-order.html">
-                          Order Details
-                        </a>
-
-                      </div>
-                      <div class="col-6">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm btn-block btn-outline-dark" href="#!">
-                          Track order
-                        </a>
-
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Order -->
-            <div class="card card-lg mb-5 border">
-              <div class="card-body pb-0">
-
-                <!-- Info -->
-                <div class="card card-sm">
-                  <div class="card-body bg-light">
-                    <div class="row">
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order No:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          891230563
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Shipped date:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          <time datetime="2019-09-07">
-                            07 Sep, 2019
-                          </time>
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Status:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          Delivered
-                        </p>
-
-                      </div>
-                      <div class="col-6 col-lg-3">
-
-                        <!-- Heading -->
-                        <h6 class="heading-xxxs text-muted">Order Amount:</h6>
-
-                        <!-- Text -->
-                        <p class="mb-0 font-size-sm font-weight-bold">
-                          $69.00
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="card-footer">
-                <div class="row align-items-center">
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row mb-4 mb-lg-0">
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-14.jpg);"></div>
-
-                      </div>
-                      <div class="col-3">
-
-                        <!-- Image -->
-                        <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-15.jpg);"></div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <div class="form-row">
-                      <div class="col-6">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm btn-block btn-outline-dark" href="/member/orderDetail">
-                          Order Details
-                        </a>
-
-                      </div>
                     
+                    <div class="row" style="margin-bottom: 15px;">   
+                                                        
+                      <div class="col-7 col-lg-4">
+                        <!-- Heading -->
+                        <h6 class="heading-xxxs text-muted">Order No:</h6>
+                        <!-- Text -->
+                        <p class="mb-lg-0 font-size-sm font-weight-bold" >                          
+                             <c:out value="${member.pc_no}" />                             
+                        </p>
+                      </div>
+                      
+                      <div class="col-7 col-lg-4">                  
+                        <!-- Heading -->
+                        <h6 class="heading-xxxs text-muted">Shipped date:</h6>
+                        <!-- Text -->
+                        <p class="mb-lg-0 font-size-sm font-weight-bold">                   
+                         <fmt:formatDate value="${member.pc_date}" pattern="yyyy/MM/dd"/>                         
+                        </p>
+                      </div>
+                      
+                      <div class="col-7 col-lg-4">
+                        <!-- Heading -->
+                        <h6 class="heading-xxxs text-muted">Status:</h6>
+                        <!-- Text -->
+                        <p id="deliverystatus" class="mb-0 font-size-sm font-weight-bold" >                         
+                             <i class="fe fe-truck"></i> 배송 중
+                        </p>
+                      </div>
+                      </div>
+                      
+                      <div class="row" style="margin-bottom: 15px;">
+                      <div class="col-9 col-lg-10">
+                        <!-- Heading -->
+                        <h6 class="heading-xxxs text-muted">Order Address:</h6>
+                        <!-- Text -->
+                        <p class="mb-0 font-size-sm font-weight-bold">
+                         <c:out value="${member.m_address1}" />   <c:out value="${member.m_address2}" />   <c:out value="${member.m_address3}" />   
+                        </p>
+                      </div>
+                      </div>
+                     
+                     <div class="row"> 
+                     <div class="col-12 col-lg-11">
+                    <div class="form-row">
+                      <div class="col-8">                   
+                        <!-- Button -->
+                        <a class="btn btn-lg btn-block btn-outline-dark" href="/member/mypageDetail?pc_no=${member.pc_no}" title="상품자세히보기">                        
+                        Order Details
+                        </a>
+                        <!-- Button end-->
+                      </div>    
                     </div>
-
                   </div>
-                </div>
+                  
+                    </div>                    
+                  </div>
+                </div>                
               </div>
+              
             </div>
+           </c:forEach>
+             
 
             <!-- Pagination -->
             <nav class="d-flex justify-content-center justify-content-md-end mt-10">
@@ -399,10 +156,15 @@
                 </li>
               </ul>
             </nav>
+            <!--  Pagination end -->
 
           </div>
         </div>
       </div>
     </section>
+</sec:authorize>
+
+
+
 
 <%@ include file="../includes/footer.jsp" %>
