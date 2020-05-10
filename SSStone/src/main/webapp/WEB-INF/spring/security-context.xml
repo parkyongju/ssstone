@@ -13,6 +13,12 @@
 	<!-- <bean id ="customPasswordEncoder" class="com.sss.security.CustomNoOpPasswordEncoder"></bean> -->
 	<bean id ="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	<bean id="customUserDetailsService" class="com.sss.security.CustomUserDetailsService"></bean>
+	<bean id="loginFailureHandler" class="com.sss.security.LoginFailureHandler">
+	    <property name="defaultFailureUrl" value="/member/login?error=true" />
+	    <property name="loginidname" value="loginId"/>
+	    <property name="loginpwdname" value="loginPwd"/>
+	    <property name="errormsgname" value="ERRORMSG"/>
+	</bean>
 	<security:http>
 		<!-- <security:intercept-url pattern="/member/**" access="permitAll"/>
 		<security:intercept-url pattern="/shop/**" access="permitAll"/>
@@ -22,17 +28,19 @@
 		<security:intercept-url pattern="/shop/**" access="permitAll"/>
 		<security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MEMBER')" /> -->
 		
-		<security:form-login login-page="/member/login" authentication-success-handler-ref="customLoginSuccess"/>
-		<!-- <security:logout logout-url="/customLogout" invalidate-session="true"/> -->
+		<security:form-login 
+			username-parameter="loginId" 
+			password-parameter="loginPwd"
+			login-page="/member/login" 
+			authentication-success-handler-ref="customLoginSuccess" 
+			authentication-failure-handler-ref="loginFailureHandler" />
 		<security:access-denied-handler error-page="/shop/error404"/>
 		<security:access-denied-handler ref="customAccessDenied"/>
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
 		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="remember-me,JSESSION_ID"/>
 		<security:session-management invalid-session-url="/member/login">
-         <security:concurrency-control max-sessions="1" expired-url="/member/login"/>
-         <!-- 첫번째 로그인한 세션을 유지하고 두번째 중복 로그인 세션을 막으려면 error-if-maximum-exceeded="true" -->
-         <!-- <security:concurrency-control max-sessions="1" expired-url="/customLogin" error-if-maximum-exceeded="true"/> -->
-      </security:session-management>
+			<security:concurrency-control max-sessions="1" expired-url="/member/login"/>
+		</security:session-management>
 	</security:http>
 	<!-- 중복 로그인 방지 -->
       
