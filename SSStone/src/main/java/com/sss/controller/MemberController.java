@@ -45,8 +45,14 @@ public class MemberController {
 		log.info("register : " + vo);
 		log.info("=========================");
 		memberservice.insert(vo);
-		return "redirect:/member/mypage";
-	}
+		return "redirect:/member/accountCompleted";
+	   }
+	   
+	   @GetMapping("/accountCompleted")
+	   public void accountCompleted()
+	   {
+	      
+	   }	
 
 	@GetMapping("/mypage")
 	public void mypage(@RequestParam("m_no") Long m_no, Model model) {
