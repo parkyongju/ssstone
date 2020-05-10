@@ -33,7 +33,7 @@
 </nav>
 
 <!-- CONTENT -->
-<section class="pt-7 pb-12" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
+<section class="pt-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row">
          <div class="col-12 text-center">
@@ -44,7 +44,7 @@
          </div>
       </div>
       <div class="row">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3" style="right: 60px;">
 
             <!-- Nav -->
             <nav class="mb-10 mb-md-0">
@@ -52,46 +52,42 @@
                 <sec:authentication property="principal.member.m_no" var='m_no'/>
               <!--  회원번호 가져오기 -->
               <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
-                  배송현황
+                 	배송현황
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
-                  회원 정보 수정
+                  	회원 정보 수정
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
-                  구매목록
+                  	구매목록
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
-                  장바구니
+                  	장바구니
                 </a>           
                  <a class="list-group-item list-group-item-action dropright-toggle" href="/member/withdrawal?m_no=${m_no}">
-                  회원 탈퇴
+                  	회원 탈퇴
                 </a>
               </div>
             </nav>
             <!-- 옆메뉴 종료 -->
-
           </div>
          <div class="col-auto col-md-col-auto col-lg-10 offset-lg-1">
 
             <!-- Order -->
             <div class="row">
                <div class="col-12">
-
+                  <!-- 상품 선택영역 -->
+                  <!-- 상품 테이블 시작 -->
+                  <div class="col-12" style="left: 200px; bottom: 400px;">
+                     <br>
                      <!-- Info -->
-                     <div class="row" style="width: 800px;">
-                        <div class="allCheck">
-                           <input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">전체선택 / </label>
-                        </div>
+ 	                    <div class="row" style="width: 800px;">
+                        	<div class="allCheck">
+                           		<input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">전체선택 / </label>
+                        	</div>
                         <div class="delBtn">
                             <button class="btn btn-outline-border btn-underline" id="selectDelete_btn"
                             type="button" style="width: 20px; height: 20px;">삭제</button>
                         </div>
-                        <!-- 상품 선택영역 -->
-                        
-                        <!-- 상품 테이블 시작 -->
-                        <div class="col-12" style="left: 200px; bottom: 400px;">
-                              <br>
-                                
                               <table style="width:100%; text-align:center; font-size: 40px;" class="table">
 
                                  <thead class="thead-dark">
@@ -123,11 +119,7 @@
                      </div>
                      <br />
                   <!-- 1개 끝 -->
-               </div>
-            </div>
-          <div class="card-footer">
-             <div class="row align-items-center">
-                  <div class="col-12" style="width:100%">
+                  <div class="col-12" style="width:100%; bottom: 200px;">
                      <div class="form-row" style="text-align:center">
                         <div class="col-6">
                            <!-- Button -->
