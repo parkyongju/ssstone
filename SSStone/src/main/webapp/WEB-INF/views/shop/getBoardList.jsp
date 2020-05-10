@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
 
 <!-- BREADCRUMB -->
@@ -44,40 +40,46 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="form-group" style="float: right">
-							<label style="color:grey;">작성일</label><strong>
+							<label style="color:grey;">작성일</label><strong><br/>
 							<fmt:formatDate pattern="yyyy-MM-dd" value="${board.b_regdate}" /></strong>
 						</div>
 						<div class="form-group">
-							<label style="color:grey;">작성자</label> <strong> <c:out value="${board.m_email }"/></strong>
+							<label style="color:grey;">작성자</label> <br/>
+							<strong> <c:out value="${board.m_email }"/></strong>
 						</div>
 						
 
 						<div class="form-group">
-							<label></label> <textarea  class="form-control" name="b_content" style=" min-height: 100px; font-size: 3em; background-color : black; color:white;"
-								 readonly="readonly"><c:out value="${board.b_title }"/></textarea>
+							<label style="color:grey;">제목 </label> 
+							<textarea  class="form-control" name="b_title" style=" min-height: 3px; background-color : white; color:black;" readonly="readonly"><c:out value="${board.b_title }"/></textarea>
+								<hr>
+						</div>
+						
+						<div class="form-group ">
+							<label style="color:grey;">내용</label> 
+							<textarea  class="form-control" name="b_content" style=" min-height: 10px; background-color : white; color:black;" readonly="readonly"><c:out value="${board.b_content}"/></textarea>
 								<hr>
 						</div>
 
 							<sec:authorize access="isAuthenticated()">
 								<sec:authentication property="principal.member.m_no" var = "pinfo"/>
 								<c:if test="${pinfo eq board.m_no }">
-									<button data-oper='modify' class="btn btn btn-outline-dark btn-underline mb-1"
-										onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">수정하기</button>
+									<button data-oper='modify' class="btn btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">
+										수정하기
+									</button>
 								</c:if>
 							</sec:authorize>
-						<button data-oper='list' class="btn btn-info"
-							onclick="location.href='/shop/boardList'">목록으로</button>
+						<button data-oper='list' class="btn btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/boardList'">
+							목록으로
+						</button>
 
 						<form id='operForm' action="/shop/modifyBoardList" method="get">
 							<input type='hidden' id='b_no' name='b_no'
-								value='<c:out value="${board.b_no}"/>'> <input
-								type='hidden' name='pageNum'
-								value='<c:out value="${cri.pageNum}" />'> <input
-								type='hidden' name='amount'
-								value='<c:out value="${cri.amount}" />'> <input
-								type='hidden' name='keyword'
-								value='<c:out value="${cri.keyword}" />'> <input
-								type='hidden' name='type' value='<c:out value="${cri.type}" />'>
+								value='<c:out value="${board.b_no}"/>'> 
+								<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}" />'>
+								 <input type='hidden' name='amount' value='<c:out value="${cri.amount}" />'> 
+								<input type='hidden' name='keyword' value='<c:out value="${cri.keyword}" />'> 
+								<input type='hidden' name='type' value='<c:out value="${cri.type}" />'>
 						</form>
 
 					</div>
@@ -92,10 +94,8 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<sec:authorize access="isAuthenticated()">
-						<i class="fa fa-comments fa-fw fa-2x"></i> 
-						<input
-							class="col-md-9 " name="r_content" type="text"
-							placeholder="내용을 입력하세요">
+						<i class="fa fa-comments fa-fw fa-x"></i> 
+						<input class="col-md-9 " name="r_content" type="text" placeholder="내용을 입력하세요">
 						<input type ='hidden'name='r_order' value='0'>
 						<input type='hidden' name='r_depth' value='0'>
 						<button id='replyRegisterBtn' class='btn btn btn-outline-dark btn-underline mb-1 btn-xs pull-right'>댓글달기</button>
@@ -130,49 +130,7 @@
 			</div>
 			<!-- ./ end row -->
 		</div>
-		<!--  모달 시작 -->
-		<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModal" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModal">REPLY MODAL</h4>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>댓글</label> <input class="form-control" name='r_content'
-								value='새로운 댓글!'>
-						</div>
-						<div class="form-group">
-							<label>작성자</label> <input class="form-control" name='m_email'
-								value='작성자'>
-						</div>
-						<div class="form-group">
-							<label>회원번호</label> <input class="form-control" name="m_no"
-								value='회원번호'>
-						</div>
-						<div class="form-group">
-							<label>작성일</label> <input class="form-control" name='r_regdate'
-								value='작성일'>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
-						<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button>
-						<button id='modalRegisterBtn' type="button"
-							class="btn btn-primary">생성</button>
-						<button id='modalCloseBtn' type='button' class='btn btn-default'
-							data-dismiss='modal'>닫기</button>
-					</div>
-				</div> -->
-				<!--  /.modal-content -->
-			<!-- </div> -->
-			<!--  /.modal-dialog -->
-		<!-- </div> -->
-		<!--  모달 끝 -->
-
+		
 	</div>
 </section>
 <script type="text/javascript" src="/resources/js/ajax.js"></script>

@@ -51,7 +51,7 @@
               <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
                   배송현황
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   회원 정보 수정
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
@@ -96,8 +96,7 @@
 
                         <!-- Text -->
                         <p class="mb-lg-0 font-size-sm font-weight-bold">
-                          <time datetime="2019-10-01">
-                            01 Oct, 2019
+                          <time datetime="2019-10-01">  01 Oct, 2019
                           </time>
                         </p>
 
