@@ -109,11 +109,10 @@
                                  </div> --%>
                              </div>
                         </div>
-                        <hr>
                      </div>
                      <br />
                   <!-- 1개 끝 -->
-                  <div class="col-12" style="width:100%;">
+                  <div class="col-12 py-5" style="width:100%;">
                      <div class="form-row" style="text-align:center">
                         <div class="col-6">
                            <!-- Button -->
@@ -161,32 +160,32 @@ $(document).ready(function() {
 				sum += eachsumPrice;
 				var center = 8 * cart.length;
 				str+= "<tr>"
-	               	+ "<th class='checkBox'>"
+	               	+ "<th class='checkBox' style='padding: 5px;'>"
 	               	+ "<input type='checkbox' name='chBox' class='chBox' data-cartNum="+ cart[i].s_no +" style='height:65px;/>"
 	           	 	+ "</th>"
 	           	 	
-	              	+ "<th style='width:50px'>"
+	              	+ "<th style='width:50px; height: 40px;'>"
 	               	
 	           		+ "</th>"
 	           		
-	           		+ "<th style='line-height:50px'>"
+	           		+ "<th style= 'padding: 20px;'>"
 	           		+ "<a href='#' data-fancybox> <img" 
 	                + " src='/display?fileName=" + cart[i].p_filepath + "/" + cart[i].p_uuid + "_" + cart[i].p_filename + "'"
 	                + "alt='...' class='card-img-top' style='width:110px;'>"
 	                + "</a>"
 	          		+ "</th>"
 	          		
-	          		+ "<th style='line-height:50px'>"
+	          		+ "<th style= 'padding: 5px;'>"
 	          		+ cart[i].p_name
 	          		+ "</th>"
 	          		
-	          		+ "<th style='line-height:50px'>"
+	          		+ "<th style= 'padding: 5px;'>"
 	     			+ eachsumPrice  + "원"
 	         		+  "</th>"
 	         		
-	          		+ "<th style='line-height:50px'>"
+	          		+ "<th style= 'padding: 5px;'>"
 	          		+ cart[i].s_amount + "개"
-					+ "<div class='col-6 col-rg-3' style='margin-left:80%;'>"
+					+ "<div class='col-6' style='margin-left:80%; bottom: 20px;'>"
 					+ "<div class='delete'>"
 					+ "<a type='button' class='delete_btn' data-cartNum='"+ cart[i].s_no +"'><i class='fe fe-x'></i></a>"
 					+ "</div>" 
@@ -194,7 +193,7 @@ $(document).ready(function() {
 	             	+ "</th>";
 	             	if(i==0)
              		{
-             			str += "<th style = 'line-height:"+center+"; ' rowspan='"+ cart.length + "'>2500원";
+             			str += "<th style =' rowspan='"+ cart.length + "'>2500원";
              			str += "</th>";
              		}
 	          		str += "</tr>"
