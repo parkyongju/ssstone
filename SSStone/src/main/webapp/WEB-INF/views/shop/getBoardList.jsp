@@ -14,9 +14,9 @@
 
 				<!-- Breadcrumb -->
 				<ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-					<li class="breadcrumb-item"><a class="text-gray-400"
-						href="index.html">Home</a></li>
-					<li class="breadcrumb-item active">게시판</li>
+					<li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+					<li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boardList">Board List</a></li>
+					<li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/getBoardList">Board Detail</a></li>
 				</ol>
 
 			</div>
@@ -66,12 +66,12 @@
 							<sec:authorize access="isAuthenticated()">
 								<sec:authentication property="principal.member.m_no" var = "pinfo"/>
 								<c:if test="${pinfo eq board.m_no }">
-									<button data-oper='modify' class="btn btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">
+									<button data-oper='modify' class="btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">
 										수정하기
 									</button>
 								</c:if>
 							</sec:authorize>
-						<button data-oper='list' class="btn btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/boardList'">
+						<button data-oper='list' class="btn btn-outline-dark btn-underline mb-1" onclick="location.href='/shop/boardList'">
 							목록으로
 						</button>
 
@@ -100,7 +100,7 @@
 						<input class="col-md-9 " name="r_content" type="text" placeholder="내용을 입력하세요">
 						<input type ='hidden'name='r_order' value='0'>
 						<input type='hidden' name='r_depth' value='0'>
-						<button id='replyRegisterBtn' class='btn btn btn-outline-dark btn-underline mb-1 btn-xs pull-right'>댓글달기</button>
+						<button id='replyRegisterBtn' class='btn btn-outline-dark btn-underline mb-1 btn-xs pull-right'>댓글달기</button>
 						<input class="col-md-1" type="hidden" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
 						</sec:authorize>
 					</div>
