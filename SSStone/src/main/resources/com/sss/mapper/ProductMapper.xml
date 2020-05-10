@@ -154,18 +154,29 @@
    
    <!-- 품절임박 상품을 메인에 보여줌 -->
    <select id="readSoldout" resultType="com.sss.domain.ProductVO">
-      <![CDATA[
-      select * from tbl_product_img a inner join tbl_product b on a.p_no = b.p_no where b.p_stock < 10
+   	<![CDATA[
+      select * from tbl_product_img a inner join 
+			(select p_no, min(p_stock) from tbl_product where p_stock= 
+			(select min(p_stock) from tbl_product) group by p_no) b on a.p_no = b.p_no
       ]]>
    </select>
    
    <!-- 인기 상품을 메인에 보여줌 -->
    <select id="readHot" resultType="com.sss.domain.ProductVO">
-         <![CDATA[
-            select * from tbl_product_img a inner join 
-         (select p_no, max(s_amount) from tbl_purchase_member where s_amount= 
-         (select max(s_amount) from tbl_purchase_member) group by p_no) b on a.p_no = b.p_no
-         ]]>
+   		<![CDATA[
+   			select * from tbl_product_img a inner join 
+			(select p_no, max(s_amount) from tbl_purchase_member where s_amount= 
+			(select max(s_amount) from tbl_purchase_member) group by p_no) b on a.p_no = b.p_no
+   		]]>
+   </select>
+   
+   <!-- 새로등록한 상품을 메인에 보여줌 -->
+   <select id="readNew" resultType="com.sss.domain.ProductVO">
+   <![CDATA[
+   		select * 
+   		from tbl_product_img a inner join tbl_product b on a.p_no = b.p_no
+   		and p_filename like 'main%' order by p_regdate desc
+   		]]>
    </select>
 
 
