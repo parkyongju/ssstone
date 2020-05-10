@@ -59,6 +59,8 @@
 							<label style="color:grey;">내용</label> 
 							<textarea  class="form-control" name="b_content" style=" min-height: 10px; background-color : white; color:black;" readonly="readonly"><c:out value="${board.b_content}"/></textarea>
 								<hr>
+							<label>글 내용</label> <textarea  class="form-control" name="b_content"
+								 readonly="readonly" rows="15" style="resize:none"><c:out value="${board.b_content }"/></textarea>
 						</div>
 
 							<sec:authorize access="isAuthenticated()">

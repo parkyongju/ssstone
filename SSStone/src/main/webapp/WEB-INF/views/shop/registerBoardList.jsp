@@ -6,10 +6,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
-   
+<link
+   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+   rel="stylesheet">   
 
 <!-- BREADCRUMB -->
-<nav class="py-5">
+<nav class="py-5 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row">
          <div class="col-12">
@@ -25,11 +27,12 @@
    </div>
 </nav>
 
-<section class="col-12">
-<div class="container">
-<div class="row">
-   <div class="col-lg-12">
-      <h1 class="page-header">게시판 작성</h1>
+<section class="col-12 py-6 bg-light" style="font-family: 'Do Hyeon', sans-serif; font-size:20px">
+<div class="container" style="background-color:#fff; border:1px solid #D8D8D8; border-radius:10px">
+<div class="row py-3">
+   <div class="col-12">
+      <h1 class="page-header" style="margin-left:540px">글쓰기</h1>
+      <hr>
    </div>
    <!--  /.col-lg-12 -->
 </div>
@@ -49,15 +52,19 @@
            
                <div class="form-group">
                   <label>내용 </label>
-                  <textarea class="form-control" rows="3" name='b_content'></textarea>
+                  <textarea class="form-control" rows="20" name='b_content' style="resize:none;"></textarea>
                </div>
             
                 <div class="form-group">
                <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div> 
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <button type="submit" class="btn btn-default">작성하기</button>
-               <button type="reset" class="btn btn-default">되돌리기</button>
+               
+			<div class="py-3" style="margin-left:520px">             
+               <button type="submit" class="btn btn-outline-dark btn-xs">작성하기</button>
+               <button onclick="location.href='/shop/boardList'" type="button" class="btn btn-outline-dark btn-xs" title="게시판으로 돌아가기">돌아가기</button>
+            </div>
+            
                
             </form>
          

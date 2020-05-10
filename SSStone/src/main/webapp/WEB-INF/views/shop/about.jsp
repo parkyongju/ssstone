@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ include file="../includes/header.jsp" %>
-<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-   
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8"); %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+   <%@ include file="../includes/header.jsp" %>
+   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <!-- BREADCRUMB -->
     <nav class="my-5">
       <div class="container">
@@ -15,24 +15,27 @@
 
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
-              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/about"> About Us </a></li>
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="main">Home</a>
+              </li>
+              <li class="breadcrumb-item active">
+                About Us
+              </li>
             </ol>
 
           </div>
         </div>
       </div>
     </nav>
-    <!-- BREADCRUMB end-->
 
     <!-- WELCOME -->
-    <section>
+    <section class="py-8 bg-light">
       <div class="container">
-        <div class="row justify-content-center py-14 bg-cover" style="background-image: url(/resources/img/about/paper.jpg);">
-          <div class="col-6 col-md-8 col-lg-6 col-xl-5">
+        <div class="row justify-content-center py-6 bg-cover" style="background-image: url(/resources/img/about/paper.jpg);">
+          <div class="col-12">
 
             <!-- Heading -->
-            <h1 class="mb-0 text-center" style="color:#58D3F7">
+            <h1 class="mb-5 text-center" style="color:#58ACFA; font-family: 'Oswald', sans-serif;">
               Get to Know Us a Little Better
             </h1>
 
@@ -138,17 +141,10 @@
     </section>
 
     <!-- OUR STORY -->
-    <section class="py-12">
+    <section class="py-8">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-12 col-md-6 order-md-2 text-right">
-
-
-          
-
-          </div>
           <div class="col-12 col-md-6 col-lg-5 order-md-1">
-
             <!-- Preheading -->
             <h6 class="heading-xxs mb-3 text-gray-400">
               Who we are
@@ -156,36 +152,33 @@
 
             <!-- Heading -->
             <h2 class="mb-7">Our Story</h2>
-
+			<div>
             <!-- Text -->
             <p class="font-size-lg text-muted">
               2019년 11월 25일<br/> 왕십리에서 처음 만나 java부터 공부를 시작.<br/>
               2020년 2월 25일<br/> 처음 조를 선별 받아 SSStone을 제작하게 되었습니다.
-              
             </p>
+            </div>
             <p class="mb-0 font-size-lg text-muted">
                
               
                   각자 역할 <br>
-                <table>
-                <tr>
-                     
+       <table>
+          <tr style="text-align:center">    
             <td><img src="/resources/img/about/male.jpg" height="200"><br>정우:팀장 및 프론트</td>
-            <td><img src="/resources/img/about/female.jpg" height="200"><br>유진:프론트 및 디비</td>
-            </tr>
-            <tr>
-            <td><img src="/resources/img/about/male.jpg" height="200"><br>용주:백</td>
+            <td><img src="/resources/img/about/female.jpg" height="200"><br>유진:프론트 및 DB</td>
+            <td><img src="/resources/img/about/male.jpg" height="200"><br>용주: 백 및 DB</td>
             <td><img src="/resources/img/about/male.jpg" height="200"><br>경호:프론트 및 백</td>
             <td><img src="/resources/img/about/female.jpg" height="200"><br>수현:정보 수집</td>
-            </tr>
-               </table>
+          </tr>
+      </table>
              </div>
         </div>
       </div>
     </section>
 
     <!-- SLOGAN -->
-    <section>
+    <section class="py-6">
       <div class="container">
         <div class="row justify-content-center py-11 bg-primary bg-pattern">
           <div class="col-12 col-lg-10 col-xl-8">
@@ -203,7 +196,7 @@
     </section>
 
     <!-- IMAGES -->
-    <section class="pt-12">
+    <section class="py-6 bg-light" >
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-md-6 col-lg-5">
@@ -227,71 +220,9 @@
         </div>
       </div>
     </section>
-
-    <%-- <!-- REVIEWS -->
-    <section class="pt-12">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-
-            <!-- Preheading -->
-            <h6 class="heading-xxs mb-3 text-gray-400">
-              What buyers say
-            </h6>
-
-            <!-- Heading -->
-            <h2 class="mb-10">
-              Customers Reviews
-            </h2>
-
-            <!-- Slider -->
-            <div class="flickity-buttons-lg flickity-buttons-offset px-lg-12" data-flickity='{"prevNextButtons": true, "pageDots": true}'>
-
-              <!-- Item -->
-              <blockquote class="blockquote col-12">
-                <p class="mb-6">
-                  Given wherein. Doesn't called also and air sea to make first subdue
-                  beginning. Appear seasons the it after whose beginning. Hath can't good life. They're multiply made give divided open, be likeness Cattle be have.
-                  Life tree darkness. She'd very.
-                </p>
-                <footer class="blockquote-footer">
-                  Darrell Baker, <time datetime="2019-05-18">18 May 2019</time>
-                </footer>
-              </blockquote>
-
-              <!-- Item -->
-              <blockquote class="blockquote col-12">
-                <p class="mb-6">
-                  Given wherein. Doesn't called also and air sea to make first subdue
-                  beginning. Appear seasons the it after whose beginning. Hath can't good life. They're multiply made give divided open, be likeness Cattle be have.
-                  Life tree darkness. She'd very.
-                </p>
-                <footer class="blockquote-footer">
-                  Darrell Baker, <time datetime="2019-05-18">18 May 2019</time>
-                </footer>
-              </blockquote>
-
-              <!-- Item -->
-              <blockquote class="blockquote col-12">
-                <p class="mb-6">
-                  Given wherein. Doesn't called also and air sea to make first subdue
-                  beginning. Appear seasons the it after whose beginning. Hath can't good life. They're multiply made give divided open, be likeness Cattle be have.
-                  Life tree darkness. She'd very.
-                </p>
-                <footer class="blockquote-footer">
-                  Darrell Baker, <time datetime="2019-05-18">18 May 2019</time>
-                </footer>
-              </blockquote>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section> --%>
-
+    
     <!-- SOCIAL -->
-    <section class="pt-12">
+    <section class="py-8">
       <div class="container bg-h-100" style="background-image: url(/resources/img/covers/cover-15.jpg);">
         <div class="row">
           <div class="col-12 py-13 text-center">
