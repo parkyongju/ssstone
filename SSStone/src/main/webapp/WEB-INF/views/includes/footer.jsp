@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">      
-    
-  <div id="down" class="no-js"></div>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8"); %>
+    <link
+   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+   rel="stylesheet">
+      
+    <div id="down" class="no-js"></div>
     <!-- FOOTER -->
-    <footer class="bg-dark bg-cover @@classList" style="background-image: url(/resources/img/patterns/pattern-2.svg)">
+    <footer class="bg-dark bg-cover @@classList" style="background-image: url(/resources/img/patterns/pattern-2.svg); font-family: 'Do Hyeon', sans-serif; font-size:20px; font-weight:100" >
     <div id="bottom" class="no-js"></div>
       <div class="py-12 border-bottom border-gray-700">
         <div class="container">
@@ -12,7 +15,7 @@
             <div class="col-12 col-md-10 col-lg-8 col-xl-6">
             </div>
           </div>
-          <div class="row">
+          <div class="row py-3">
             <div class="col-12 col-md-3">
               <!-- Heading -->
               <h4 class="mb-6 text-white">SSStone.</h4>
@@ -115,12 +118,12 @@
               <ul class="list-unstyled mb-0">
                 <li>
                   <span style="color:white"><i class="fas fa-phone"></i></span>
-                  <a class="text-gray-300" href="#!">02-3113-8419</a>
+                  <a class="text-gray-300" href="#!">031-090-0909</a>
                 </li>
                 <li>
                   <span style="color:white"><i class="fas fa-mobile-alt"></i></span>
-                  <a class="text-gray-300" href="#!">010-3113-8419</a>
-                </li>
+                  <a class="text-gray-300" href="#!">010-0909-0909</a>
+                </li><br>
                 <li>
                   <span style="color:white"><i class="fas fa-envelope"></i></span>
                   <a class="text-gray-300" href="#!">SSStone@SSStone.com</a>
@@ -141,12 +144,12 @@
             </div>
             <div class="col-auto">
               <!-- Payment methods -->
-              <img class="footer-payment" src="/resources/img/payment/mastercard.svg" alt="마스터카드">
-              <img class="footer-payment" src="/resources/img/payment/visa.svg" alt="비자카드">
-              <img class="footer-payment" src="/resources/img/payment/amex.svg" alt="아멕스카드">
-              <img class="footer-payment" src="/resources/img/payment/paypal.svg" alt="페이팔">
-              <img class="footer-payment" src="/resources/img/payment/maestro.svg" alt="maestro">
-              <img class="footer-payment" src="/resources/img/payment/klarna.svg" alt="klarna">
+              <img class="footer-payment" src="/resources/img/payment/mastercard.svg" alt="...">
+              <img class="footer-payment" src="/resources/img/payment/visa.svg" alt="...">
+              <img class="footer-payment" src="/resources/img/payment/amex.svg" alt="...">
+              <img class="footer-payment" src="/resources/img/payment/paypal.svg" alt="...">
+              <img class="footer-payment" src="/resources/img/payment/maestro.svg" alt="...">
+              <img class="footer-payment" src="/resources/img/payment/klarna.svg" alt="...">
             </div>
           </div>
         </div>
@@ -172,9 +175,8 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script> -->
     <!-- Theme JS -->
     <script src="/resources/js/theme.min.js"></script>
-       
-    <script> 
-    (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement) 
-    </script>
-<%@ include file="../includes/quickMenu.jsp" %>
-<%@ include file="../includes/modal.jsp" %>
+    
+    
+    <script> (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement) </script>
+    <%@ include file="../includes/quickMenu.jsp" %>
+ <%@ include file="../includes/modal.jsp" %>

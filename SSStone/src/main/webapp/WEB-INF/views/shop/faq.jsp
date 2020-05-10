@@ -1,42 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ include file="../includes/header.jsp" %>
-<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-   
-    <!-- BREADCRUMB -->
-    <nav class="my-5">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8"); %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	<%@ include file="../includes/header.jsp" %>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	
+	    <!-- BREADCRUMB -->
+    <nav class="py-5 bg-light">
       <div class="container">
         <div class="row">
           <div class="col-12">
 
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
-              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/faq">FAQ </a></li>
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active">
+                FAQ
+              </li>
             </ol>
 
           </div>
         </div>
       </div>
     </nav>
-    <!-- BREADCRUMB end-->
-
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12">
-      <div class="container">
+    <section class="pt-7 pb-12 bg-light">
+      <div class="container" style="background-color:#fff; border:1px solid #D8D8D8; border-radius:10px">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-10 col-xl-8">
 
             <!-- Heading -->
-            <h3 class="mb-10 text-center">Frequently Asked Questions</h3>
+            <h3 class="mb-10 text-center" style="font-family: 'Oswald', sans-serif; margin-top:20px">Frequently Asked Questions</h3>
 
             <!-- Heading -->
-            <h5 class="mb-7">Best FAQ</h5>
+            <h5 class="mb-7" style="font-family: 'Oswald', sans-serif;">Best FAQ</h5>
 
             <!-- List group -->
             <ul class="list-group list-group-flush-x mb-9" id="faqCollapseParentOne">
@@ -117,7 +120,7 @@
             </ul>
 
             <!-- Heading -->
-            <h5 class="mb-7">구매 관련 FAQ</h5>
+            <h5 class="mb-7" style="font-family: 'Oswald', sans-serif;">구매 관련 FAQ</h5>
 
             <!-- List group -->
             <ul class="list-group list-group-flush-x mb-9" id="faqCollapseParentTwo">
@@ -244,7 +247,7 @@
             </ul>
 
             <!-- Heading -->
-            <h5 class="mb-7">회원 관련 FAQ</h5>
+            <h5 class="mb-7" style="font-family: 'Oswald', sans-serif;">회원 관련 FAQ</h5>
 
             <!-- List group -->
             <ul class="list-group list-group-flush-x" id="faqCollapseParentThree">

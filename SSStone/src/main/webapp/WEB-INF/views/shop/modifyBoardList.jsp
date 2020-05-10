@@ -6,9 +6,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
-
+<link
+   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+   rel="stylesheet">
+   
 <!-- BREADCRUMB -->
-<nav class="py-5">
+<nav class="py-5 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row">
          <div class="col-12">
@@ -26,12 +29,13 @@
    </div>
 </nav>
 
-<section class="col-12">
-<div class="container">
+<section class="col-12 bg-light py-6" style="font-family: 'Do Hyeon', sans-serif;">
+<div class="container" style="background-color:#fff; border:1px solid #D8D8D8; border-radius:10px">
 
-<div class="row">
-   <div class="col-lg-12">
-      <h1 class="page-header text-center">게시글 수정</h1>
+<div class="row py-3">
+   <div class="col-12">
+      <h1 class="page-header text-center" style="margin-left:120px">게시글 수정</h1>
+      <hr>
    </div>
    <!--  /.col-lg-12 -->
 </div>
@@ -63,7 +67,7 @@
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="3" name='b_content'
+                  <textarea class="form-control" rows="15" name='b_content' style="resize:none"
                               ><c:out value="${board.b_content }" /></textarea>
                </div>
                   
@@ -80,12 +84,18 @@
                </div> --%>
                
                <div class="form-group">
-               <label>회원번호</label> <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
+               <label></label> <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div>
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <button type="submit" data-oper='modify' class="btn btn-default" >수정</button>
-               <button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
-               <button type="submit" data-oper='list' class="btn btn-info" >목록으로</button>
+               
+            <div style="margin-bottom:20px;">
+
+               <button type="submit" data-oper='remove' class="btn btn-outline-danger" style="float:right">삭제</button>
+
+               <button type="submit" data-oper='modify' class="btn btn-outline-dark" style="float:right; margin-right:5px;">수정</button>
+
+               <button type="submit" data-oper='list' class="btn btn-outline-dark" >목록으로</button>
+           </div>    
          </form>
          </div>
          <!--  end panel-body  -->
