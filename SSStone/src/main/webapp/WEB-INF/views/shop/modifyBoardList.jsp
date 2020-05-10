@@ -53,39 +53,27 @@
             <input type='hidden' name='keyword' value='<c:out value="${cri.keyword }" />'>
             
                <div class="from-group">
-               <label>게시판 번호</label> <input class="form-control" name='b_no' 
-                                    value='<c:out value="${board.b_no }"/>'readonly="readonly">
+               <label>게시판 번호</label> 
+               <input class="form-control" name='b_no' value='<c:out value="${board.b_no }"/>'readonly="readonly">
                </div>
                <div class="form-group">
-                  <label>제목</label> <input class="form-control" name='b_title'
-                                    value='<c:out value="${board.b_title }" />' >
+                  <label>제목</label> 
+                  <input class="form-control" name='b_title' value='<c:out value="${board.b_title }" />' >
                </div>
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="3" name='b_content'
-                              ><c:out value="${board.b_content }" /></textarea>
-               </div>
-                  
-               <%-- <div class="form-group">
-                  <label>등록일</label>
-                  <input class="form-control" name='b_regdate' type="hidden"
-                     value='<fmt:formatDate pattern = "yyyy/MM/dd" value="${board.b_regdate}" />' readonly="readonly">
+                  <textarea class="form-control" rows="3" name='b_content' ><c:out value="${board.b_content }" /></textarea>
                </div>
                
                <div class="form-group">
-                  <label>수정일</label>
-                  <input class="form-control" name='b_updatedate' type="hidden"
-                     value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.b_updatedate }" />' readonly="readonly">
-               </div> --%>
-               
-               <div class="form-group">
-               <label>회원번호</label> <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
+               <label>회원번호</label> 
+               <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div>
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <button type="submit" data-oper='modify' class="btn btn-default" >수정</button>
-               <button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
-               <button type="submit" data-oper='list' class="btn btn-info" >목록으로</button>
+               <button type="submit" data-oper='modify' class="btn btn-outline-dark btn-underline mb-1" >수정</button>
+               <button type="submit" data-oper='remove' class="btn btn-outline-dark btn-underline mb-1">삭제</button>
+               <button type="submit" data-oper='list' class="btn btn-outline-dark btn-underline mb-1" >목록으로</button>
          </form>
          </div>
          <!--  end panel-body  -->
