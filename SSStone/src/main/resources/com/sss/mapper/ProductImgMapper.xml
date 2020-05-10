@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.ProductImgMapper">
+
+   <insert id = "insert">
+      insert into TBL_PRODUCT_IMG(p_uuid, p_filetype, p_filename, p_filepath, p_no)
+      values (#{p_uuid}, #{p_filetype}, #{p_filename}, #{p_filepath},#{p_no})
+   </insert>
+   
+   <delete id ="delete">
+      delete from TBL_PRODUCT_IMG where P_UUID=${p_uuid}
+   </delete>
+   
+   <select id ="findByBno" resultType="com.sss.domain.ProductImgDTO">
+      select * from TBL_PRODUCT_IMG where p_no=#{p_no}
+   </select>
+   <delete id="deleteAll">
+      delete TBL_PRODUCT_IMG where p_no=#{p_no}
+   </delete>
+   
+   <select id="getOldFiles" resultType="com.sss.domain.ProductImgDTO">
+      select * from TBL_PRODUCT_IMG where P_FILEPATH = to_char(sysdate -1,'yyyy\mm\dd')
+   </select>
+   
+   <select id = "readMainImg" resultType="com.sss.domain.ProductImgDTO">
+   <![CDATA[ 
+      select *
+      from tbl_product_img where p_filename like '%main%' and p_no = #{p_no}
+      ]]>
+   </select>
+   
+   	<select id="readSubImg" resultType="com.sss.domain.ProductImgDTO">
+      <![CDATA[
+         select p_no, p_filepath,p_filetype, p_filename, p_uuid from tbl_product_img where p_filename like '%sub%' and p_no = #{p_no}
+      ]]>
+	</select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<context:component-scan base-package="com.sss.security"/>
+	<bean id ="customAccessDenied" class="com.sss.security.CustomAccessDeniedHandler"></bean>
+	<bean id ="customLoginSuccess" class="com.sss.security.CustomLoginSuccessHandler"></bean>
+	<!-- <bean id ="customPasswordEncoder" class="com.sss.security.CustomNoOpPasswordEncoder"></bean> -->
+	<bean id ="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+	<bean id="customUserDetailsService" class="com.sss.security.CustomUserDetailsService"></bean>
+	<security:http>
+		<!-- <security:intercept-url pattern="/member/**" access="permitAll"/>
+		<security:intercept-url pattern="/shop/**" access="permitAll"/>
+		<security:intercept-url pattern="/includes/**" access="permitAll"/>
+		<security:intercept-url pattern="/payment/**" access="permitAll"/>
+		<security:intercept-url pattern="/product/**" access="permitAll"/>
+		<security:intercept-url pattern="/shop/**" access="permitAll"/>
+		<security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MEMBER')" /> -->
+		
+		<security:form-login login-page="/member/login" authentication-success-handler-ref="customLoginSuccess"/>
+		<!-- <security:logout logout-url="/customLogout" invalidate-session="true"/> -->
+		<security:access-denied-handler error-page="/shop/error404"/>
+		<security:access-denied-handler ref="customAccessDenied"/>
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="remember-me,JSESSION_ID"/>
+		<security:session-management invalid-session-url="/member/login">
+         <security:concurrency-control max-sessions="1" expired-url="/member/login"/>
+         <!-- 첫번째 로그인한 세션을 유지하고 두번째 중복 로그인 세션을 막으려면 error-if-maximum-exceeded="true" -->
+         <!-- <security:concurrency-control max-sessions="1" expired-url="/customLogin" error-if-maximum-exceeded="true"/> -->
+      </security:session-management>
+	</security:http>
+	<!-- 중복 로그인 방지 -->
+      
+	
+	<!-- <security:jdbc-user-service data-source-ref="dataSource" id="userService" 
+	users-by-username-query="select username, password, enabled from users where username = ?" 
+	authorities-by-username-query="select id as username, authority from AUTHORITIES where username=?"/> -->
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>

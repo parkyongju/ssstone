@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.PurchaseMapper">
+   
+   <!-- tbl_purchase 테이블에 정보를 추가해주는 sql -->
+   <select id="insert">
+      insert into tbl_purchase (pc_no, m_no)
+      values(seq_purchase.nextval, #{m_no})
+   </select>
+   
+   <delete id="delete">
+         delete from tbl_purchase where pc_no = #{pc_no}
+   </delete>
+   
+   <select id="getList" resultType="com.sss.domain.PurchaseVO">
+      <![CDATA[ 
+         select * from tbl_purchase where pc_no>0 
+      ]]>
+   </select>
+      <select id="purchaseMember" resultType="com.sss.domain.PurchaseVO">
+    <![CDATA[ 
+   select 
+        m.m_email, m.m_name, m.m_address1, m.m_address2, m.m_address3, 
+        m.m_phone1, m.m_phone2, m.m_phone3, pc.pc_date
+    from tbl_purchase pc
+       left outer join tbl_member m
+       on m.m_no=pc.m_no
+    where pc_no=#{pc_no}
+    ]]>
+   </select>
+   
+   <update id="updateTrue" >
+      update tbl_purchase set 
+      pc_deliverystatus = 'true' where pc_no = #{pc_no}
+   </update>
+   <update id="updateFalse" >
+      update tbl_purchase set 
+      pc_deliverystatus = 'false' where pc_no = #{pc_no}
+   </update>
+   
+   <select id="read" resultType="com.sss.domain.PurchaseVO">
+      <![CDATA[ 
+         select * from tbl_purchase where pc_no = #{pc_no}
+      ]]>
+   </select>
+   <select id ="readByM_no" resultType="Long">
+      <![CDATA[ 
+         select pc_no from (select /*+INDEX_DESC(tbl_purchase pk_pc_no) */
+         rownum rn, pc_no from tbl_purchase where m_no=#{m_no}) where rn=1
+      ]]>
+   </select>
+   
+   <select id="countNotDelivery" resultType="int">
+   <![CDATA[ 
+      select count(*) from tbl_purchase where pc_deliveryStatus ='false'
+      ]]>
+   </select>
+   
+   <select id="countSalesToday" resultType="int">
+   <![CDATA[ 
+      select count(*) from tbl_purchase where to_char(pc_date, 'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD')
+      ]]>
+   </select>
+   
+      <select id="priceSalesToday" resultType="Long">
+   <![CDATA[ 
+      select sum(tbl_product.p_price * tbl_purchase_member.s_amount) 
+          from tbl_purchase 
+          left outer join tbl_purchase_member 
+          on tbl_purchase.pc_no=tbl_purchase_member.pc_no 
+          left outer join tbl_product 
+          on tbl_purchase_member.p_no=tbl_product.p_no
+          where to_char(pc_date, 'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD') 
+      ]]>
+   </select>
+   
+   <select id="priceSalesTotal" resultType="Long">
+   <![CDATA[ 
+      select sum(tbl_product.p_price *tbl_purchase_member.s_amount) 
+          from tbl_purchase 
+          left outer join tbl_purchase_member 
+          on tbl_purchase.pc_no=tbl_purchase_member.pc_no 
+          left outer join tbl_product 
+          on tbl_purchase_member.p_no=tbl_product.p_no
+          
+      ]]>
+   </select>
+   
+   <!-- 특정 날짜 조회 -->
+<!--    <select id="serchTheDay" resultType="com.dot09.domain.PurchaseVO">
+      <![CDATA[
+         select * from tbl_product where to_char(regdate, 'YYYYMMDD')=#{p_regdate}
+      ]]>
+   </select> -->
+   
+   
+</mapper>

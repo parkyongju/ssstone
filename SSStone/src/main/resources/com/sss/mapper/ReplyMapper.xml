@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.ReplyMapper">
+
+	<select id="selectParent" resultType="com.sss.domain.ReplyVO" >		<!-- 댓글 다는 애 가져오는 매퍼 -->
+        SELECT r_no, B_NO, R_DEPTH+1 as R_DEPTH, R_ORDER
+          FROM tbl_reply
+         WHERE R_NO=#{r_no}
+    </select>
+    <select id="selectMaxOrder" resultType="Integer">					<!-- 마지막 순서 번호 찾는 매퍼 -->
+        SELECT NVL(MAX(R_ORDER),0)+1
+          FROM tbl_reply
+         WHERE B_NO=#{b_no}
+    </select>
+   <update id="updateOrder" parameterType="com.sss.domain.ReplyVO">			<!-- 번호 미루는 매퍼 -->
+        UPDATE tbl_reply
+           SET R_ORDER = R_ORDER + 1
+         WHERE B_NO=#{b_no} AND R_ORDER>#{r_order}      
+    </update>
+
+	<select id="getList" resultType="com.sss.domain.ReplyVO">
+      <![CDATA[
+	      select r_no, r_dept, r_content, r_regdate, r_updatedate, a.m_no, b_no, b.m_email 
+	      from tbl_reply a inner join tbl_member b on a.m_no=b.m_no 
+	      where a.b_no>0 
+      ]]>
+	</select>
+
+	<insert id="insert">
+		insert into tbl_reply(r_no , b_no , r_content , m_no, r_order,
+		r_parent, r_depth)
+		values(seq_reply.nextval, #{b_no}, #{r_content},
+		#{m_no}, #{r_order},
+		<choose>
+			<when test="r_parent==null">0, 0</when> <!-- 첫글 일때 -->
+			<otherwise>#{r_parent}, #{r_depth}</otherwise>
+		</choose>
+		)
+	</insert>
+
+	<select id="read" resultType="com.sss.domain.ReplyVO">
+		select * from tbl_reply where r_no
+		= #{r_no}
+	</select>
+
+	<delete id="delete">
+		delete from tbl_reply where r_no = #{r_no}
+	</delete>
+
+	<update id="update">
+		update tbl_reply set r_content = #{r_content},
+		r_updatedate = sysdate where
+		r_no= #{r_no}
+	</update>
+
+	<select id="getListWithPaging" resultType="com.sss.domain.ReplyVO">
+      <![CDATA[
+         select r_no , b_no, r_content, m_no, r_regdate, r_updatedate, m_email , r_order, r_depth
+         from
+            (select /*+INDEX(tbl_reply r_order)*/
+               rownum rn, r_no,b_no,r_content,a.m_no, r_regdate, r_updatedate, b.m_email, r_order, r_depth
+               from tbl_reply a inner join tbl_member b on a.m_no=b.m_no
+               where a.b_no=${b_no}
+               and r_no>0
+               and rownum <= #{cri.pageNum} * #{cri.amount}
+            ) 
+            where rn > (#{cri.pageNum} - 1) * #{cri.amount} order by r_order
+      ]]>
+	</select>
+	<select id="getCountByb_no" resultType="int">
+      <![CDATA[
+         select count(r_no) from tbl_reply where b_no = #{b_no}
+      ]]>
+	</select>
+
+</mapper>

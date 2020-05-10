@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.PurchaseMemberMapper">
+
+	<select id="insert">
+		insert into tbl_purchase_member(pc_no, p_no,
+		s_amount)
+		values(#{pc_no}, #{p_no}, #{s_amount})
+	</select>
+
+	<delete id="delete">
+		delete from tbl_purchase_member where pc_no =
+		#{pc_no}
+	</delete>
+
+	<select id="read" resultType="com.sss.domain.PurchaseVO">
+ 	  <![CDATA[ 
+         select * from tbl_purchase_member where pc_no = #{pc_no}
+      ]]>
+	</select>
+
+	<select id="getList" resultType="com.sss.domain.PurchaseMemberVO">
+      <![CDATA[ 
+     	 select * from tbl_purchase_member where pc_no>0 
+      ]]>
+	</select>
+
+	<select id="purchaseMoney" resultType="int">
+   		<![CDATA[ 
+   			select sum(p_price) 
+   			from (select p_price, pc_no, s_amount from tbl_purchase_member a inner join tbl_product b on a.p_no = b.p_no)
+   			where pc_no=#{pc_no}
+   		]]>
+	</select>
+
+	<select id="highSoldProduct" resultType="com.sss.domain.PurchaseMemberVO">
+		<![CDATA[	
+		select p_no from (select p_no , sum(s_amount) as sum1  from tbl_purchase_member group by p_no) where
+		sum1= (select max(sum1)
+		from (select p_no , sum(s_amount) as sum1  from tbl_purchase_member group by p_no))
+		]]>
+	</select>
+
+	<select id="purchaseProduct" resultType="com.sss.domain.PurchaseMemberVO">
+	   <![CDATA[   
+	   select 
+	       p.p_no,p.p_name, p.p_category1, p.p_category2, p.p_stock, p.p_option, p.p_price
+	   from tbl_purchase_member pm
+	       left outer join tbl_product p
+	       on pm.p_no=p.p_no
+	   where pc_no=#{pc_no}
+	   ]]>
+	</select>
+</mapper>

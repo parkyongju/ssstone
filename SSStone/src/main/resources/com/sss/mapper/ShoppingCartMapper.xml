@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.ShoppingCartMapper">
+   <insert id ="insert">
+      insert into tbl_shopping_cart(s_no, p_no , m_no, s_amount) 
+      values (seq_shopping_cart.nextval , #{p_no}, #{m_no}, #{s_amount})
+   </insert>
+   
+   <delete id ="delete">
+      delete from tbl_shopping_cart where s_no=#{s_no}
+   </delete>
+   
+   <delete id="deleteAll">
+      delete from tbl_shopping_cart where m_no=#{m_no}
+   </delete>
+   
+   <select id="listCart" resultType="com.sss.domain.Shopping_cartVO">
+      select s_no, a.p_no, m_no, s_amount, p_name, p_category1, p_category2, p_price, p_option, p_filename, p_uuid, p_filepath, p_filetype 
+       from (tbl_shopping_cart a inner join tbl_product b on a.p_no=b.p_no inner join tbl_product_img c on a.p_no=c.p_no)
+       where m_no=#{m_no} and p_filename like '%main%'
+   </select>
+   
+   <select id ="countCart" resultType="int">
+      select count(*) from tbl_shopping_cart where m_no=#{m_no} and p_no=#{p_no}
+   </select>
+   
+   <select id="sumMoney" resultType="int">
+      <![CDATA[
+         select sum(p_price * s_amount) 
+            from (select p_price, m_no, s_amount from tbl_shopping_cart a inner join tbl_product b on a.p_no = b.p_no ) 
+            where m_no = #{m_no}
+      ]]>
+   </select>
+   
+   <select id="cartMoney" resultType="int">
+      <![CDATA[
+         select p_price* s_amount
+            from (select p_price, m_no ,s_amount from tbl_shopping_cart a inner join tbl_product b on a.p_no = b.p_no ) 
+            where m_no = #{m_no}
+      ]]>
+   </select>
+   <select id = "getamount" resultType="long">
+      select s_amount from tbl_shopping_cart where m_no=#{m_no} and p_no=#{p_no}
+   </select>
+   
+</mapper>

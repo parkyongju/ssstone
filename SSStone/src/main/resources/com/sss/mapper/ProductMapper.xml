@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.ProductMapper"> <!-- 연결다리 역할 -->
+
+
+	<select id="getList" resultType="com.sss.domain.ProductVO">
+		<![CDATA[ 
+			select * from TBL_PRODUCT where p_no>0 
+		]]>
+	</select>
+	<select id="getListWithMain" resultType="com.sss.domain.ProductVO">
+		<![CDATA[ 
+			select * from TBL_PRODUCT a 
+				inner join tbl_product_img b 
+					on a.p_no = b.p_no 
+			where b. p_filename like'main%'
+		]]>
+	</select>
+
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="p_no" order="BEFORE" resultType="long">
+			select seq_product.nextval from dual
+		</selectKey>
+		insert into TBL_PRODUCT(p_no, p_name,p_content,p_price ,p_category1
+		,p_category2 , p_stock, p_option, p_regdate)
+		values(#{p_no},#{p_name},#{p_content},#{p_price},#{p_category1}
+		,#{p_category2} ,#{p_stock}, #{p_option}, sysdate)
+	</insert>
+
+	<insert id="insert">
+		insert into TBL_PRODUCT(p_no,
+		p_name,p_content,p_price ,p_category1 ,p_category2 , p_stock,
+		p_option, p_regdate)
+		values(seq_product.nextval,#{p_name},#{p_content},#{p_price},#{p_category1}
+		,#{p_category2} ,#{p_stock}, #{p_option}, sysdate)
+	</insert>
+
+	<select id="StockShartage" resultType="com.sss.domain.ProductVO">
+		<![CDATA[
+		select * from TBL_PRODUCT where p_stock <= 100
+		]]>
+	</select>
+
+	<select id="read" resultType="com.sss.domain.ProductVO">
+		select * from TBL_PRODUCT where
+		p_no = #{p_no}
+	</select>
+
+	<delete id="delete">
+		delete from TBL_PRODUCT where p_no=#{p_no}
+	</delete>
+
+   <update id="update">
+      update tbl_product set 
+      p_name=#{p_name},
+      p_content=#{p_content},
+      p_stock=#{p_stock},
+      p_price=#{p_price},
+      p_category1=#{p_category1},
+      p_category2=#{p_category2},
+      p_option=#{p_option},
+      p_updatedate=sysdate
+      where p_no=#{p_no}
+   </update>
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="typeArr" item='type'>
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							 p_category1 like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							 p_category2 like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'N'.toString()">
+							 p_name like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	<select id="getListWithPaging" resultType="com.sss.domain.ProductVO">
+		<![CDATA[
+		select
+			p_no , p_name , P_CONTENT , P_PRICE , P_stock , P_OPTION , p_category1 , p_category2 , P_REGDATE, P_UPDATEDATE,
+			p_filename,p_uuid, p_filepath
+			from(
+				select /*+INDEX_DESC(tbl_board pk_board) */
+				rownum rn, a.p_no, p_name, P_CONTENT,P_PRICE,P_stock,P_OPTION,
+				p_category1,p_category2, P_REGDATE, P_UPDATEDATE , p_filename, b.p_uuid, p_filepath 
+					from TBL_PRODUCT a inner join tbl_product_img b on a.p_no = b.p_no
+					where 
+			rownum <= #{pageNum} * #{amount} and b.p_filename like 'main%'
+				)
+			where 
+			]]>
+			<include refid="criteria"></include>
+			<![CDATA[	
+			
+			rn > ( #{pageNum} - 1 ) * #{amount}
+		]]>
+	</select>
+	
+	<select id="getListSearchPaging" resultType="com.sss.domain.ProductVO">
+		<![CDATA[
+		select
+			p_no , p_name , P_CONTENT , P_PRICE , P_stock , P_OPTION , p_category1 , p_category2 , P_REGDATE, P_UPDATEDATE,
+			p_filename,p_uuid, p_filepath
+			from(
+				select /*+INDEX_DESC(tbl_board pk_board) */
+				rownum rn, a.p_no, p_name, P_CONTENT,P_PRICE,P_stock,P_OPTION,
+				p_category1,p_category2, P_REGDATE, P_UPDATEDATE , p_filename, b.p_uuid, p_filepath 
+					from TBL_PRODUCT a inner join tbl_product_img b on a.p_no = b.p_no
+					where
+			rownum <= #{pageNum} * #{amount} and b.p_filename like 'main%'
+				)
+			where  rn > ( #{pageNum} - 1 ) * #{amount} and
+			]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+			(p_category1 like'%'||#{p_category1}||'%' and p_category2 like'%'||#{p_category2}||'%')
+		]]>
+	</select>
+	
+	<select id="getProductTotal" resultType="int">
+		select count(*) from TBL_PRODUCT
+		where
+		<include refid="criteria"></include>
+		p_no >= 0
+	</select>
+
+	<select id="category" resultType="com.sss.domain.ProductVO">
+		select p_category from
+		tbl_product group by p_category
+	</select>
+
+	<update id="stockUpdate">
+		update tbl_product set
+		p_stock = #{p_stock}
+		where p_no= #{p_no}
+	</update>
+	
+	<select id="countStockShartage" resultType="Long">
+      <![CDATA[
+      select count(*) from tbl_product where p_stock <= 50
+      ]]>
+   </select>
+   
+   <!-- 품절임박 상품을 메인에 보여줌 -->
+   <select id="readSoldout" resultType="com.sss.domain.ProductVO">
+      <![CDATA[
+      select * from tbl_product_img a inner join tbl_product b on a.p_no = b.p_no where b.p_stock < 10
+      ]]>
+   </select>
+   
+   <!-- 인기 상품을 메인에 보여줌 -->
+   <select id="readHot" resultType="com.sss.domain.ProductVO">
+         <![CDATA[
+            select * from tbl_product_img a inner join 
+         (select p_no, max(s_amount) from tbl_purchase_member where s_amount= 
+         (select max(s_amount) from tbl_purchase_member) group by p_no) b on a.p_no = b.p_no
+         ]]>
+   </select>
+
+
+</mapper>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sss.mapper.MemberMapper">
+   <resultMap type="com.sss.domain.MemberVO" id="memberMap">
+      <id property="m_email" column="m_email"/>
+      <result property="m_no" column="m_no"/>
+      <result property="m_name" column="m_name"/>
+      <result property="m_password" column="m_password"/>
+      <result property="m_birth1" column="m_birth1"/>
+      <result property="m_birth2" column="m_birth2"/>
+      <result property="m_birth3" column="m_birth3"/>
+      <result property="m_phone1" column="m_phone1"/>
+      <result property="m_phone2" column="m_phone2"/>
+      <result property="m_phone3" column="m_phone3"/>
+      <result property="m_address1" column="m_address1"/>
+      <result property="m_address2" column="m_address2"/>
+      <result property="m_address3" column="m_address3"/>
+      <result property="m_regdate" column="m_regdate"/>
+      <result property="m_updatedate" column="m_updatedate"/>
+      <collection property="authList" resultMap="authMap">
+      </collection>
+   </resultMap>
+   
+   <resultMap type="com.sss.domain.Member_AuthVO" id="authMap">
+      <result property="m_no" column="m_no"/>
+      <result property="m_auth" column="m_auth"/>
+   </resultMap>
+   
+   <select id="readByEmail" resultMap="memberMap">
+      select
+         m_email, a.m_no, m_name, m_password, m_birth1, m_birth2, m_birth3,
+         m_phone1 ,m_phone2, m_phone3, m_address1, m_address2, m_address3, m_regdate, m_updatedate, m_auth
+      from tbl_member a 
+         left outer join tbl_member_auth b 
+            on a.m_no = b.m_no
+      where m_email = #{m_email}
+   </select>
+
+   <insert id="insert"> <!-- 회원정보를 추가하는 sql문 -->
+      <selectKey keyProperty="m_no" order="BEFORE" resultType="long">
+         select seq_member.nextval from dual
+      </selectKey>
+      insert into tbl_member 
+         (m_no, m_email, m_name, m_address1, m_address2, m_address3, m_password,
+           m_birth1, m_birth2, m_birth3, m_phone1, m_phone2, m_phone3) <!-- 데이터를 베이스에넣는다 -->
+      values
+         (#{m_no}, #{m_email}, #{m_name},
+         #{m_address1},#{m_address2},#{m_address3},#{m_password},
+         #{m_birth1}, #{m_birth2}, #{m_birth3},
+         #{m_phone1}, #{m_phone2}, #{m_phone3}) <!-- 데이터를 베이스에 넣는 값을 정해준다 -->
+   </insert>
+
+   <select id="read" resultType="com.sss.domain.MemberVO"> <!-- 원하는 회원의 정보를 보여주는 sql문 -->
+      select * from tbl_member where m_no = #{m_no}
+   </select>
+
+   <delete id="delete">
+      delete from tbl_member where m_no=#{m_no}
+   </delete>
+
+   <update id="update"> <!-- 회원정보를 수정할수있는 sql문 -->
+      update tbl_member set
+         m_email=#{m_email},
+         m_name=#{m_name},
+         m_password=#{m_password},
+         m_address1=#{m_address1},
+         m_address2=#{m_address2},
+         m_address3=#{m_address3},
+         m_birth1=#{m_birth1},
+         m_birth2=#{m_birth2},
+         m_birth3=#{m_birth3},
+         m_phone1=#{m_phone1},
+         m_phone2=#{m_phone2},
+         m_phone3=#{m_phone3},
+         m_updatedate=sysdate
+      where m_no=#{m_no}
+   </update>
+   
+   <!-- 총회원수 -->
+   <select id="getMemberTotal" resultType="int">
+      select count(*) 
+         from tbl_member
+         where m_no >= 0
+   </select>
+
+   <sql id="criteria"> 
+      <trim prefix="(" suffix=") AND " prefixOverrides="OR"> 
+         <foreach collection="typeArr" item='type'>
+             <trim prefix="OR">
+                <choose> 
+                   <when test="type == 'T'.toString()"> title like'%'||#{keyword}||'%' </when> 
+                   <when test="type == 'C'.toString()"> Content like'%'||#{keyword}||'%' </when>
+                   <when test="type == 'W'.toString()"> writer like'%'||#{keyword}||'%' </when> 
+               </choose> 
+            </trim>
+         </foreach>
+      </trim>
+   </sql>
+
+   <select id="getList" resultType="com.sss.domain.MemberVO"> 
+      <![CDATA[ 
+         select 
+            m_no,m_email,m_name,m_password,m_birth1,m_birth2,m_birth3, 
+            m_phone1, m_phone2, m_phone3, m_address1,m_address2, m_address3, m_regdate, m_updatedate 
+         from ( select 
+            /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, m_no,m_email,m_name,m_password,m_birth1,m_birth2,m_birth3, 
+            m_phone1, m_phone2, m_phone3, m_address1,m_address2, m_address3, m_regdate, m_updatedate 
+         from tbl_member 
+         where 
+      ]]> 
+      
+      <![CDATA[ 
+         rownum <= #{pageNum} 
+         * #{amount} ) where rn > ( #{pageNum} - 1 ) * #{amount} 
+      ]]>
+   </select>
+<!-- <include refid="criteria"></include> -->
+
+   <!-- 오늘 회원가입한 회원조회 -->
+   <select id="countTodayAccountMember" resultType="com.sss.domain.MemberVO">
+      <![CDATA[ 
+         select 
+             m_email,m_name,
+            m_birth1,m_birth2,m_birth3, 
+            m_phone1, m_phone2, m_phone3, 
+            m_address1,m_address2, m_address3, 
+            m_updatedate  
+         from tbl_member 
+         where to_char(m_regdate, 'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD')
+      ]]>
+    </select>
+    
+       <!-- 오늘 탈퇴한 회원조회 -->
+   <select id="countTodayWithdrawalMember" resultType="com.sss.domain.MemberVO">
+      <![CDATA[ 
+         select 
+             m_email,m_name,
+            m_birth1,m_birth2,m_birth3, 
+            m_phone1, m_phone2, m_phone3, 
+            m_address1,m_address2, m_address3, 
+            m_regdate  
+         from tbl_member 
+         where to_char(m_updatedate, 'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD')
+         and m_email like '%탈퇴%'
+      ]]>
+    </select>
+    
+      <!--  회원의 총 상품 구매 금액 -->
+      <select id="memberTotalPurchaseAmount" resultType="int">
+      <![CDATA[
+         select 
+            sum(p_price*pm.s_amount) as totalpay
+         from tbl_product p
+               left outer join tbl_purchase_member pm
+                   on p.p_no=pm.p_no
+               left outer join tbl_purchase pc
+                   on pm.pc_no=pc.pc_no
+         where pc.pc_deliverystatus='true' 
+         and pc.m_no= #{m_no}
+      ]]>
+   </select>
+   
+   <!-- 회원 구매 목록 -->
+   <select id="memberPurchaseAmount" resultType="com.sss.domain.MemberVO">
+      <![CDATA[
+         select 
+           p.p_no, pc.pc_no, pc.pc_date, p.p_name, (p_price*pm.s_amount) as purchaseAmount
+         from tbl_product p
+                left outer join tbl_purchase_member pm
+                   on p.p_no=pm.p_no
+                left outer join tbl_purchase pc
+                   on pm.pc_no=pc.pc_no
+         where pc.pc_deliverystatus='true' 
+         and pc.m_no= #{m_no}
+      ]]>
+   </select>
+   
+   <!-- 아이디 중복체크 -->
+   <select id="checkID"  parameterType="String" resultType="Integer">
+      select count(*) 
+         from tbl_member 
+         where m_email = #{m_email}  
+   </select>   
+   
+    <!-- 배송 전 구매 정보 -->
+   <select id="mypage" resultType="com.sss.domain.MemberVO">
+     <![CDATA[
+	   	select distinct pc.pc_no, pc.pc_date, m.m_address1,m.m_address2,m.m_address3,m.m_name
+   			 from tbl_purchase pc
+     			left outer join tbl_purchase_member pm 
+     				on pc.pc_no=pm.pc_no
+     			left outer join tbl_member m 
+     				on pc.m_no=m.m_no
+   		where pc.pc_deliverystatus='false'
+   		and m.m_no=#{m_no}
+	]]>	
+   </select>
+   
+      <!-- 배송 전 구매 정보 -->
+   <select id="mypageDetail" resultType="com.sss.domain.MemberVO">
+   <![CDATA[
+	   	select 
+     		distinct p.p_no, p.p_name, (p_price*pm.s_amount) as purchaseAmount,
+     		p.p_price,pm.s_amount,p.p_option
+    	from tbl_product p
+       		 left outer join tbl_purchase_member pm
+          		 on p.p_no=pm.p_no
+        	 left outer join tbl_purchase pc
+          		 on pm.pc_no=pc.pc_no
+    	where pc.pc_deliverystatus='false'
+   		and pc.pc_no=#{pc_no}
+	]]>	
+   </select>
+   
+   <!-- 배송 후 구매 정보 -->
+   <select id="order" resultType="com.sss.domain.MemberVO">
+     <![CDATA[
+	   	select distinct pc.pc_no, pc.pc_date, m.m_address1,m.m_address2,m.m_address3
+   			 from tbl_purchase pc
+     			left outer join tbl_purchase_member pm 
+     				on pc.pc_no=pm.pc_no
+     			left outer join tbl_member m 
+     				on pc.m_no=m.m_no
+   		where pc.pc_deliverystatus='true'
+   		and m.m_no=#{m_no}
+	]]>	
+   </select>
+   <!-- 배송 후 구매 정보 -->
+   <select id="orderDetail" resultType="com.sss.domain.MemberVO">
+   <![CDATA[
+	   	select 
+     		distinct p.p_no, p.p_name, (p_price*pm.s_amount) as purchaseAmount,
+     		p.p_price,pm.s_amount,p.p_option
+    	from tbl_product p
+       		 left outer join tbl_purchase_member pm
+          		 on p.p_no=pm.p_no
+        	 left outer join tbl_purchase pc
+          		 on pm.pc_no=pc.pc_no
+    	where pc.pc_deliverystatus='true'
+   		and pc.pc_no=#{pc_no}
+	]]>	
+   </select>
+   
+   <!-- 구매 가격 -->
+   <select id="total" resultType="Long">
+   		select
+   			sum(p_price*pm.s_amount) as totalpay
+   		from tbl_product p
+       		 left outer join tbl_purchase_member pm
+          		 on p.p_no=pm.p_no
+        	 left outer join tbl_purchase pc
+          		 on pm.pc_no=pc.pc_no
+    	where pc.pc_no=#{pc_no}	
+   </select>
+
+
+</mapper>
