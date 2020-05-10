@@ -45,42 +45,44 @@ public class MemberController {
 		log.info("register : " + vo);
 		log.info("=========================");
 		memberservice.insert(vo);
-		return "redirect:/member/mypage";
+		return "redirect:/member/accountCompleted";
+	}
+
+	@GetMapping("/accountCompleted")
+	public void accountCompleted() {
+
 	}
 
 	@GetMapping("/mypage")
 	public void mypage(@RequestParam("m_no") Long m_no, Model model) {
-		List<MemberVO> vo = memberservice.mypage(52L);	
+		List<MemberVO> vo = memberservice.mypage(52L);
 		model.addAttribute("mypage", memberservice.mypage(m_no));
-		model.addAttribute("member",memberservice.read(m_no));
+		model.addAttribute("member", memberservice.read(m_no));
 	}
-	
-   @GetMapping("/mypageDetail")
-   public void mypageDetail(@RequestParam("pc_no") Long pc_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.mypageDetail(1L);		
-		model.addAttribute("mypageDetail", memberservice.mypageDetail(pc_no));	
+
+	@GetMapping("/mypageDetail")
+	public void mypageDetail(@RequestParam("pc_no") Long pc_no, Model model) {
+		List<MemberVO> vo = memberservice.mypageDetail(1L);
+		model.addAttribute("mypageDetail", memberservice.mypageDetail(pc_no));
 		model.addAttribute("total", memberservice.total(pc_no));
-	
-   }
-	
-   @GetMapping("/order")
-   public void order(@RequestParam("m_no") Long m_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.order(52L);	
+
+	}
+
+	@GetMapping("/order")
+	public void order(@RequestParam("m_no") Long m_no, Model model) {
+		List<MemberVO> vo = memberservice.order(52L);
 		model.addAttribute("order", memberservice.order(m_no));
-		model.addAttribute("member",memberservice.read(m_no));
-		
-   }
-   
-   @GetMapping("/orderDetail")
-   public void orderDetail(@RequestParam("pc_no") Long pc_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.orderDetail(1L);		
+		model.addAttribute("member", memberservice.read(m_no));
+
+	}
+
+	@GetMapping("/orderDetail")
+	public void orderDetail(@RequestParam("pc_no") Long pc_no, Model model) {
+		List<MemberVO> vo = memberservice.orderDetail(1L);
 		model.addAttribute("orderDetail", memberservice.orderDetail(pc_no));
 		model.addAttribute("total", memberservice.total(pc_no));
-	
-   }   
+
+	}
 
 	@GetMapping("/agreement")
 	public void agreement() {
@@ -150,8 +152,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/withdrawal")
-	public void withdrawal(@RequestParam("m_no") Long m_no,Model model) 
-	{
+	public void withdrawal(@RequestParam("m_no") Long m_no, Model model) {
 		model.addAttribute("member", memberservice.read(m_no));
 	}
 
