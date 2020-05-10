@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ include file="../includes/header.jsp" %>
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.11.0/css/font-awesome.min.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8"); %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+   <%@ include file="../includes/header.jsp" %>
+<link
+   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+   rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.11.0/css/font-awesome.min.css">
    
    <!-- BREADCRUMB -->
     <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
@@ -15,10 +18,16 @@
           <div class="col-12">
 
             <!-- Breadcrumb -->
-              <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
-              <li class="breadcrumb-item"><a class="text-gray-400" href="/payment/shopcart">shopping Cart</a></li>
-              <li class="breadcrumb-item active">결제하기</li>
+            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="/shop/main">홈</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="/shop/product">장바구니</a>
+              </li>
+              <li class="breadcrumb-item active">
+                     결제하기
+              </li>
             </ol>
 
           </div>
@@ -176,7 +185,7 @@
               <div class="card-body">
                 <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                   <li class="list-group-item d-flex font-size-lg font-weight-bold">
-                    <span>총 금액</span><span class="ml-auto"><c:out value="${sumMoney}"/></span>
+                    <span>총 금액</span><span class="ml-auto"><fmt:formatNumber value="${sumMoney}" pattern="#,###" />원</span>
                   </li>
                 </ul>
               </div>
@@ -195,7 +204,7 @@
                 <button class="btn btn-dark btn-lg" type="button" data-target="#modal" data-toggle="modal" id="nextBtn">
                    주문하기
                 </button>
-               <button class="btn btn-outline-secondary btn-lg" onclick="location.href='/payment/shopcart'" type="button">
+               <button class="btn btn-outline-secondary btn-lg" onclick="location.href='../shop/main'" type="button">
                   이전 단계로
                </button>
                </div>
@@ -342,8 +351,8 @@
             <form method="post">
 	            <div class="form-group" style="text-align:center">
 	            	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" > 
-	               <button class="btn btn-outline-secondary btn-lg" type="submit" id="ordercompleted">
-	                 확인
+	               <button class="btn btn-outline-secondary btn-lg" type="submit" id="home">
+	                     확인
 	               </button>
 	            </div>
             </form>
@@ -369,8 +378,8 @@ $("#U_checkAgreement1").on('click',function(){
 });
    $(document).ready(function(){
    
-   $("#ordercompleted").on("click", function(){
-   		document.location.href="/payment/ordercompleted";
+   $("#home").on("click", function(){
+   		document.location.href="/shop/main";
    });
 });
 </script>
