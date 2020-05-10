@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
 <link
    href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
@@ -48,10 +44,12 @@
 					<div class="panel-body">
 						<div class="form-group" style="float:right;">
 							<label style="color:grey;">작성일</label><strong>
+
 							<fmt:formatDate pattern="yyyy-MM-dd" value="${board.b_regdate}" /></strong>
 						</div>
 						<div class="form-group">
-							<label style="color:grey;">작성자</label> <strong> <c:out value="${board.m_email }"/></strong>
+							<label style="color:grey;">작성자</label> <br/>
+							<strong> <c:out value="${board.m_email }"/></strong>
 						</div>
 						<hr>
 
@@ -78,17 +76,13 @@
 					</div>
 					
 					<hr>
-						
 						<form id='operForm' action="/shop/modifyBoardList" method="get">
 							<input type='hidden' id='b_no' name='b_no'
-								value='<c:out value="${board.b_no}"/>'> <input
-								type='hidden' name='pageNum'
-								value='<c:out value="${cri.pageNum}" />'> <input
-								type='hidden' name='amount'
-								value='<c:out value="${cri.amount}" />'> <input
-								type='hidden' name='keyword'
-								value='<c:out value="${cri.keyword}" />'> <input
-								type='hidden' name='type' value='<c:out value="${cri.type}" />'>
+								value='<c:out value="${board.b_no}"/>'> 
+								<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}" />'>
+								 <input type='hidden' name='amount' value='<c:out value="${cri.amount}" />'> 
+								<input type='hidden' name='keyword' value='<c:out value="${cri.keyword}" />'> 
+								<input type='hidden' name='type' value='<c:out value="${cri.type}" />'>
 						</form>
 
 					</div>
@@ -141,49 +135,7 @@
 			</div>
 			<!-- ./ end row -->
 		</div>
-		<!--  모달 시작 -->
-		<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModal" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModal">REPLY MODAL</h4>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>댓글</label> <input class="form-control" name='r_content'
-								value='새로운 댓글!'>
-						</div>
-						<div class="form-group">
-							<label>작성자</label> <input class="form-control" name='m_email'
-								value='작성자'>
-						</div>
-						<div class="form-group">
-							<label>회원번호</label> <input class="form-control" name="m_no"
-								value='회원번호'>
-						</div>
-						<div class="form-group">
-							<label>작성일</label> <input class="form-control" name='r_regdate'
-								value='작성일'>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
-						<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button>
-						<button id='modalRegisterBtn' type="button"
-							class="btn btn-primary">생성</button>
-						<button id='modalCloseBtn' type='button' class='btn btn-default'
-							data-dismiss='modal'>닫기</button>
-					</div>
-				</div> -->
-				<!--  /.modal-content -->
-			<!-- </div> -->
-			<!--  /.modal-dialog -->
-		<!-- </div> -->
-		<!--  모달 끝 -->
-
+		
 	</div>
 </section>
 <script type="text/javascript" src="/resources/js/ajax.js"></script>
