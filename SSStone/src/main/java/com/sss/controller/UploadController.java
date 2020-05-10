@@ -48,8 +48,8 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<List<ProductImgDTO>>uploadaminPost(MultipartFile[] uploadMainFile){
 		List<ProductImgDTO>list = new ArrayList<ProductImgDTO>();
-//		String uploadFolder = "C://sts-bundle/stswk/SSStone/src/main/webapp/resources/img/upload";
-		String uploadFolder = "../../../resources/img/upload";
+		String uploadFolder = "C://upload//";
+//		String uploadFolder = "../";
 		String uploadFolderPath = getFolder();							//forder maker
 		File uploadPath = new File(uploadFolder, getFolder());			//저장되는 폴더 경로
 		if(uploadPath.exists() == false){
@@ -68,6 +68,7 @@ public class UploadController {
 			
 			try{
 				File saveFile = new File(uploadPath,uploadFileName);
+				System.out.println(saveFile.getPath());
 				multipartFile.transferTo(saveFile);
 				productDTO.setP_uuid(uuid.toString());
 				productDTO.setP_filepath(uploadFolderPath);
@@ -96,7 +97,7 @@ public class UploadController {
 		log.info("들어옴");
 		List<ProductImgDTO>list = new ArrayList<ProductImgDTO>();
 //		String uploadFolder = "C://sts-bundle/stswk/SSStone/src/main/webapp/resources/img/upload";
-		String uploadFolder = "../../../resources/img/upload";
+		String uploadFolder = "C://upload//";
 		
 		String uploadFolderPath = getFolder();							//forder maker
 		File uploadPath = new File(uploadFolder, getFolder());			//저장되는 폴더 경로
@@ -141,7 +142,7 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<byte[]>getFile(String fileName){
 		log.info("fileName : " + fileName);
-		File file = new File("../../../resources/img/upload/"+fileName);
+		File file = new File("C://upload//"+fileName);
 		log.info("file : " + file);
 		ResponseEntity<byte[]> result = null;
 		try{
@@ -178,7 +179,7 @@ public class UploadController {
 	@GetMapping(value="/download", produces= MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent")String userAgent,String fileName){		//다운로드
-		Resource resource = new FileSystemResource("../../../" + fileName);
+		Resource resource = new FileSystemResource("C://upload//" + fileName);
 		if(resource.exists() == false)
 		{
 			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
@@ -218,7 +219,7 @@ public class UploadController {
 		log.info("deleteFile : " + fileName);
 		File file;
 		try{
-			file = new File("../../../resources/img/upload//" + URLDecoder.decode(fileName,"UTF-8"));
+			file = new File("C://upload//" + URLDecoder.decode(fileName,"UTF-8"));
 			file.delete();
 			if(type.equals("image")){
 				String largeFileName = file.getAbsolutePath().replace("s_", "");
