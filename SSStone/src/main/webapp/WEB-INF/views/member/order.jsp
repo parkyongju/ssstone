@@ -18,7 +18,7 @@
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
               <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
               <li class="breadcrumb-item"><a class="text-gray-400" href="/member/mypage?m_no=${m_no}">My Page</a></li>
-              <li class="breadcrumb-item active"><a class="text-gray-400" href="/member/order?m_No=${m_no}">Order</a></li>                      
+              <li class="breadcrumb-item active"><a class="text-gray-400" href="/member/order?m_no=${m_no}">Order</a></li>                      
             </ol>
           </div>
         </div>
