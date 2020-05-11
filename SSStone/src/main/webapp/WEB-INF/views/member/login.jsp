@@ -153,10 +153,11 @@
 	                  <!-- password recheck -->
 	                  </label> 
 	                  <input id="modalPasswordReset_rck" name="m_password" type="password" placeholder="비밀번호 확인 *" class="form-control form-control-sm" required="required">
+	                  
 	               </div>
 	               <!-- Button -->
 	               <button id="passwordBtn" class="btn btn-sm btn-dark" type="submit">
-	                  로그인하러 가기
+	                  	로그인하러 가기
 	                  <!-- Reset Password -->
 	               </button>
 	            
@@ -195,7 +196,6 @@
          e.preventDefault();
          $("form").submit();
       });
-
    });
 </script>
 
