@@ -13,12 +13,6 @@
 	<!-- <bean id ="customPasswordEncoder" class="com.sss.security.CustomNoOpPasswordEncoder"></bean> -->
 	<bean id ="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	<bean id="customUserDetailsService" class="com.sss.security.CustomUserDetailsService"></bean>
-	<bean id="loginFailureHandler" class="com.sss.security.LoginFailureHandler">
-	    <property name="defaultFailureUrl" value="/member/login?error=true" />
-	    <property name="loginidname" value="loginId"/>
-	    <property name="loginpwdname" value="loginPwd"/>
-	    <property name="errormsgname" value="ERRORMSG"/>
-	</bean>
 	<security:http>
 		<!-- <security:intercept-url pattern="/member/**" access="permitAll"/>
 		<security:intercept-url pattern="/shop/**" access="permitAll"/>
@@ -32,8 +26,7 @@
 			username-parameter="loginId" 
 			password-parameter="loginPwd"
 			login-page="/member/login" 
-			authentication-success-handler-ref="customLoginSuccess" 
-			authentication-failure-handler-ref="loginFailureHandler" />
+			authentication-success-handler-ref="customLoginSuccess"  />
 		<security:access-denied-handler error-page="/shop/error404"/>
 		<security:access-denied-handler ref="customAccessDenied"/>
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
