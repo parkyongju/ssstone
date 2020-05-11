@@ -53,12 +53,6 @@ public class PaymentController {
       return "redirect:/shop/main";
    }
 
-   @GetMapping("/ordercompleted")
-   public void ordercompleted() 
-   {
-	  
-   }
-
    @GetMapping("/shopcart")//페이지 들어가기
    public void shopcart(@RequestParam("m_no") Long m_no) {
    }

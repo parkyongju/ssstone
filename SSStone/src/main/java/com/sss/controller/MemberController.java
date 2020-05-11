@@ -167,4 +167,8 @@ public class MemberController {
 		return "redirect:/shop/main";
 
 	}
+	@GetMapping("/purchaseList")
+	public void purchaseList(){
+		
+	}
 }

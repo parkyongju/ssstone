@@ -27,18 +27,21 @@
 
     <!-- WELCOME -->
     <section>
-      <div class="container">
-        <div class="row justify-content-center py-14 bg-cover" style="background-image: url(/resources/img/about/paper.jpg);">
-          <div class="col-6 col-md-8 col-lg-6 col-xl-5">
+        <!-- Item -->
+        <div class="w-100 bg-cover" style="background-image: url(/resources/img/covers/회사배너.jpg);">
+          <div class="container d-flex flex-column">
+            <div class="row align-items-center py-12" style="min-height: 550px;">
+              <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-1">
 
-            <!-- Heading -->
-            <h1 class="mb-0 text-center" style="color:#58D3F7">
-              Get to Know Us a Little Better
-            </h1>
+                <!-- Heading -->
+	            <h1 class="mb-0 text-center" style="color:black;">
+	              Get to Know Us a Little Better
+	            </h1>
 
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- OUR STORY -->
