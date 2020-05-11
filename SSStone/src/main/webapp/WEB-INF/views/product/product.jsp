@@ -365,14 +365,22 @@
                beforeSend:function(xhr){
                      xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
                   },
-               datatype:'json',
+               dataType:'json',
                data : ({
                   "p_no" : p_no, 
                   "m_no" : m_no, 
                   "s_count" : s_count
                   }),
-               success : function(result){
-                  self.location="/payment/shopcart?m_no="+m_no;
+                  
+               success : function(data){
+                  if(data.count > 0)
+                  {
+                     self.location="/payment/shopcart?m_no="+m_no;
+                  }
+                  else
+                    {
+                          alert("5개 이상 구입할 수 없습니다.");
+                    }
                }
             });
           });

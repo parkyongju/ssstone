@@ -33,6 +33,7 @@
                            <div class="form-group">
                               <label class="sr-only" for="loginEmail"> Email Address* </label> 
                               <input class="form-control form-control-sm" name="loginId" id="loginEmail" type="email" placeholder="Email Address *" required>
+
                            </div>
                         </div>
                         <div class="col-12">
@@ -165,6 +166,7 @@
 	</div>
 <!-- Password Reset end -->
 
+
 <script>
 	$(document).ready(function(){
 		var modal1 = $("#modalPasswordFind");
@@ -180,7 +182,7 @@
 	            success : function(result){
 	            	modal1.hide();
 	            	modal2.hide();
-	            	alert("바뀜");
+	            	alert("비밀번호가 변경되었습니다.");
 	            }
 	         });
 		});
@@ -226,7 +228,7 @@ $(document).ready(function() {
 				var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 				if (exptext.test(m_email) == false)
 				{
-					alert("올바르지 않는 형식입니다.")
+					alert("올바르지 않는 형식입니다.");
 					$("#modalPasswordFind").modal("show");
 					}
 				else

@@ -9870,6 +9870,11 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-sm, .btn-group-sm > .btn {
   height: calc(1.40625rem + 1.625rem + 2px); }
 
+.btn-s, .btn-group-s > .btn {
+  height: calc(1.30625rem + 1.625rem + 1px); 
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem; }}
+
 .btn-xs {
   height: calc(1.40625rem + 1rem + 2px);
   padding: 0.5rem 0.75rem;

@@ -19,9 +19,9 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
                <li class="breadcrumb-item"><a class="text-gray-400" href="index.html">Home</a></li>
-               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boradList">게시판</a></li>
-               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/getBoradList">글 목록</a></li>
-               <li class="breadcrumb-item active">수정하기</li>
+               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boardList">게시판</a></li>
+               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/getBoardList?b_no=${board.b_no }">글 목록</a></li>
+               <li class="breadcrumb-item active"> 글 수정하기</li>
             </ol>
 
          </div>
@@ -75,9 +75,11 @@
                   <label>등록일</label>
                   <input class="form-control" name='b_regdate' type="hidden"
                      value='<fmt:formatDate pattern = "yyyy/MM/dd" value="${board.b_regdate}" />' readonly="readonly">
+                  <textarea class="form-control" rows="3" name='b_content' ><c:out value="${board.b_content }" /></textarea>
                </div>
                
                <div class="form-group">
+<<<<<<< HEAD
                   <label>수정일</label>
                   <input class="form-control" name='b_updatedate' type="hidden"
                      value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.b_updatedate }" />' readonly="readonly">
@@ -85,8 +87,14 @@
                
                <div class="form-group">
                <label></label> <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
+               <label>회원번호</label> 
+=======
+               <label></label> 
+>>>>>>> refs/heads/yoojin
+               <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div>
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
+<<<<<<< HEAD
                
             <div style="margin-bottom:20px;">
 
@@ -96,6 +104,14 @@
 
                <button type="submit" data-oper='list' class="btn btn-outline-dark" >목록으로</button>
            </div>    
+               <button type="submit" data-oper='modify' class="btn btn-outline-dark btn-underline mb-1" >수정</button>
+               <button type="submit" data-oper='remove' class="btn btn-outline-dark btn-underline mb-1">삭제</button>
+               <button type="submit" data-oper='list' class="btn btn-outline-dark btn-underline mb-1" >목록으로</button>
+=======
+               <button type="submit" data-oper='modify' class="btn btn-outline-dark btn-s mb-1" >수정</button>
+               <button type="submit" data-oper='remove' class="btn btn-outline-dark btn-s mb-1">삭제</button>
+               <button type="submit" data-oper='list' class="btn btn-outline-dark btn-s mb-1" >목록</button>
+>>>>>>> refs/heads/yoojin
          </form>
          </div>
          <!--  end panel-body  -->

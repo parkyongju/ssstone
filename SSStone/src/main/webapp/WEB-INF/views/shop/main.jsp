@@ -11,7 +11,7 @@
    rel="stylesheet">
    <!-- SLIDER -->
     <section>
-      <div data-flickity='{"prevNextButtons": true, "fade": true, "freeScroll":true, "wrapAround":true, "autoPlay":3000}'>
+      <div data-flickity='{"prevNextButtons": true, "fade": true, "freeScroll":true, "wrapAround":true, "autoPlay":2500}'>
 
         <!-- Item -->
         <div class="w-100 bg-cover" style="background-image: url(/resources/img/covers/cover-5.jpg);">
@@ -38,7 +38,7 @@
         <!-- Item -->
         <div class="w-100 bg-cover" style="background-image: url(/resources/img/covers/배너.jpg);">
           <div class="container d-flex flex-column">
-            <div class="row align-items-center justify-content-end py-12" style="min-height: 550px;">
+            <div class="row align-items-center py-12" style="min-height: 550px;">
               <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-n1">
 
                 <!-- Heading -->
@@ -46,7 +46,7 @@
 
                 <!-- Text -->
                 <p class="mb-8 font-size-lg text-gray-500">
-                  싱그러운 봄, 예쁜 주얼리와 함께!
+                  	싱그러운 봄, 예쁜 주얼리와 함께!
                 </p>
 
                 <!-- Button -->
@@ -67,11 +67,11 @@
                 <div class="col-12 text-center text-white">
 
                   <!-- Preheading -->
-                  <h4 class="mb-0">산뜻한 악세사리</h4>
+                  <h4 class="mb-0">나를 더 빛나게 해주는</h4>
 
                   <!-- Heading -->
                   <h1 class="display-1">
-                    Going to see
+                    SSStone
                   </h1>
 
                   <!-- Links -->
@@ -268,8 +268,8 @@
             <div class="card-img">
 
               <!-- Link -->
-              <button class="btn btn-xs btn-block btn-dark card-btn" href="shop.html">
-                <i class="fe fe-arrow-right ml-2"></i> Shop Now
+              <button class="btn btn-xs btn-block btn-dark card-btn" onclick="href='/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value="${readnew.p_no}"/>'">
+                <i class="fe fe-arrow-right ml-2"></i> 보러 가기
               </button>
 
               <!-- Image -->
@@ -279,7 +279,7 @@
 
             <!-- Body -->
             <div class="card-body font-weight-bold text-center">
-              <a class="text-body" href="product.html"><c:out value="${readnew.p_name}"/></a><br>
+              <a class="text-body" href="/product/shop"><c:out value="${readnew.p_name}"/></a><br>
               <span class="text-muted"><c:out value="${readnew.p_category1}"/><br><c:out value="${readnew.p_price}"/>&#8361;</span>
             </div>
           </div>
@@ -723,7 +723,7 @@
 
                         <!-- Heading -->
                         <a class="stretched-link text-body" href="/product/shop?p_category1=반지&p_category2=">
-                          <h6>전체상품h6>
+                          <h6>전체상품</h6>
                         </a>
                       </div>
                     </div>

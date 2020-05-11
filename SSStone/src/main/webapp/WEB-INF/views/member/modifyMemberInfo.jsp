@@ -27,19 +27,19 @@
     
 
     <!-- CONTENT -->
-    <section class="pt-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
+    <section class="pt-7 " style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
-        <div class="row">
+        <div class="row col-auto" >
           <div class="col-12 text-center">
 
             <!-- Heading -->
             <h3 class="mb-10 mr-15">정보수정</h3>
 
           </div>
-         </div>
+         
  
-		<div class="row">
-		  <div class="col-12 col-md-3" style="right: 60px;">
+		<div class="row row-cols-4">
+		  <div class="col-4 col-md-4" >
         <!-- Nav -->
             <nav class="mb-10 mb-md-0">
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">               
@@ -65,11 +65,12 @@
         </div>
 
             <!-- Form -->
-            <form method ="post" action ="/member/modifyMemberInfo">
+            <form method ="post" action ="/member/modifyMemberInfo" class="form-group">
             <input type="hidden" name= "m_no" value="${member.m_no }">
-              <div class="row" style="width: 800px; left: 200px; bottom: 400px;">
-                <div class="col-9">
-
+              <div class="row row-cols-7">
+              <div class="row row-cols-4">
+                
+                <div class="col-6 col-md-6">
                   <!-- Email -->
                   <div class="form-group">
                     <label for="m_email">
@@ -138,7 +139,7 @@
               </div>
             </div>
            
-           <div class="col-12">
+           <div class="col-7">
              <!-- Birthday -->
              <div class="form-group">
 
@@ -174,21 +175,23 @@
            </div>
      </div>
                 
+        <div class="col-5">
        <div class="col-2">
        <!-- 우편번호 -->
-         <div class="form-group">
+         <div>
        <label for="accountAddress">
            우편번호 *
         </label>
-           <input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>
-         </div>
-       </div>
+           <input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>       
+       </div>       
       <!-- /. 우편번호 -->
+      
       <div style="margin-top:2rem">
-         <button type="button" onclick="sample6_execDaumPostcode()" class="btn btn-outline-success btn-sm" style="float:right">우편번호 찾기</button>
+         <button type="button" onclick="sample6_execDaumPostcode()" class="btn btn-outline-dark mb-1 btn-sm" style="float:right">우편번호 찾기</button>
+      </div>
       </div>
       
-      <div class="col-10">
+      <div class="col-7">
       <!-- 주소 -->
         <div class="form-group">
            <input class="form-control form-control-sm" name="m_address2" id="sample6_address" type="text"  value='<c:out value="${member.m_address2}"/>' maxlength="50" placeholder="주소 *">
@@ -209,17 +212,21 @@
            <input class="form-control form-control-sm" id="sample6_extraAddress" type="text" placeholder="참고사항 *">
         </div>
       </div>
+      </div>
      
        <!-- 수정버튼 -->
        <div class="col-6" id="allCheck">
-         <button id="submitBtn" class="btn btn-outline-success" type="submit">수정완료</button>
+         <button id="submitBtn" class="btn btn-outline-dark mb-1 btn-sm" type="submit">수정</button>
        </div>
      </div>
-     <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-   </form>
+    	 <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
+    	 </div>
+  	 </form>
+  	 
+	</div>
+	</div>
 
-</div>
-</section>
+	</section>
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
