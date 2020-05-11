@@ -31,8 +31,9 @@
       </div>
     </nav>
 
-<section class="py-5" style="margin-left:230px">
+<section class="page-wrapper" style="margin-left:230px">
 	<div class="container">
+	
       <div class="row">
           <div class="col-12 text-center">
             <!-- Heading -->
@@ -43,6 +44,7 @@
 
             <!-- /.panel-heading -->
          <form method="post" action="/admin/productRegister" role="form">
+         
             <div class="col-12">
                <div class="col-md-6">
                   <div class="form-group">
