@@ -180,8 +180,8 @@
 	            dataType : 'text',
 	            type : 'get',
 	            success : function(result){
-	            	modal1.modal('hide');
-	            	modal2.modal('hide');
+	            	$("#modalPasswordFind").modal("hide");
+		    		$("#modalPasswordReset").modal("hide");
 	            	alert("비밀번호가 변경되었습니다.");
 	            }
 	         });
@@ -283,6 +283,8 @@ $(document).ready(function() {
 			{
 				$("#pw_chk").text("사용 가능한 비밀번호 입니다.");
 				$("#pw_chk").css("color", "#007bff");
+				
+				
 			}
 		}
 		var pattern1 = /[0-9]/;
