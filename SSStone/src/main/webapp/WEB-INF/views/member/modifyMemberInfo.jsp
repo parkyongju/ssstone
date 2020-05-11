@@ -30,7 +30,7 @@
       <div class="row">
       <div class="col-12 text-center">
         <!-- Heading -->
-         <h3 class="mb-10">정보수정</h3>
+         <h3 class="mb-10">회원 정보 수정</h3>
           </div>
         </div>
         
@@ -67,7 +67,6 @@
             <div class="card card-lg mb-10 mb-md-0">
                <div class="card-body">
                   <!-- Heading -->
-                  <h6 class="mb-7">회원 정보 수정</h6>
                   
                   <!-- Form -->
                   <form method="post" action ="/member/modifyMemberInfo">
@@ -205,6 +204,7 @@
            <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="font-family: 'Do Hyeon', sans-serif;white-space: nomal;float: right;">
             수정
             </button>
+           </div>
            </div>
         </form>
           </div>

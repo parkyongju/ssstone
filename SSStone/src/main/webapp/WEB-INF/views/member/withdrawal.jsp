@@ -31,7 +31,7 @@
       <div class="row">
       <div class="col-12 text-center">
         <!-- Heading -->
-         <h3 class="mb-10">My Withdrawal</h3>
+         <h3 class="mb-10">회원탈퇴</h3>
           </div>
         </div>
         
@@ -61,14 +61,13 @@
             </nav>
             <!-- 옆메뉴 종료 -->
           </div>
-          </div>
                  
          <div class="col-12 col-md-6">
             <!-- Card -->
             <div class="card card-lg mb-10 mb-md-0">
                <div class="card-body">
                   <!-- Heading -->
-                  <h6 class="mb-7">회원탈퇴</h6>
+                
                   <!-- Form -->
                   <form method="post" action="/withdrawal">
                      <div class="row">
@@ -76,7 +75,7 @@
                            <!-- Email -->
                            <div class="form-group">
                            
-                              <label class="sr-only" for="loginEmail"> Email (ID) </label> 
+                              <label for="loginEmail"> Email (ID) </label> 
                               <input class="form-control form-control-sm" value='<c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
                            </div>
                         </div>
@@ -97,7 +96,7 @@
                         <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
                         <div class="col-12" style="left: 170px;">
                            <!-- Button -->
-                        <button class="login btn btn-outline-border" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                        <button class="login btn btn-outline-dark" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
                               탈퇴
                         </button>
                         </div>
@@ -108,7 +107,7 @@
             </div>
          </div>
       </div>
-   
+   </div>
 </section>
 
 

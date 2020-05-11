@@ -114,7 +114,7 @@
                               <input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />'class="form-control"  id="keyword" placeholder="Search" /> 
                               <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> 
                               <input type='hidden' name='amount' value='<c:out value="${pageMaker.boardcri.amount}" />' />
-                              <button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
+                              <button type="button" class="btn btn-outline-dark"> <i class="fe fe-search"></i>검색</button>
                            </div>
                         </form>
                   </div>
