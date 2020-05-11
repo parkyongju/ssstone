@@ -46,7 +46,7 @@
 
                 <!-- Text -->
                 <p class="mb-8 font-size-lg text-gray-500">
-                  	싱그러운 봄, 예쁜 주얼리와 함께!
+                     싱그러운 봄, 예쁜 주얼리와 함께!
                 </p>
 
                 <!-- Button -->
@@ -195,7 +195,7 @@
               <!-- Image -->
               <c:forEach items="${read}" var="read" begin="0" end="0">
               <img src='/display?fileName=<c:out value="${read.p_filepath}"/>/<c:out value="${read.p_uuid}"/>_<c:out value="${read.p_filename}"/>'
-              		alt="..." height="565px;" width="520px;">
+                    alt="..." height="565px;" width="520px;">
               
               <!-- Body -->
               <div class="card-body position-relative mx-6 mx-lg-11 mt-n11 bg-white text-center">
@@ -205,7 +205,7 @@
 
                 <!-- Link -->
                 <a class="btn btn-link stretched-link px-0 text-reset" href="/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value="${read.p_no}"/>">
-                  	보러 가기 <i class="fe fe-arrow-right ml-2"></i>
+                     보러 가기 <i class="fe fe-arrow-right ml-2"></i>
                 </a>
                 </c:forEach>
               </div>
@@ -224,7 +224,7 @@
               <!-- Image -->
               <c:forEach items="${readHot}" var="readHot" begin="0" end="0">
               <img src='/display?fileName=<c:out value="${readHot.p_filepath}"/>/<c:out value="${readHot.p_uuid}"/>_<c:out value="${readHot.p_filename}"/>'
-              		alt="..." height="565px;" width="520px;">
+                    alt="..." height="565px;" width="520px;">
               
               <!-- Body -->
               <div class="card-body position-relative mx-6 mx-lg-11 mt-n11 bg-white text-center">
@@ -234,7 +234,7 @@
 
                 <!-- Link -->
                 <a class="btn btn-link stretched-link px-0 text-reset" href="/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value="${readHot.p_no}"/>">
-                  	보러 가기 <i class="fe fe-arrow-right ml-2"></i>
+                     보러 가기 <i class="fe fe-arrow-right ml-2"></i>
                 </a>
                 </c:forEach>
               </div>
@@ -259,7 +259,7 @@
         </div>
       </div>
       <div class="flickity-page-dots-progress" data-flickity='{"pageDots": true, "freeScroll":true, "wrapAround":true}'>
-		<c:forEach items="${readNew}" var="readnew" begin="0" end="7" step="1">
+      <c:forEach items="${readNew}" var="readnew" begin="0" end="7" step="1">
         <!-- Item -->
         <div class="col" style="max-width: 300px;">
           <div class="card">
@@ -269,13 +269,13 @@
 
               <!-- Link -->
               <button class="btn btn-xs btn-block btn-dark card-btn" 
-              	onclick="location.href='/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value='${readnew.p_no}'/>'">
+                 onclick="location.href='/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value='${readnew.p_no}'/>'">
                 <i class="fe fe-arrow-right ml-2"></i> 보러 가기
               </button>
 
               <!-- Image -->
             <img src='/display?fileName=<c:out value="${readnew.p_filepath}"/>/<c:out value="${readnew.p_uuid}"/>_<c:out value="${readnew.p_filename}"/>'
-              		alt="..." height="392px;" width="268px;">
+                    alt="..." height="392px;" width="268px;">
             </div>
 
             <!-- Body -->

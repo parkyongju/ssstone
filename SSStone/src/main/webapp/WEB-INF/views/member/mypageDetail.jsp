@@ -9,8 +9,8 @@
 <sec:authorize access="isAuthenticated()">
 <sec:authentication property="principal.member.m_no" var='m_no'/>
 
-	<!-- BREADCRUMB -->
-    <nav class="py-5">
+   <!-- BREADCRUMB -->
+    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -167,7 +167,7 @@
                     <span>상품가격 : <br/><br/><i class="fe fe-plus"></i></span>                                                     
                     <span class="ml-auto">
                     <c:forEach items="${mypageDetail }" var="mypage">
-                    	<fmt:formatNumber value="${mypage.purchaseAmount}" pattern="#,###"/>원<br/>
+                       <fmt:formatNumber value="${mypage.purchaseAmount}" pattern="#,###"/>원<br/>
                     </c:forEach> 
                     </span>                     
                   </li>
@@ -200,8 +200,8 @@
                     </p>
                     <p class="mb-7 mb-md-0 text-gray-500">
                         서울특별시 성동구<br/>
-                  		왕십리도선동<br/>
-                  		무학로2길 54<br/>
+                        왕십리도선동<br/>
+                        무학로2길 54<br/>
                         신방빌딩 5층<br/>                        
                     </p>
                 </div>
@@ -216,7 +216,7 @@
                       구매후 1~3일이내 <br>
                       (주말 비포함)<br>
                     </p>
-              	 </div>
+                  </div>
                </div>
                
                <div class="row">
@@ -229,7 +229,7 @@
                 <p class="mb-0 text-gray-500">
                   82-10-3113-8419
                 </p>
-             	</div>
+                </div>
                            
                 <div class="col-12 col-md-6">
                    <!--  Heading -->

@@ -17,7 +17,6 @@
 <title>Admin Site</title>
 
 <!-- Bootstrap Core CSS -->
-
 <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- MetisMenu CSS -->
 <link href="/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -190,16 +189,16 @@
    </nav>
    <!-- jQuery -->
    <script>
-  	$(document).ready(function(){
-  		
-	/*   $("#folderopen").css("display","none");
-	  $("#folder").css("display","inline");
-	   */
-	  $("#aBtn").click(function(e){
-		  e.preventDefault();
-	/* 	  $("#folderopen").css("display","inline");
-		  $("#folder").css("display","none"); */
-	  });
+     $(document).ready(function(){
+        
+   /*   $("#folderopen").css("display","none");
+     $("#folder").css("display","inline");
+      */
+     $("#aBtn").click(function(e){
+        e.preventDefault();
+   /*      $("#folderopen").css("display","inline");
+        $("#folder").css("display","none"); */
+     });
    });
    
    </script>

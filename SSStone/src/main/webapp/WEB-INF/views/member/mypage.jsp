@@ -10,7 +10,7 @@
    <sec:authentication property="principal.member.m_no" var='m_no'/>
    
     <!-- BREADCRUMB -->
-    <nav class="py-5">
+    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -26,7 +26,7 @@
     <!-- BREADCRUMB end -->
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12" style="font-family: 'Do Hyeon', sans-serif;">
+    <section class="pt-7 pb-12">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -42,7 +42,7 @@
             <!-- Nav -->
             <nav class="mb-10 mb-md-0">
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">            
-             	<a class="list-group-item-action" ><c:out value="${member.m_name}"/>님 환영합니다<i class="fe fe-heart"></i></a>
+                <a class="list-group-item-action" ><c:out value="${member.m_name}"/>님 환영합니다<i class="fe fe-heart"></i></a>
               <!--  회원번호 가져오기 -->
               <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
                   My Page

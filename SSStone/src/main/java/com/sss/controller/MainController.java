@@ -30,9 +30,9 @@ public class MainController {
    private ProductService productservice;
    @GetMapping("/main")
    public void main(Model model) {
-	      model.addAttribute("read",productservice.readSoldout());
-	      model.addAttribute("readHot", productservice.readHot());
-	      model.addAttribute("readNew", productservice.readNew());
+         model.addAttribute("read",productservice.readSoldout());
+         model.addAttribute("readHot", productservice.readHot());
+         model.addAttribute("readNew", productservice.readNew());
    }
 
    @GetMapping("/faq")
@@ -84,6 +84,7 @@ public class MainController {
       model.addAttribute("board", boardservice.read(b_no));
    }
    
+   @PreAuthorize("isAuthenticated()")
    @PostMapping("/modifyBoardList")
    public String modify(BoardVO board,@ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
       log.info("modifyBoardList :" + board);
@@ -100,6 +101,7 @@ public class MainController {
       return "redirect:/shop/boardList" + cri.getListLink();
    }
 
+   @PreAuthorize("isAuthenticated()")
    @PostMapping("/removeBoardList")
    public String RemoveBoardList(@RequestParam("b_no") Long b_no, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
       

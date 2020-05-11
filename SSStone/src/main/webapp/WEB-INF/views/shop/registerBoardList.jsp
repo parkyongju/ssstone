@@ -47,7 +47,7 @@
  
             <form role="form" action="/shop/registerBoardList" method="post">
                <div class="form-group">
-                  <label>제목</label> <input class="form-control" name="b_title" maxlength="50">
+                  <label>제목</label> <input class="form-control" name="b_title">
                </div>
            
                <div class="form-group">
@@ -59,17 +59,9 @@
                <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div> 
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-<<<<<<< HEAD
-               
-			<div class="py-3" style="margin-left:520px">             
-               <button type="submit" class="btn btn-outline-dark btn-xs">작성하기</button>
-               <button onclick="location.href='/shop/boardList'" type="button" class="btn btn-outline-dark btn-xs" title="게시판으로 돌아가기">돌아가기</button>
-            </div>
-            
-=======
+
                <button type="submit" class="btn btn-outline-dark mb-1 btn-s ">작성</button>
                <button type="reset" class="btn btn-outline-dark mb-1 btn-s">이전으로</button>
->>>>>>> refs/heads/yoojin
                
             </form>
          
