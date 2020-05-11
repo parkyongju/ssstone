@@ -246,130 +246,127 @@ $(document).ready(function() {
 <script>
    //비밀번호 일치 확인
 $(document).ready(function() {   
-	$("#modalPasswordReset_rck").on("change",function(){
-	      var pw_passed = true; // 추후 벨리데이션 처리시에 해당 인자값 확인을 위해
-          var pw = $("#modalPasswordReset1").val();
-          var pw2 = $("#modalPasswordReset_rck").val();
-          var m_email = $("#modalPasswordResetEmail").val();
-          var csrfHeaderName = "${_csrf.headerName}";
-          var csrfTokenValue = "${_csrf.token}";
-	      modalPasswordReset();
-	      function modalPasswordReset() 
-	      {
-	            pw_passed = true;
-	      
-	            if (pw.length == 0) 
-	            {
-	               $("#pw_chk").text("비밀번호를 입력해주세요");
-	               $("#pw_chk").css("color", "#dc3545");
-	               return false;
-	            } 
-	            else 
-	            {
-	               //비밀번호 중복 확인
-	               if (pw != pw2) 
-	               {
-	                  $("#pw_chk").text("비밀번호가 일치하지 않습니다.");
-	                  $("#pw_chk").css("color", "#dc3545");
-	                  return false;
-	               } 
-	               else 
-	               {
-	                  $("#pw_chk").text("사용 가능한 비밀번호 입니다.");
-	                  $("#pw_chk").css("color", "#007bff");
-	               }
-	            }
-	      
-	            var pattern1 = /[0-9]/;
-	            var pattern2 = /[a-zA-Z]/;
-	            var pattern3 = /[~!@\#$%<>^&*]/; // 특수문자
-	            var pw_msg = "";
-	      
-	            if (!pattern1.test(pw) || !pattern2.test(pw)|| !pattern3.test(pw) || pw.length<8 || pw.length>50) 
-	            {
-	               $("#pw_chk").text("영문+숫자+특수기호 8자리 이상으로 구성하여야 합니다.");
-	               $("#pw_chk").css("color", "#dc3545");
-	               return false;
-	            }
-	      
-	            if (pw.indexOf(m_email) > -1) 
-	            {
-	               $("#pw_chk").text("비밀번호는 ID를 포함할 수 없습니다.");
-	               $("#pw_chk").css("color", "#dc3545");
-	               return false;
-	            }
-	      
-	            var SamePass_0 = 0; //동일문자 카운트
-	            var SamePass_1 = 0; //연속성(+) 카운드
-	            var SamePass_2 = 0; //연속성(-) 카운드
-	      
-	            for(var i = 0; i < pw.length; i++) 
-	            {
-	               var chr_pass_0;
-	               var chr_pass_1;
-	               var chr_pass_2;
-	      
-	               if (i >= 2) 
-	               {
-	                  chr_pass_0 = pw.charCodeAt(i - 2);
-	                  chr_pass_1 = pw.charCodeAt(i - 1);
-	                  chr_pass_2 = pw.charCodeAt(i);
-	                  //동일문자 카운트
-	      
-	                  if ((chr_pass_0 == chr_pass_1)&& (chr_pass_1 == chr_pass_2)) 
-	                  {
-	                     SamePass_0++;
-	                  } 
-	                  else 
-	                  {
-	                     SamePass_0 = 0;
-	                  }
-	                  //연속성(+) 카운드
-	      
-	                  if (chr_pass_0 - chr_pass_1 == 1&& chr_pass_1 - chr_pass_2 == 1) 
-	                  {
-	                     SamePass_1++;
-	                  } 
-	                  else 
-	                  {
-	                     SamePass_1 = 0;
-	                  }
-	      
-	                  //연속성(-) 카운드
-	                  if (chr_pass_0 - chr_pass_1 == -1&& chr_pass_1 - chr_pass_2 == -1) 
-	                  {
-	                     SamePass_2++;
-	                  } 
-	                  else 
-	                  {
-	                     SamePass_2 = 0;
-	                  }
-	               }
-	      
-	               if (SamePass_0 > 0) 
-	               {
-	                  $("#pw_chk").text("동일문자를 3자 이상 연속 입력할 수 없습니다.");
-	                  $("#pw_chk").css("color", "#dc3545");
-	                  pw_passed = false;
-	               }
-	      
-	               if (SamePass_1 > 0 || SamePass_2 > 0) 
-	               {
-	                  $("#pw_chk").text("영문, 숫자는 3자 이상 연속 입력할 수 없습니다.");
-	                  $("#pw_chk").css("color", "#dc3545");
-	                  pw_passed = false;
-	               }
-	      
-	               if (!pw_passed) 
-	               {
-	                  return false;
-	                  break;
-	               }
-	            }
-	            return true;
-	      }
+	var pw_passed = true; // 추후 벨리데이션 처리시에 해당 인자값 확인을 위해
+	
+	
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	$("#modalPasswordReset1").on("change",function(e){
+		modalPasswordReset();
 	});
-});
+	$("#modalPasswordReset_rck").on("change",function(e){
+		modalPasswordReset();
+	});
+	function modalPasswordReset()
+	{
+		pw_passed = true;
+		var pw = $("#modalPasswordReset1").val();
+		var pw2 = $("#modalPasswordReset_rck").val();
+		var m_email = $("#modalPasswordResetEmail").val();
+		if (pw.length == 0)
+		{
+			
+			$("#pw_chk").text("비밀번호를 입력해주세요");
+			$("#pw_chk").css("color", "#dc3545");
+			return false;
+		}
+		else
+		{
+			//비밀번호 중복 확인
+			if (pw != pw2)
+			{
+				$("#pw_chk").text("비밀번호가 일치하지 않습니다.");
+				$("#pw_chk").css("color", "#dc3545");
+				return false;
+				}
+			else
+			{
+				$("#pw_chk").text("사용 가능한 비밀번호 입니다.");
+				$("#pw_chk").css("color", "#007bff");
+			}
+		}
+		var pattern1 = /[0-9]/;
+		var pattern2 = /[a-zA-Z]/;
+		var pattern3 = /[~!@\#$%<>^&*]/; // 특수문자
+		var pw_msg = "";
+		if (!pattern1.test(pw) || !pattern2.test(pw)|| !pattern3.test(pw) || pw.length<8 || pw.length>50)
+		{
+			$("#pw_chk").text("영문+숫자+특수기호 8자리 이상으로 구성하여야 합니다.");
+			$("#pw_chk").css("color", "#dc3545");
+			return false;
+		}
+		if (pw.indexOf(m_email) > -1)
+		{
+			$("#pw_chk").text("비밀번호는 ID를 포함할 수 없습니다.");
+			$("#pw_chk").css("color", "#dc3545");
+			return false;
+		}
+		var SamePass_0 = 0; //동일문자 카운트
+		var SamePass_1 = 0; //연속성(+) 카운드
+		var SamePass_2 = 0; //연속성(-) 카운드
+	      
+		for(var i = 0; i < pw.length; i++)
+		{
+			var chr_pass_0;
+			var chr_pass_1;
+			var chr_pass_2;
+	      
+			if (i >= 2)
+			{
+				chr_pass_0 = pw.charCodeAt(i - 2);
+				chr_pass_1 = pw.charCodeAt(i - 1);
+				chr_pass_2 = pw.charCodeAt(i);
+				//동일문자 카운트
+	      
+				if ((chr_pass_0 == chr_pass_1)&& (chr_pass_1 == chr_pass_2))
+				{
+					SamePass_0++;
+				}
+				else
+				{
+					SamePass_0 = 0;
+				}
+				//연속성(+) 카운드
+	      
+				if (chr_pass_0 - chr_pass_1 == 1&& chr_pass_1 - chr_pass_2 == 1)
+				{
+					SamePass_1++;
+				}
+				else
+				{
+					SamePass_1 = 0;
+				}
+				//연속성(-) 카운드
+				if (chr_pass_0 - chr_pass_1 == -1&& chr_pass_1 - chr_pass_2 == -1)
+				{
+					SamePass_2++;
+				}
+				else
+				{
+					SamePass_2 = 0;
+				}
+			}
+			if (SamePass_0 > 0)
+			{
+				$("#pw_chk").text("동일문자를 3자 이상 연속 입력할 수 없습니다.");
+				$("#pw_chk").css("color", "#dc3545");
+				pw_passed = false;
+			}
+			if (SamePass_1 > 0 || SamePass_2 > 0)
+			{
+				$("#pw_chk").text("영문, 숫자는 3자 이상 연속 입력할 수 없습니다.");
+				$("#pw_chk").css("color", "#dc3545");
+				pw_passed = false;
+			}
+			if (!pw_passed)
+			{
+				return false;
+				break;
+				}
+			}
+		return true;
+		}
+   });
    
    
 </script>
