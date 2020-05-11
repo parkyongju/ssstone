@@ -51,7 +51,7 @@
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   	회원 정보 수정
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/order?m_no=${m_no}">
                   	구매목록
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/payment/shopcart?m_no=${m_no}">

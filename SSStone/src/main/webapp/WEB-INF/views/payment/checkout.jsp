@@ -218,7 +218,7 @@
 <div class="row" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="modal fade" id="modal" tabindex="-1">
       <div class="modal-dialog">
-         <div class="modal-content" style="width:100%; height:100%">
+         <div class="modal-content" style="width:100%; height:100%;">
             <div class="modal-header">
                      결제하기
             </div>

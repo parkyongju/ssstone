@@ -26,7 +26,7 @@
     <!-- BREADCRUMB end -->
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12">
+    <section class="pt-7 pb-12" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
