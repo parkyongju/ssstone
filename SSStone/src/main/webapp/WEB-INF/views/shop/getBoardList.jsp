@@ -65,12 +65,12 @@
 								<sec:authentication property="principal.member.m_no" var = "pinfo"/>
 								<c:if test="${pinfo eq board.m_no }">
 									<button data-oper='modify' class="btn btn-outline-dark mb-1 btn-s" onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">
-										수정하기
+										수정
 									</button>
 								</c:if>
 							</sec:authorize>
 						<button data-oper='list' class="btn btn-outline-dark mb-1 btn-s" onclick="location.href='/shop/boardList'">
-							목록으로
+							목록
 						</button>
 						
 						</div>
@@ -99,7 +99,7 @@
 						<input class="col-md-9 " name="r_content" type="text" placeholder="내용을 입력하세요" >
 						<input type ='hidden'name='r_order' value='0'>
 						<input type='hidden' name='r_depth' value='0'>
-						<button id='replyRegisterBtn' class='btn btn-outline-dark mb-1 btn-xxs pull-right'>댓글달기</button>
+						<button id='replyRegisterBtn' class='btn btn-outline-dark mb-1 btn-xxs pull-right'>댓글</button>
 						<input class="col-md-1" type="hidden" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
 						</sec:authorize>
 					</div>
@@ -196,8 +196,8 @@ $(document).ready(function() {
 					<sec:authorize access="isAuthenticated()">
 					if(user_no == list[i].m_no )
 					{
-						str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;'>"+
-						"수정하기<i class='fe fe-edit-2'></i></small></span>";
+						str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;cursor:pointer;'>"+
+						"수정<i class='fe fe-edit-2'></i></small></span>";
 					
 					}
 					</sec:authorize>
@@ -214,7 +214,7 @@ $(document).ready(function() {
 					+ "</small>";
 
 					/* <sec:authorize access="isAuthenticated()"> */
-					str += "<i data-r_no='"+list[i].r_no+"' data-r_depth='"+list[i].r_depth +"' class='rereply fa fa-plus' style='float: right;'> <small>답글 달기</small></i>";
+					str += "<i data-r_no='"+list[i].r_no+"' data-r_depth='"+list[i].r_depth +"' class='rereply fa fa-plus' style='float: right;cursor:pointer;'> <small style='cursor:pointer;'>답글</small></i>";
 					/* </sec:authorize> */
 					str+="</div>";
 					str += " <p>" + "<label style='color:grey;'>내용  </label> "
@@ -222,7 +222,7 @@ $(document).ready(function() {
 					<sec:authorize access="isAuthenticated()">
 					if(user_no == list[i].m_no )
 					{
-					str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;'>수정하기<i class='fe fe-edit-2'></i></small></span>";
+					str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;cursor:pointer;'>수정<i class='fe fe-edit-2'></i></small></span>";
 					}
 					</sec:authorize>
 					

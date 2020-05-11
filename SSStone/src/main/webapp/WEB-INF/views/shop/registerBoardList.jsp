@@ -15,8 +15,8 @@
          <div class="col-12">
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-               <li class="breadcrumb-item"><a class="text-gray-400" href="index.html">Home</a></li>
-               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boradList">게시판</a></li>
+               <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boardList">Board</a></li>
                <li class="breadcrumb-item active">글쓰기</li>
             </ol>
 
@@ -56,8 +56,8 @@
                <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div> 
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <button type="submit" class="btn btn-default">작성하기</button>
-               <button type="reset" class="btn btn-default">되돌리기</button>
+               <button type="submit" class="btn btn-outline-dark mb-1 btn-s ">작성</button>
+               <button type="reset" class="btn btn-outline-dark mb-1 btn-s">이전으로</button>
                
             </form>
          
