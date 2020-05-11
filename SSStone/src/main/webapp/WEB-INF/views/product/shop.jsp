@@ -174,31 +174,30 @@
          <!-- Progress -->
          <div class="row justify-content-center mt-7">
             <div class="col-12 text-center">
-
-              <!-- Pagination -->
-              <nav class="d-flex justify-content-center mt-9">
-                <ul class="pagination pagination-sm text-gray-400">
-                  <c:if test="${pageMaker.prev }">   <!-- 이전 -->
-                     <li class="page-item">
-                       <a class="page-link page-link-arrow"  href="${pageMaker.startPage -1 }"><i class="fa fa-caret-left"></i></a></li>
-                  </c:if>
-                  <c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-                     
-                     <li class='page-item  ${ pageMaker.productcriteria.pageNum == num ? "active" : "" }'>
-                        <a class="page-link" href="${num }">${num }</a>
-                     </li>
-                  </c:forEach>
-                  <c:if test="${pageMaker.next }"><!-- 다음 -->
-                     <li class="page-item">
-                     <a class="page-link page-link-arrow" href="${pageMaker.endPage +1 }"><i class="fa fa-caret-right"></i></a></li>
-                  </c:if>
-                </ul>
-              </nav>
-            </div>
-         </div>
-       </div>
-     </div>
-     <!-- 페이징 처리 끝 -->
+				  <!-- Pagination -->
+				  <nav class="d-flex justify-content-center mt-9">
+					 <ul class="pagination pagination-sm text-gray-400">
+						<c:if test="${pageMaker.prev }">	<!-- 이전 -->
+							<li class="page-item">
+							  <a class="page-link page-link-arrow"  href="${pageMaker.startPage -1 }"><i class="fa fa-caret-left"></i></a></li>
+						</c:if>
+						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+							
+							<li class='page-item  ${ pageMaker.productcriteria.pageNum == num ? "active" : "" }'>
+								<a class="page-link" href="${num }">${num }</a>
+							</li>
+						</c:forEach>
+						<c:if test="${pageMaker.next }"><!-- 다음 -->
+							<li class="page-item">
+							<a class="page-link page-link-arrow" href="${pageMaker.endPage +1 }"><i class="fa fa-caret-right"></i></a></li>
+						</c:if>
+					 </ul>
+				  </nav>
+				</div>
+			</div>
+		 </div>
+	  </div>
+	  <!-- 페이징 처리 끝 -->
 
      <form action="/product/shop" id='actionForm' method='get'>
        <input type='hidden' name='pageNum'

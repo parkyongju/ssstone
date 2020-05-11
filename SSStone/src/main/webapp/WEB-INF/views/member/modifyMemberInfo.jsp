@@ -31,6 +31,7 @@
       <div class="col-12 text-center">
         <!-- Heading -->
          <h3 class="mb-10">회원 정보 수정</h3>
+
           </div>
         </div>
         
@@ -115,8 +116,9 @@
                   <div class="form-group">
                     <label for="m_password">비밀번호 *</label>
                     <div style="display:flex;">
-                    <input class="form-control form-control-sm" id="m_password" type="password" maxlength="50" placeholder="비밀번호 *" name="m_password" required="required" >
-                    <div id="pw_chk"><br/></div>
+
+                    <input class="form-control form-control-sm" id="m_password" type="password" maxlength="50" placeholder="비밀번호 *" name="m_password" required="required" ><br></div>
+                    <div id="pw_chk"><br/>
                   </div>
             </div>
                    
@@ -196,15 +198,21 @@
         <div class="form-group">
            <input class="form-control form-control-sm" id="sample6_extraAddress" type="text" placeholder="참고사항 *">
         </div>
-      </div>    
-       <div class="col-12 col-md-auto" id="allCheck" >
-        <!-- 수정버튼 -->
-         <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >               
-           <!-- Button -->
-           <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="font-family: 'Do Hyeon', sans-serif;white-space: nomal;float: right;">
-            수정
-            </button>
-           </div>
+      </div>  
+          
+                  
+            <div class="form-group">
+           <div class="col-12 col-md-auto" id="allCheck">
+            <!-- 수정버튼 -->
+             <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
+               <div class="col-12" >
+               <!-- Button -->
+               <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                수정
+                </button>
+                </div>
+                </div>
+            </div>
            </div>
         </form>
           </div>
@@ -284,6 +292,13 @@
 <script type="text/javascript">
 //비밀번호 일치 확인
 var pw_passed = true;  // 추후 벨리데이션 처리시에 해당 인자값 확인을 위해
+
+$("#m_password").on("change",function(e){
+	pw_passed = pw_check();
+});
+$("#m_password_rck").on("change",function(e){
+	pw_passed = pw_check();
+});
 
  function pw_check() {
     var pw = document.getElementById("m_password").value;

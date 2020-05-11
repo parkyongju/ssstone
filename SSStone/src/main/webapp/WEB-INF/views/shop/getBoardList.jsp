@@ -281,7 +281,6 @@ $(document).ready(function() {
    });
    // -- 여기까지가 댓글 페이지의 화면 처리 --
 
-   
    //댓글 시작
    var R_content = $("input[name='r_content']");
    var M_no = $("input[name='m_no']");
