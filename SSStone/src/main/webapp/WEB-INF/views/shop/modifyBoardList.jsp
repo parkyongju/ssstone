@@ -135,7 +135,20 @@
 				formObj.append(typeTag);
 				formObj.empty();
 				}
-			
+			else if(operation ='modify')
+			{
+				$(document).ready(function(e){
+					$("#modboard").on("click", function(e){
+						var b_title = $("input[name=b_title]").val();
+						alert(b_title);
+						var b_content = $("input[name='b_content']").val();
+						alert(b_content);
+						var m_no = $("input[name='m_no']").val();
+						alert(m_no);
+						var
+					});
+				});
+			}
 			formObj.submit();
 			});
 		});

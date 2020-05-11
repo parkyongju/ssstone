@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -315,7 +316,7 @@ $(document).ready(function() {
 		replyService.get(r_no, function(reply) {
 			str += "<input value= '"+ reply.r_content +"' id='modreply_content' class='col-md-9' > ";
 			str +=" <input type=hidden class='col-md-1' name='m_no' value='"+reply.m_no+"' > ";
-			str += " <button class='replyModifyBtn btn btn-outline-dark mb-1 btn-xxs' data-r_no='"+r_no+"'  >댓글수정</button><a class='replyRemoveBtn fe fe-x fa-fw fa-xxs pull-right' data-r_no='"+r_no+"'></a>";		//댓글 수정 버튼
+			str += " <button class='replyModifyBtn btn btn-outline-dark mb-1 btn-xxs' data-r_no='"+r_no+"'  >댓글수정</button><a class='RemoveBtn fe fe-x fa-fw fa-xxs pull-right' data-r_no='"+r_no+"'></a>";		//댓글 수정 버튼
 			modifyInput.html(str);
 			$(".replyModifyBtn").on("click", function(e) {				//댓글 수정 버튼 누르면
 				var r_content1= $("#modreply_content");
@@ -327,11 +328,11 @@ $(document).ready(function() {
 					showList(pageNum);
 				});
 			});
-			$(".replyRemoveBtn").on("click", function(e) {
+			$(".RemoveBtn").on("click", function(e) {
 				var removeResult = confirm("댓글을 지우겠습니까?");
 				if(removeResult){
 					r_no = $(this).data("r_no");
-					alert(r_no);
+					m_no = $("input[name='m_no']").val();
 					replyService.remove(r_no, function(result) {
 						showList(pageNum);
 					});
@@ -378,4 +379,47 @@ $(document).ready(function() {
 });
 </script>
 
+<script type="text/javascript">
+	/*   console.log("============");
+	 console.log("JS TEST");
+
+	 var b_noValue='<c:out value="${board.b_no}"/>';
+
+	 //for replyService add test
+	 replyService.add({
+	 r_content:"JS Test", m_email:"ddd@ddd.com", m_no:88, b_no:b_noValue}, function(result){
+	 alert("RESULT: " + result);
+	 }
+	 );    
+	 */
+	//reply List Test
+	/* replyService.getList({b_no:b_noValue, page:1}, function(list){
+	 for(var i=0, len=list.length||0; i<len; i++){
+	 console.log(list[i]);
+	 }
+	 });  */
+
+	/*  replyService.remove(45, function(count) {
+	 console.log(count);
+	
+	 if(count === "success") {
+	 alert("REMOVED");
+	 }
+	 }, function(err){
+	 alert('ERROR...');
+	 }); */
+
+	/*   replyService.update({
+	 r_no : 19,
+	 b_no : b_noValue,
+	 r_content : "Modified Reply...."
+	 }, function(result){
+	 alert("수정 완료...");
+	
+	 }); */
+
+	/*  replyService.get(27, function(data){
+	 console.log(data);
+	 }); */
+</script>
 <%@ include file="../includes/footer.jsp"%>
