@@ -180,13 +180,10 @@
 	            dataType : 'text',
 	            type : 'get',
 	            success : function(result){
-<<<<<<< HEAD
+
 	            	modal1.modal('hide');
 	            	modal2.modal('hide');
-=======
-	            	modal1.hide();
-	            	modal2.hide();
->>>>>>> branch 'fbwjddn' of https://github.com/parkyongju/ssstone
+
 	            	alert("비밀번호가 변경되었습니다.");
 	            }
 	         });

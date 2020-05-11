@@ -73,14 +73,10 @@
                         <div class="col-12">
                            <!-- Email -->
                            <div class="form-group">
-                           
-<<<<<<< HEAD
-                              <label class="sr-only" for="loginEmail"></label> 
-                              <input class="form-control form-control-sm" name="username" id="loginEmail" type="text" readonly="readonly" value='ID : <c:out value="${member.m_email}"/>'>
-=======
+
                               <label class="sr-only" for="loginEmail"> Email Address</label> 
                               <input class="form-control form-control-sm" value='ID : <c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
->>>>>>> branch 'fbwjddn' of https://github.com/parkyongju/ssstone
+
                            </div>
                         </div>
                         <div class="col-12">
