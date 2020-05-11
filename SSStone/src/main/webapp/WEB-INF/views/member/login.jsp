@@ -256,7 +256,7 @@ $(document).ready(function() {
           var csrfHeaderName = "${_csrf.headerName}";
           var csrfTokenValue = "${_csrf.token}";
 	      modalPasswordReset();
-	      function modalPasswordReset() 
+	      function modalPasswordReset()
 	      {
 	            pw_passed = true;
 	      
