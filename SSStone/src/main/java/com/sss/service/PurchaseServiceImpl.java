@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sss.domain.ProductVO;
 import com.sss.domain.PurchaseMemberVO;
 import com.sss.domain.PurchaseVO;
 import com.sss.domain.Shopping_cartVO;
@@ -39,27 +38,23 @@ public class PurchaseServiceImpl implements PurchaseService {
 		return mapper.purchaseMember(pc_no);
 	}
 
-	public void register(long m_no) {		//상품 구매 컨트롤러
-		mapper.insert(m_no);				//m_no로 구매 번호 생성
-		Long pc_no = mapper.readByM_no(m_no);//구매 번호 불러옴
-		Long p_no = 0L;						//예비 p_no
+	public void register(long m_no) {
+		mapper.insert(m_no);
+		Long pc_no = mapper.readByM_no(m_no);
+		Long p_no = 0L;
 		ArrayList<Shopping_cartVO> cartlist = new ArrayList<>();
 		cartlist = (ArrayList<Shopping_cartVO>) cartMapper.listCart(m_no);
 		for (int i = 0; i < cartMapper.listCart(m_no).size(); i++) {
 			PurchaseMemberVO membervo = new PurchaseMemberVO();
-			p_no = cartlist.get(i).getP_no();	//카트에 있는 p_no 불러옴
-			membervo.setP_no(p_no);				//구매번호에 p_no 넣음
-			membervo.setPc_no(pc_no);			//구매 번호 설정
+			p_no = cartlist.get(i).getP_no();
+			membervo.setP_no(p_no);
+			membervo.setPc_no(pc_no);
 			Shopping_cartVO cart = new Shopping_cartVO();
 			cart.setM_no(m_no);
 			cart.setP_no(p_no);
-			long amount = cartMapper.getamount(cart);	//갯수 가져옴
+			long amount = cartMapper.getamount(cart);
 			membervo.setS_amount(amount);
-			
-			ProductVO product = productMapper.read(p_no);
-			product.setP_stock(product.getP_stock() - amount);
-			productMapper.update(product);	//판매된 상품 갯수 만큼 product테이블에서 stock 빼기
-			
+
 			MemberMapper.insert(membervo);
 
 		}
