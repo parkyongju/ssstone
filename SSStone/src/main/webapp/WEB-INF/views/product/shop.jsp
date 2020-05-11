@@ -70,57 +70,44 @@
 			<c:set var="j" value="4" />
 				<ul style="padding:0px 1px 0px 1px;">
 			<c:choose>
-				<c:when test="${productList != null && fn:length(productList) > 0 }">
-					<c:forEach items="${productList }" var="product">
-					<c:if test="${i%j==0 }">
-						<li style="display:flex;">
-					</c:if>
-					<div class="col-12 col-md-3 col-lg" style="justify-content:space-between">
-						<!-- Card -->
-						<div class="move card mb-7" data-toggle="card-collapse" href= '<c:out value="${product.p_no }"/>' >
-						  <!-- Image -->
-						  <div style="width: 250px;"> 	
-							  <a href="/product/product?p_no=<c:out value='${product.p_no }'/>" class="card-img-top" >
-							  	<c:if test="${product.p_stock > 0 }">
-								  <img
-									 src='/display?fileName=<c:out value="${product.p_filepath }"/>/<c:out value="${product.p_uuid }"/>_<c:out value="${product.p_filename }"/>' 
-									 alt="..."
-									 width="250px" height="250px" href='<c:out value="${member.m_no }"/>'>
-								 </c:if>
-								 <c:if test="${product.p_stock<= 0 }">	<!-- 재고 없을때 -->
-								 	<img
-									 src='/display?fileName=<c:out value="${product.p_filepath }"/>/<c:out value="${product.p_uuid }"/>_<c:out value="${product.p_filename }"/>' 
-									 alt="..."
-									 width="250px" height="250px" style="filter: blur(4px);">
-								 </c:if>
-							  </a>
-							  <!-- Collapse -->
-							  <div class="card-collapse-parent">
-								 <!-- Body -->
-								 <div class="card-body px-0 bg-white text-center">
-									<!-- Heading -->
-									<div class="mb-1 font-weight-bold">
-										<c:if test="${product.p_stock > 0 }">
-											<a class="text-body" href='<c:out value="${member.m_no }"/>'> <c:out value="${product.p_name }"/> </a>										
-										</c:if>
-										<c:if test="${product.p_stock<= 0 }">
-											<a class="text-body" > <del><c:out value="${product.p_name }"/> </del><span style="color: red;"> sold out</span></a>	
-										</c:if>
-									</div>
-									<!-- Price -->
-									<div class="mb-1 font-weight-bold text-muted"><fmt:formatNumber value="${product.p_price }" pattern="#,###" />원</div>
-								 </div>
-							  </div>
+			<c:when test="${productList != null && fn:length(productList) > 0 }">
+			<c:forEach items="${productList }" var="product">
+			<c:if test="${i%j==0 }">
+				<li style="display:flex;">
+			</c:if>
+			<div class="col-12 col-md-3 col-lg" style="justify-content:space-between">
+				<!-- Card -->
+				<div class="move card mb-7" data-toggle="card-collapse" href='<c:out value="${product.p_no }"/>' >
+				  <!-- Image -->
+				  <div style="width: 250px;"> 	
+					  <a href="product.html" class="card-img-top" > <img
+						 src='/display?fileName=<c:out value="${product.p_filepath }"/>/<c:out value="${product.p_uuid }"/>_<c:out value="${product.p_filename }"/>' 
+						 alt="..."
+						 width="250px" height="250px" href='<c:out value="${member.m_no }"/>'>
+					  </a>
+					  <!-- Collapse -->
+					  <div class="card-collapse-parent">
+						 <!-- Body -->
+						 <div class="card-body px-0 bg-white text-center">
+							<!-- Heading -->
+							<div class="mb-1 font-weight-bold">
+								<a class="text-body" href='<c:out value="${member.m_no }"/>'> <c:out value="${product.p_name }"/> </a>
 							</div>
-						</div>
+							<!-- Price -->
+							<div class="mb-1 font-weight-bold text-muted"><fmt:formatNumber value="${product.p_price }" pattern="#,###" />원</div>
+						 </div>
+					  </div>
 					</div>
-					<c:if test="${i%j==j-1 }">
-					</c:if>
-					<c:set var="i" value="${i+1 }"/>
-					
-				 </c:forEach>
-			 
-		  </c:when>
+				</div>
+			</div>
+			<c:if test="${i%j==j-1 }">
+				</li>
+			</c:if>
+			<c:set var="i" value="${i+1 }"/>
+			
+		 </c:forEach>
+		 
+	  </c:when>
 	  </c:choose>
 	  </ul>
 	  
@@ -159,35 +146,9 @@
 				<input type='hidden' name='amount' value='<c:out value="${pageMaker.productcriteria.amount}" />' />
 				<button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
 				</div>
-				<form action="/product/shop" id="searchForm" method="get">
-				 	<div class="form-group">
-						<select name='type' class="custom-select">
-						  <option value=""
-							 <c:out value="${pageMaker.cri.type == null?'selected':'' }" />>원하시는 입력방법을 선택해주세요.</option>
-						  <option value="T"
-							 <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>카테고리</option>
-						  <option value="C"
-							 <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>재질</option>
-						  <option value="N"
-							 <c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-						  <option value="">--</option>
-						  <option value="TC"
-							 <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>카테고리
-							 or 재질</option>
-						  <option value="TCN"
-							 <c:out value="${pageMaker.cri.type eq 'TCN'?'selected':''}" />>전체 검색</option>
-						</select> 
-					</div>
-					
-					<div class="input-group input-group-merge">
-						<input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />' class="form-control"  id="keyword" placeholder="Search"/> 
-						<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.productcriteria.pageNum}"/>' /> 
-						<input type='hidden' name='amount' value='<c:out value="${pageMaker.productcriteria.amount}" />' />
-						<button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
-					</div>
-					
-				</form>
-			 </div>
+				
+			</form>
+		 </div>
 	  </div>
 	  <!-- 검색 처리 끝 -->
 
@@ -206,13 +167,12 @@
 					 <ul class="pagination pagination-sm text-gray-400">
 						<c:if test="${pageMaker.prev }">	<!-- 이전 -->
 							<li class="page-item">
-							  <a class="page-link page-link-arrow"  href="${pageMaker.startPage -1 }"><i class="fa fa-caret-left"></i></a></li>
+							  <a class="page-link page-link-arrow"  href="${pageMaker.startPage -1 }"><i class="fa fa-caret-left"></a></li>
 						</c:if>
 						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 							
-							<li class='page-item  ${ pageMaker.productcriteria.pageNum == num ? "active" : "" }'>
-								<a class="page-link page-link-arrow" href="${num }">${num }</a>
-							</li>
+							<li class="page-item  ${pageMaker.cri.pageNum == num ? "active" : ""} "><a
+							  class="page-link page-link-arrow" href="${num }">${num }</a></li>
 						</c:forEach>
 						<c:if test="${pageMaker.next }"><!-- 다음 -->
 							<li class="page-item">

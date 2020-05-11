@@ -72,10 +72,8 @@ public class ReplyServiceImpl implements ReplyService {
    public int remove(Long r_no) {
       log.info("remove....." + r_no);
       ReplyVO vo = mapper.read(r_no);
-      vo.setR_content("삭제된 내용 입니다.");
-      vo.setM_no(0L);
-//      boardMapper.updateReplyCnt(vo.getB_no(), -1);
-      return mapper.update(vo);
+      boardMapper.updateReplyCnt(vo.getB_no(), -1);
+      return mapper.delete(r_no);
    }
 
 
