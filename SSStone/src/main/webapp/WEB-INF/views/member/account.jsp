@@ -56,7 +56,7 @@
 				</div>
 				<div style="margin-top: 2rem">
 					
-					<button type="button" class="btn btn-outline-success btn-sm" id="emailBtn" style="float: right; margin-right: 3px;">이메일 발송</button>
+					<button type="button" class="btn btn-outline-dark btn-sm" id="emailBtn" style="float: right; margin-right: 3px;">이메일 발송</button>
 				</div>
 				<div class="col-9">
 					<div class="col-5" style="margin-left: 50%px;">
@@ -196,7 +196,7 @@
 				<!-- /. 우편번호 -->
 				<div style="margin-top: 2rem">
 					<button type="button" onclick="sample6_execDaumPostcode()"
-						class="btn btn-outline-success btn-sm" style="float: right">우편번호
+						class="btn btn-outline-dark btn-sm" style="float: right">우편번호
 						찾기</button>
 				</div>
 
@@ -230,7 +230,7 @@
 				<div class="col-6">
 					<!-- 
                   <button class="btn btn-outline-success" type="submit">회원가입</button> -->
-					<button id="submitBtn">회원 가입</button>
+					<button id="submitBtn" class="btn btn-outline-dark">회원 가입</button>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName }"
 					value="${_csrf.token }">

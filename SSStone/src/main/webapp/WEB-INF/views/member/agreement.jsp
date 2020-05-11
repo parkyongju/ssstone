@@ -303,8 +303,8 @@
          
          <div class="col-12">
             <div class="form-group" style="text-align:center">
-               <button class="btn btn-outline-secondary btn-lg" onclick="location.href='/shop/main'" type="button">이전 단계로</button>
-               <button class="btn btn-outline-info btn-lg" type="submit">다음 단계로</button>
+               <button class="btn btn-outline-dark btn-lg" onclick="location.href='/shop/main'" type="button">이전 단계로</button>
+               <button class="btn btn-outline-dark btn-lg" type="submit">다음 단계로</button>
             </div>
          </div>   
       </div>
