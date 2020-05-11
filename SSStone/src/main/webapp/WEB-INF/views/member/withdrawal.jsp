@@ -68,14 +68,15 @@
                   <!-- Heading -->
                   <h6 class="mb-7">회원탈퇴</h6>
                   <!-- Form -->
-                  <form method="post" action="/withdrawal">
+                  <form role="form" method="post" action="/member/withdrawal" name="form1">
                      <div class="row">
                         <div class="col-12">
                            <!-- Email -->
                            <div class="form-group">
-                           
+
                               <label class="sr-only" for="loginEmail"> Email Address</label> 
                               <input class="form-control form-control-sm" value='ID : <c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
+
                            </div>
                         </div>
                         <div class="col-12">
@@ -94,9 +95,14 @@
                         <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
                         <div class="col-12" style="left: 170px;">
                            <!-- Button -->
-                        <button class="login btn btn-outline-border" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                        <button class="login btn btn-outline-border" id="withdrawal" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
                            	탈퇴하기
                         </button>
+                        <sec:authorize access="isAuthenticated()">
+                        
+                              <input id = "m_no" type="hidden" value="<sec:authentication property="principal.member.m_no"/>">
+                     
+                  </sec:authorize>
                         </div>
                      </div>
                      </div>
@@ -108,7 +114,17 @@
    </div>
 </section>
 
-
+<script type="text/javascript">
+$(document).ready(function(){
+   $("#withdrawal").on("click", function(){
+      var m_no = $("#m_no").val();
+      if(confirm("정말로 탈퇴하시겠습니까?")){
+         document.form1.action = "/member/withdrawal?m_no="+m_no;
+         document.form1.submit();
+      }
+   });
+});
+</script>
 
 
 

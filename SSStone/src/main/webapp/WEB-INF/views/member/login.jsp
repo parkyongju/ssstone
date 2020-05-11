@@ -180,8 +180,10 @@
 	            dataType : 'text',
 	            type : 'get',
 	            success : function(result){
-	            	modal1.hide();
-	            	modal2.hide();
+
+	            	modal1.modal('hide');
+	            	modal2.modal('hide');
+
 	            	alert("비밀번호가 변경되었습니다.");
 	            }
 	         });

@@ -10,41 +10,59 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/adminheader.jsp"%>
 
-<!-- Page Content -->
-<div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">상품 수정</h1>
+<!-- BREADCRUMB -->
+    <nav class="py-3" style="font-family: 'Do Hyeon', sans-serif;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
 
-				<div class="panel-heading">
-					<button id="regBtn" type="button" class="btn btn-xs pull-right"
-						onclick="self.location ='/admin/productList'">이전 페이지</button>
-				</div>
-				<!-- /.panel-heading -->
-			</div>
-			<!-- /.col-lg-12 -->
-		</div>
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active">
+                   관리자 상품수정
+              </li>
+            </ol>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<!-- Page Content -->
+<section id="page-wrapper">
+	<div class="container">
+
+		<div class="row">
+          <div class="col-12 text-center">
+            <!-- Heading -->
+            <h3 class="mb-10 mr-13">관리자 상품수정</h3>
+            <hr>
+          </div>
+        </div>
 
 		<div style="margin-left: 0%; font-size: 15px">
 			<form method="post" action="/admin/productModify" role="form">
 
-				<div class="col-md-12">
-					<div class="col-md-5">
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="p_no"> 상품번호</label>
-							<div style="display: flex; float: right">
+							<div style="display: flex;">
 								<input class="form-control" id="p_no" type="text" name="p_no"
 									value='<c:out value="${product.p_no}"/>' readonly="readonly">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
-					<div class="col-md-5">
+				
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="p_name"> 상품 이름 </label>
-							<div style="display: flex; float: right">
+							<div style="display: flex;">
 								<input class="form-control" id="p_name" type="text"
 									name="p_name" value='<c:out value="${product.p_name}"/>'>
 							</div>
@@ -52,23 +70,11 @@
 					</div>
 				</div>
 
-				<div class="col-md-12">
-					<div class="col-md-5">
-						<div class="form-group">
-							<label for="p_content"> 상품설명 </label>
-							<textarea class="form-control" cols="30" rows="3"
-								style="resize: none" name="p_content">
-                        <c:out value='${product.p_content}' /> 
-                     </textarea>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-12">
-					<div class="col-md-5">
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="p_price"> 상품가격 </label>
-							<div style="display: flex; float: right">
+							<div style="display: flex;">
 								<input class="form-control" id="p_price" type="text"
 									name="p_price" value='<c:out value="${product.p_price}"/>'>
 							</div>
@@ -76,11 +82,11 @@
 					</div>
 				</div>
 
-				<div class="col-md-12">
-					<div class="col-md-5">
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="p_stock"> 상품재고 </label>
-							<div style="display: flex; float: right">
+							<div>
 								<input class="form-control" id="p_stock" type="text"
 									name="p_stock" value='<c:out value="${product.p_stock}"/>'>
 							</div>
@@ -88,56 +94,67 @@
 					</div>
 				</div>
 
-				<div class="col-md-12">
-					<div class="col-md-5">
-						<div class="form-group">
-							<label for="P_OPTION"> 상품옵션 </label>
-							<div style="display: flex; float: right">
-								<input class="form-control" id="P_OPTION" type="text"
-									name="p_option" value='<c:out value="${product.p_option}"/>'>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 
-				<div class="col-md-12">
-					<div class="col-md-5">
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="p_category"> 상품 카테고리 </label>
 							<div style="display: flex;">
 
-								<select onchange="categoryChange(this)" style="width: 60%"
+								<select onchange="categoryChange(this)" style="width: 270px; height:30px"
 									name="p_category1">
 									<option value="선택 안됨">대분류를 선택해주세요.</option>
 									<option value="목걸이">목걸이</option>
-									<option value="반지">반지</option>
-									<option value="팔찌">팔찌</option>
-									<option value="귀걸이">귀걸이</option>
-								</select> <select id="good" style="width: 60%" name="p_category2">
+                           			<option value="반지">반지</option>
+                           			<option value="시계">시계</option>
+                           			<option value="팔찌">팔찌</option>
+                           			<option value="헤어">헤어</option>
+                           			<option value="귀걸이">귀걸이</option>
+								</select> <select id="good" style="width: 270px; margin-left:5px" name="p_category2">
 									<option value="선택 안됨">소분류를 선택해주세요.</option>
 								</select>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-12">
-					<div class="col-md-5">
+				
+				<div class="col-12">
+					<div class="col-md-6">
 						<div class="form-group">
-							<label for="p_regdate"> 등록날짜 </label>
-							<div style="display: flex; float: right">
-								<fmt:formatDate value="${product.p_regdate }"
-									pattern="yyyy/MM/dd" />
+							<label for="P_OPTION"> 상품옵션 </label>
+							<div>
+								<input class="form-control" id="P_OPTION" type="text"
+									name="p_option" value='<c:out value="${product.p_option}"/>'>
 							</div>
 						</div>
 					</div>
 				</div>
+				
+				<div class="col-12">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="p_content"> 상품설명 </label>
+							<textarea class="form-control" rows="5"
+								style="resize: none; width:540px" name="p_content">
+                        <c:out value='${product.p_content}' /> 
+                     </textarea>
+						</div>
+					</div>
+				</div>
 
-				<div class="col-md-12">
-					<div class="col-md-5">
+				<div class="col-12">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="p_regdate"> 등록날짜 </label>
+							<div style="display: flex;">
+								<fmt:formatDate value="${product.p_regdate }"
+									pattern="yyyy/MM/dd" />
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="p_updatedate"> 수정날짜 </label>
-							<div style="display: flex; float: right">
+							<div style="display: flex;">
 								<fmt:formatDate value="${product.p_updatedate }"
 									pattern="yyyy/MM/dd" />
 							</div>
@@ -212,18 +229,21 @@
 				</div>
 
 
-				<div class="col-md-5">
-					<div class="form-group">
-						<button type="submit" class="btn btn-outline btn-success btn-lg">변경</button>
-					</div>
-				</div>
+				<div class="col-md-5" style="display:flex; margin-left:510px" >
+               <div class="form-group" style="margin-left:5px">
+                  <button type="submit" class="btn btn-outline btn-default btn-lg">수정</button>
+               </div>
+               <div class="form-group" style="margin-left:5px">
+               <button id="regBtn" type="button" class="btn btn-outline btn-default btn-lg" onclick="self.location ='/admin/productList'">이전</button>
+            </div>
+            </div>
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" > 
 			</form>
 		</div>
 		<!-- /.row -->
 	</div>
 	<!-- /.container-fluid -->
-</div>
+</section>
 <!-- /#page-wrapper -->
 
 <!-- /#wrapper -->
@@ -436,30 +456,34 @@
 </script>
 
 
-<script>
-	//파일 분류 스크립트
-	function categoryChange(e) {
-		var good_a = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_b = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_c = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_d = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var target = document.getElementById("good");
-		if (e.value == "목걸이")
-			var d = good_a;
-		else if (e.value == "반지")
-			var d = good_b;
-		else if (e.value == "팔찌")
-			var d = good_c;
-		else if (e.value == "귀걸이")
-			var d = good_d;
-		target.options.length = 0;
-		for (x in d) {
-			var opt = document.createElement("option");
-			opt.value = d[x];
-			opt.innerHTML = d[x];
-			target.appendChild(opt);
-		}
-	}
+<script>   //파일 분류 스크립트
+   function categoryChange(e) {
+      var good_a = [ "골드" , "실버" , "초커" ,"써지컬"];
+      var good_b = [ "골드", "실버" ,"써지컬"];
+      var good_c = [ "가죽" , "메탈"];
+      var good_d = [ "골드" , "실버", "게르마늄" ,"써지컬"];
+      var good_e = [ "끈", "곱창밴드", "헤어벤드(머리띠)" , "반다나" , "헤어핀" , "집게핀" ];
+      var target = document.getElementById("good");
+      if (e.value == "목걸이")
+         var d = good_a;
+      else if (e.value == "반지")
+          var d = good_b;
+      else if (e.value == "시계")
+         var d = good_c;
+      else if (e.value == "팔찌")
+          var d = good_d;
+      else if (e.value == "헤어")
+         var d = good_e;
+      else if (e.value == "귀걸이")
+          var d = good_b;
+      target.options.length = 0;
+      for (x in d) {
+         var opt = document.createElement("option");
+         opt.value = d[x];
+         opt.innerHTML = d[x];
+         target.appendChild(opt);
+      }
+   }
 </script>
 
 

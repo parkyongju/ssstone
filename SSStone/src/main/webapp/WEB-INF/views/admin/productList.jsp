@@ -30,20 +30,20 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-               <table width="100%"
-                  class="table table-striped table-bordered table-hover" id="">
-                  <thead>
+               <table style="text-align:center; width:100%"
+                  class="table table-striped table-bordered table-hover">
+                  <thead style="text-align:center">
                      <tr>
-                        <th>상품 번호</th>
-                        <th>상품 명</th>
-                        <th>상품 내용</th>
-                        <th>대분류</th>
-                        <th>소분류</th>
-                        <th>상품 가격</th>
-                        <th>상품 수량</th>
-                        <th>상품 옵션</th>
-                        <th>등록 날짜</th>
-                        <th>수정 날짜</th>
+                        <th style="width:7%; text-align:center">상품 번호</th>
+                        <th style="width:9%; text-align:center">상품 명</th>
+                        <th style="width:40%; text-align:center">상품 내용</th>
+                        <th style="width:6%; text-align:center">대분류</th>
+                        <th style="width:6%; text-align:center">소분류</th>
+                        <th style="width:8%; text-align:center">상품 가격</th>
+                        <th style="width:7%; text-align:center">상품 수량</th>
+                        <th style="text-align:center">상품 옵션</th>
+                        <th style="text-align:center">등록 날짜</th>
+                        <th style="text-align:center">수정 날짜</th>
                      </tr>
                   </thead>
                   <tbody>
