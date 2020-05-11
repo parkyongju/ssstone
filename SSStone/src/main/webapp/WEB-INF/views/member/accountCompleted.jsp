@@ -24,8 +24,8 @@
             </p>
 
             <!-- Button -->
-            <a class="btn btn-dark" href="/shop/main">
-              홈으로 가기
+            <a class="btn btn-dark" href="/member/login">
+              로그인하러 가기
             </a>
 
           </div>
