@@ -12,12 +12,12 @@
    <div class="container">
       <div class="row">
          <div class="col-12">  
-         <!-- Breadcrumb -->
-         <ol class="breadcrumb mb-0 font-size-xs text-gray-400 font-size-xs">
-            <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
-                 <li class="breadcrumb-item"><a class="text-gray-400" href="/member/mypage">My Page</a></li>
-                 <li class="breadcrumb-item active"><a class="text-gray-400" href="/member/modifyMemberInfo">Modify Member Info</a></li>
-         </ol>
+		   <!-- Breadcrumb -->
+		   <ol class="breadcrumb mb-0 font-size-xs text-gray-400 font-size-xs">
+		      <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+              	<li class="breadcrumb-item"><a class="text-gray-400" href="/member/mypage">My Page</a></li>
+              	<li class="breadcrumb-item active"><a class="text-gray-400" href="/member/modifyMemberInfo">Modify Member Info</a></li>
+		   </ol>
             </div>
       </div>
    </div>
@@ -33,10 +33,32 @@
          <h3 class="mb-10">정보수정</h3>
           </div>
         </div>
+<<<<<<< HEAD
+      </div>
+    </nav>
+   <!-- BREADCRUMB end--> 
+    
+
+    <!-- CONTENT -->
+    <section class="pt-7 " style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
+      <div class="container">
+        <div class="row col-auto" >
+          <div class="col-12 text-center">
+
+            <!-- Heading -->
+            <h3 class="mb-10 mr-15">정보수정</h3>
+
+          </div>
+         
+ 
+		  <div class="col-12 col-md-3" >
+        <!-- Nav -->
+=======
         
         <div class="row">
           <div class="col-12 col-md-4">
             <!-- Nav -->
+>>>>>>> refs/remotes/origin/yoojin
             <nav class="mb-10 mb-md-0">
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">
                 <sec:authentication property="principal.member.m_no" var='m_no'/>
@@ -45,19 +67,28 @@
                   My Page
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
-                  회원 정보 수정
+                  	회원 정보 수정
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/order?m_no=${m_no}">
-                  구매목록
-                </a>
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/order?m_no=${m_no}">				
+                   구매목록
+                </a> 
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
-                  장바구니
+                  	장바구니
                 </a>           
+<<<<<<< HEAD
+                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/withdrawal?m_no=${m_no}">
+                  	회원 탈퇴
+=======
                  <a class="list-group-item list-group-item-action dropright-toggle" href="/member/?m_no=${m_no}">
                   회원 탈퇴
+>>>>>>> refs/remotes/origin/yoojin
                 </a>
               </div>
             </nav>
+<<<<<<< HEAD
+            <!-- Nav 종료 -->
+       		</div>
+=======
             <!-- 옆메뉴 종료 -->
           </div>
           
@@ -80,9 +111,10 @@
                               <input class="form-control form-control-sm" name = "m_email" id="m_email" type="text" readonly="readonly" required="required"  value='<c:out value="${member.m_email}"/>' >
                            </div>
                         </div>
-                  <!-- /.Email -->
+						<!-- /.Email -->
+>>>>>>> refs/remotes/origin/yoojin
 
-             <div class="col-12">
+ 				<div class="col-12">
                   <!-- 이름 -->
                   <div class="form-group">
                     <label for="accountName">이름</label>
@@ -107,11 +139,11 @@
 
                     <input class="AccountNewPhone form-control form-control-sm" name ="m_phone2" value='<c:out value="${member.m_phone2}"/>' id="AccountNewPhone" type="text" maxlength="4" placeholder="0000 *" required >
                     <input class="AccountNewPhone form-control form-control-sm" name ="m_phone3" value='<c:out value="${member.m_phone3}"/>' id="AccountNewPhone" type="text" maxlength="4" placeholder="0000 *" required >
-               </div>
+            	</div>
                </div>
               </div>
               
-            <div class="col-12">                     
+            <div class="col-12">            			
                   <!-- 비밀번호 확인 -->
                   <div class="form-group">
                     <label for="m_password">비밀번호 *</label>
@@ -164,12 +196,12 @@
  
     
              <!-- 우편번호 -->
-                               
+  	           			      
       <div class="form-group">
         <label for="accountAddress">&nbsp;&nbsp;&nbsp;주소*</label>
         <label class="sr-only">우편번호 *</label>
-             <div class="col-9 " style="display:flex;">           
-           <input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>       
+       		<div class="col-9 " style="display:flex;">           
+        	<input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>       
            
       <!-- /. 우편번호 -->        
        <button type="button" onclick="sample6_execDaumPostcode()" class="btn btn-outline-dark mb-1 btn-sm" style="float:right;display:flex;">우편번호 찾기</button>
@@ -200,20 +232,16 @@
       </div>  
           
                   
-            <div class="form-group">
            <div class="col-12 col-md-auto" id="allCheck">
             <!-- 수정버튼 -->
              <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <div class="col-12" >
+               <div class="col-12" style="left: 170px;">
                <!-- Button -->
                <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
                 수정
                 </button>
                 </div>
-                </div>
             </div>
-            
-            
            </div>
         </form>
           </div>
