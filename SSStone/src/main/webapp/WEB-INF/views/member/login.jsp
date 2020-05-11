@@ -32,8 +32,8 @@
                            <!-- Email -->
                            <div class="form-group">
                               <label class="sr-only" for="loginEmail"> Email Address* </label> 
-                              <input class="form-control form-control-sm" name="loginId" id="loginEmail" type="email" placeholder="Email Address *" required>
-
+                              <input class="form-control form-control-sm" name="username" id="loginEmail" type="email" placeholder="Email Address *" required>
+                           	<div id="id_chk"><br/></div>
                            </div>
                         </div>
                         <div class="col-12">
@@ -42,7 +42,7 @@
                               <label class="sr-only" for="loginPassword"> 
                               Password *
                               </label> 
-                              <input class="form-control form-control-sm" name="loginPwd" id="loginPassword" type="password" placeholder="Password *" required>
+                              <input class="form-control form-control-sm" name="password" id="loginPassword" type="password" placeholder="Password *" required>
                            </div>
                         </div>
                         <div class="col-12 col-md">

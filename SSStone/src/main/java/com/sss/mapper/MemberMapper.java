@@ -12,12 +12,12 @@ public interface MemberMapper /* 데이터베이스에 들어가는 틀을 만�
    public List<MemberVO> getList(MemberCriteria cri);  /* 데이터 전체를 불러오는 인터페이스*/
    public MemberVO read(Long m_no); /* 데이터를 읽어오는 인터페이스*/
    public MemberVO readByEmail(String m_email);
-   public int delete(long p_no); /* 데이터를 지우는 인터페이스*/
-   public int update(MemberVO vo); /* 데이터 수정하는 인터페이스 */
-   public Integer getMemberTotal();
+   public  int delete(long p_no); /* 데이터를 지우는 인터페이스*/
+   public  int update(MemberVO vo); /* 데이터 수정하는 인터페이스 */
+   public int getMemberTotal();
    public List<MemberVO> countTodayAccountMember();
    public List<MemberVO> countTodayWithdrawalMember();
-   public Integer memberTotalPurchaseAmount(Long m_no);
+   public int memberTotalPurchaseAmount(Long m_no);
    public List<MemberVO> memberPurchaseAmount(Long m_no);
    public int checkID(String m_email);
    public List<MemberVO> readManager(MemberCriteria cri);
