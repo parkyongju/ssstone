@@ -18,6 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+			<input type = "hidden">
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
               <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
