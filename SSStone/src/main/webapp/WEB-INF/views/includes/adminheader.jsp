@@ -126,7 +126,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                <%-- <sec:authorize access="isAuthenticated()"> --%>
-                  <li><a href="/customLogout"><i class="fa fa-sign-out fa-fw"></i>로그아웃</a>
+                  <li><a href="/member/login"><i class="fa fa-sign-out fa-fw"></i>로그아웃</a>
                <%-- </sec:authorize>
                <sec:authorize access="isAnonymous()"> --%>                  
             </ul> <!-- /.dropdown-user -->
@@ -196,7 +196,6 @@
 	   */
 	  $("#aBtn").click(function(e){
 		  e.preventDefault();
-		  alert("버트");
 	/* 	  $("#folderopen").css("display","inline");
 		  $("#folder").css("display","none"); */
 	  });

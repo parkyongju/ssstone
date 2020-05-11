@@ -48,14 +48,11 @@
                   <!-- Email -->
                   <div class="form-group">
                     <label for="accountEmail">
-                      Email (ID) *
+                      ID *
                     </label>
-                    <input class="form-control form-control-sm" id="accountEmail" type="email" maxlength="140" placeholder="Email (ID) *" name="m_email" required>
+                    <input class="form-control form-control-sm" id="accountEmail" type="text" maxlength="140" placeholder="ID 혹은 별명 *" name="m_email" required>
               
                   </div>
-                </div>
-                <div style="margin-top:2rem">
-                <button type="button" class="btn btn-outline-success btn-sm" style="float:right">중복확인</button>
                 </div>
                 <!-- /.Email -->
                 <div class="col-5">
