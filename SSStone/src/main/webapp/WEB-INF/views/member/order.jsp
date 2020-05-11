@@ -48,16 +48,16 @@
                   My Page
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle " href="/member/modifyMemberInfo?m_no=${m_no} ">
-                  회원 정보 수정
+                 	회원 정보 수정
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/order?m_no=${m_no}">
-                  구매목록
+                  	구매목록
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
-                  장바구니
+                  	장바구니
                 </a>           
                  <a class="list-group-item list-group-item-action dropright-toggle" href="/member/withdrawal?m_no=${m_no}">
-                  회원 탈퇴
+                  	회원 탈퇴
                 </a>
               </div>
             </nav>

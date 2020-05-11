@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-	
+
 <!-- HEADER -->
 <header class="py-13 jarallax" data-jarallax data-speed=".8"
 	style="background-image: url(/resources/img/covers/cover-31.jpg);">

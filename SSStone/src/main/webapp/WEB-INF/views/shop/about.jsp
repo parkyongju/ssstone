@@ -29,19 +29,21 @@
     </nav>
 
     <!-- WELCOME -->
-    <section class="py-8 bg-light">
-      <div class="container">
-        <div class="row justify-content-center py-6 bg-cover" style="background-image: url(/resources/img/about/paper.jpg);">
-          <div class="col-12">
+    <section>
+        <!-- Item -->
+        <div class="w-100 bg-cover" style="background-image: url(/resources/img/covers/회사배너.jpg);">
+          <div class="container d-flex flex-column">
+            <div class="row align-items-center py-12" style="min-height: 550px;">
+              <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-1">
+                <!-- Heading -->
+	            <h1 class="mb-0 text-center" style="color:black;">
+	              Get to Know Us a Little Better
+	            </h1>
 
-            <!-- Heading -->
-            <h1 class="mb-5 text-center" style="color:#58ACFA; font-family: 'Oswald', sans-serif;">
-              Get to Know Us a Little Better
-            </h1>
-
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- OUR STORY -->

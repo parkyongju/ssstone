@@ -95,40 +95,8 @@ public class AdminController {
 		return "redirect:/admin/productList";
 	}
 
-	@GetMapping("/buttons")
-	public void buttons() {
-	}
-
-	@GetMapping("/flot")
-	public void flot() {
-	}
-
-	@GetMapping("/forms")
-	public void forms() {
-	}
-
-	@GetMapping("/grid")
-	public void grid() {
-	}
-
-	@GetMapping("/icons")
-	public void icons() {
-	}
-
 	@GetMapping("/morris")
 	public void morris() {
-	}
-
-	@GetMapping("/notifications")
-	public void notifications() {
-	}
-
-	@GetMapping("/panels_wells")
-	public void panels_wells() {
-	}
-
-	@GetMapping("/typography")
-	public void typography() {
 	}
 
 	@GetMapping("/manager")
