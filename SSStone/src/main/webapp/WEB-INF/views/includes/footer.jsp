@@ -73,13 +73,22 @@
               <!-- Links -->
               <ul class="list-unstyled mb-7 mb-sm-0">
                 <li>
-                  <a class="text-gray-300" href="/product/product" title="목걸이">목걸이</a>
+                  <a class="text-gray-300" href="/product/shop?p_category1=귀걸이&p_category2=" title="귀걸이">귀걸이</a>
                 </li>
                 <li>
-                  <a class="text-gray-300" href="/product/product" title="귀걸이">귀걸이</a>
+                  <a class="text-gray-300" href="/product/shop?p_category1=목걸이&p_category2=" title="목걸이">목걸이</a>
                 </li>
                 <li>
-                  <a class="text-gray-300" href="/product/product" title="헤어">헤어</a>
+                  <a class="text-gray-300" href="/product/shop?p_category1=팔찌&p_category2=" title="팔찌">팔찌</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="/product/shop?p_category1=시계&p_category2=" title="시계">시계</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="/product/shop?p_category1=반지&p_category2=" title="반지">반지</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="/product/shop?p_category1=헤어&p_category2=" title="헤어">헤어</a>
                 </li>
                 <li>
                   <a class="text-gray-300" href="/shop/comingsoon" title="comingsoon" >Coming Soon..</a>

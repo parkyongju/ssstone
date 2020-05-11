@@ -66,7 +66,7 @@
                            <div class="form-group">
                            
                               <label class="sr-only" for="loginEmail"></label> 
-                              <input class="form-control form-control-sm" name="username" id="loginEmail" type="email" readonly="readonly" value='<c:out value="${member.m_email}"/>'>
+                              <input class="form-control form-control-sm" name="username" id="loginEmail" type="text" readonly="readonly" value='ID : <c:out value="${member.m_email}"/>'>
                            </div>
                         </div>
                         <div class="col-12">
