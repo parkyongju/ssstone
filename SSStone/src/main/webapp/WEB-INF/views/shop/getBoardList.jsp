@@ -331,7 +331,6 @@ $(document).ready(function() {
 				var removeResult = confirm("댓글을 지우겠습니까?");
 				if(removeResult){
 					r_no = $(this).data("r_no");
-					alert(r_no);
 					replyService.remove(r_no, function(result) {
 						showList(pageNum);
 					});

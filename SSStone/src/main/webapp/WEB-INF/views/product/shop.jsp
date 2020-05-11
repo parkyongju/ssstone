@@ -186,7 +186,7 @@
 						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 							
 							<li class='page-item  ${ pageMaker.productcriteria.pageNum == num ? "active" : "" }'>
-								<a class="page-link page-link-arrow" href="${num }">${num }</a>
+								<a class="page-link" href="${num }">${num }</a>
 							</li>
 						</c:forEach>
 						<c:if test="${pageMaker.next }"><!-- 다음 -->
