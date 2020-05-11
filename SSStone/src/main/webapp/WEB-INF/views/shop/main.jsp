@@ -268,7 +268,8 @@
             <div class="card-img">
 
               <!-- Link -->
-              <button class="btn btn-xs btn-block btn-dark card-btn" onclick="href='/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value="${readnew.p_no}"/>'">
+              <button class="btn btn-xs btn-block btn-dark card-btn" 
+              	onclick="location.href='/product/product?pageNum=1&amount=15&type=&keyword=&p_no=<c:out value='${readnew.p_no}'/>'">
                 <i class="fe fe-arrow-right ml-2"></i> 보러 가기
               </button>
 

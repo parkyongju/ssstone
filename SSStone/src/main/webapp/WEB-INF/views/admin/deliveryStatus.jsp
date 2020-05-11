@@ -107,7 +107,7 @@
                   str += "<tr data-pc_no ='"+list[i].pc_no+"'><td style='text-align: center; width: 10%'' class='move'>"+list[i].pc_no+"</td>"+
                           "<td style='text-align: center; width: 10%' class='move'>"+list[i].m_no+"</td>"+
                           "<td style='text-align: center; width: 20%' class='move'>"+ displaypaymentTime(list[i].pc_date)+" </td>"+ 
-                          "<td style='text-align: center; width: 20%' class='move' id='buttonAction' style='color:blue;'>배송완료</td>"+
+                          "<td style='text-align: center; width: 20%' class='move' id='buttonAction' style='color:blue;'>배송중</td>"+
                           "<td style='text-align: center; width: 30%' colspan=4>"+
                           "<a class='changestatus btn btn-xxs pull-center'  data-pc_no ='"+list[i].pc_no+"' data-pc_deliverystatus ='"+list[i].pc_deliverystatus+"' value='"+list[i].pc_deliverystatus+"'>"+
                           "배송중으로 변경하기"+"</button>"+"</td></tr>";  

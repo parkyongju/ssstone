@@ -32,8 +32,8 @@
                            <!-- Email -->
                            <div class="form-group">
                               <label class="sr-only" for="loginEmail"> Email Address* </label> 
-                              <input class="form-control form-control-sm" name="loginId" id="loginEmail" type="email" placeholder="Email Address *" required>
-
+                              <input class="form-control form-control-sm" name="username" id="loginEmail" type="email" placeholder="Email Address *" required>
+                           	<div id="id_chk"><br/></div>
                            </div>
                         </div>
                         <div class="col-12">
@@ -42,7 +42,7 @@
                               <label class="sr-only" for="loginPassword"> 
                               Password *
                               </label> 
-                              <input class="form-control form-control-sm" name="loginPwd" id="loginPassword" type="password" placeholder="Password *" required>
+                              <input class="form-control form-control-sm" name="password" id="loginPassword" type="password" placeholder="Password *" required>
                            </div>
                         </div>
                         <div class="col-12 col-md">
@@ -140,7 +140,7 @@
 	               <!-- password -->
 	               <div class="form-group">
 	                  <label class="sr-only">
-	                   비밀번호*
+	                   	비밀번호*
 	                  <!-- password -->
 	                  </label> 
 	                  <input id="modalPasswordReset1" type="password" placeholder="비밀번호*" class="form-control form-control-sm" required="required">
@@ -149,7 +149,7 @@
 	
 	               <div class="form-group">
 	                  <label class="sr-only" > 
-	                  비밀번호재확인* 
+	                  	비밀번호재확인* 
 	                  <!-- password recheck -->
 	                  </label> 
 	                  <input id="modalPasswordReset_rck" name="m_password" type="password" placeholder="비밀번호 확인 *" class="form-control form-control-sm" required="required">
@@ -273,7 +273,7 @@ $(document).ready(function() {
 	                  $("#pw_chk").css("color", "#dc3545");
 	                  return false;
 	               } 
-	               else 
+	               else
 	               {
 	                  $("#pw_chk").text("사용 가능한 비밀번호 입니다.");
 	                  $("#pw_chk").css("color", "#007bff");
