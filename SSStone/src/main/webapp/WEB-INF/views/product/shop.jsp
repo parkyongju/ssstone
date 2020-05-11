@@ -132,7 +132,6 @@
 					 <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>재질</option>
 				  <option value="N"
 					 <c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-				  <option value="">--</option>
 				  <option value="TC"
 					 <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>카테고리
 					 or 재질</option>

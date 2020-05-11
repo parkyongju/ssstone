@@ -242,7 +242,6 @@ $(document).ready(function() {
 		if(confirm_val){
 			var checkArr = new Array();
 			checkArr.push($(this).attr("data-cartNum"));
-			alert($(this).attr("data-cartNum"));
 			$.ajax({
 				url : "/payment/deleteCart",
 				type : "post",

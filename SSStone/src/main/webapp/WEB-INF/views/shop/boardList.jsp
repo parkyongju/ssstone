@@ -19,21 +19,12 @@
 		<div class="row">
 			<div class="col-12">
 
-<<<<<<< HEAD
 				<!-- Breadcrumb -->
 				<ol class="breadcrumb mb-0 font-size-xs text-gray-400">
 					<li class="breadcrumb-item"><a class="text-gray-400"
 						href="index.html">Home</a></li>
 					<li class="breadcrumb-item active">게시판</li>
 				</ol>
-=======
-            <!-- Breadcrumb -->
-            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
-              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/boardList">Board</a></li>
-            </ol>
->>>>>>> refs/heads/yoojin
-
 			</div>
 		</div>
 	</div>
@@ -93,11 +84,6 @@
 						</table>
 						<!-- table태그의 끝 -->
 						
-<<<<<<< HEAD
-						
-						<div class='pull-right' style="margin-left:590px">
-							<ul class="pagination">
-=======
 						<!-- 검색 -->
 					<section class="py-7 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
 						<div class="container">
@@ -145,8 +131,6 @@
 
 						<div class='pull-right'>
 							<ul class="pagination pagination-lg">
->>>>>>> refs/heads/yoojin
-
 								<c:if test="${pageMaker.prev }">
 									<li class="page-item previous"><a class="page-link page-link-arrow" href="${pageMaker.startPage -1 }">이전</a></li>
 								</c:if>

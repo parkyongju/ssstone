@@ -160,13 +160,13 @@
                                     <i class="fa fa-check-circle fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">추가 할것</div>
+                                    <div class="huge">통계 보기</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="/admin/productList" >
+                        <a href="/shop/error404" >
                             <div class="panel-footer">
-                              <span class="pull-left" >0원 <br>&nbsp;</span>
+                              <span class="pull-left" > <br>&nbsp;</span>
                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                               <div class="clearfix"></div>
                           </div>
