@@ -197,19 +197,14 @@
         <div class="form-group">
            <input class="form-control form-control-sm" id="sample6_extraAddress" type="text" placeholder="참고사항 *">
         </div>
-      </div>  
-          
-                  
-           <div class="col-12 col-md-auto" id="allCheck">
-            <!-- 수정버튼 -->
-             <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-               <div class="col-12" style="left: 170px;">
-               <!-- Button -->
-               <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
-                수정
-                </button>
-                </div>
-            </div>
+      </div>    
+       <div class="col-12 col-md-auto" id="allCheck" >
+        <!-- 수정버튼 -->
+         <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >               
+           <!-- Button -->
+           <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="font-family: 'Do Hyeon', sans-serif;white-space: nomal;float: right;">
+            수정
+            </button>
            </div>
         </form>
           </div>
