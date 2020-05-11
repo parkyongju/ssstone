@@ -57,38 +57,49 @@ public class PaymentController {
    public void shopcart(@RequestParam("m_no") Long m_no) {
    }
    
-   @GetMapping("/getshopcart/{m_no}")		//쇼핑카트 항목 가져오기
+   @GetMapping("/getshopcart/{m_no}")      //쇼핑카트 항목 가져오기
    public ResponseEntity<List<Shopping_cartVO>> getshopcart(@PathVariable("m_no") Long m_no, Model model) {
       return new ResponseEntity<> (cartService.listCart(m_no), HttpStatus.OK);
    }
    
    @ResponseBody
    @PostMapping("/shopcart")
-   public void postshopcart(String p_no, String m_no, String s_count ) throws Exception
+   public Map<String, Integer> postshopcart(String p_no, String m_no, String s_count ) throws Exception
    {
+     Map<String, Integer> map = new HashMap<>();
       Shopping_cartVO cart = new Shopping_cartVO();
+      System.out.println(p_no);
+      System.out.println(m_no);
+      System.out.println(s_count);
       cart.setP_no(Long.parseLong(p_no));
       cart.setM_no(Long.parseLong(m_no));
       cart.setS_amount(Long.parseLong(s_count));
-      cartService.insert(cart);
+      boolean a = cartService.insert(cart);
+      if(a == true)
+      {
+         map.put("count", 1);
+         return map;
+      }
+      else
+      {
+         map.put("count", 0);
+         return map;
+      }
       
-//      log.info(cartvo.getP_no());
-//      log.info(cartvo.getM_no());
-//      log.info(cartvo.getS_amount());
    }
    
    @ResponseBody
    @RequestMapping(value="/deleteCart", method = {RequestMethod.GET, RequestMethod.POST})
     public int delete(@RequestParam Long s_no, Model model) throws Exception  {
       
-	   if(cartService.delete(s_no) == true)
-	   {
-		   return 1;
-	   }
-	   else
-	   {
-		   return 0;
-	   }
+      if(cartService.delete(s_no) == true)
+      {
+         return 1;
+      }
+      else
+      {
+         return 0;
+      }
       
     }
 }
