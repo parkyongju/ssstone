@@ -128,41 +128,41 @@
 	  <!-- 상품 끝 -->
 	  
 		<!-- 검색 처리 시작 -->
-		<div class="row" style="display: ">
-		<div class="col-lg-12">
-		<!-- Header -->
-		<div class="line-height-fixed font-size-lg">
-			<strong class="mx-auto">Search Products</strong>
-			</div>
-			<form action="/product/shop" id="searchForm" method="get">
-			 <div class="form-group">
-				<select name='type' class="custom-select">
-				  <option value=""
-					 <c:out value="${pageMaker.cri.type == null?'selected':'' }" />>원하시는 입력방법을 선택해주세요.</option>
-				  <option value="T"
-					 <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>카테고리</option>
-				  <option value="C"
-					 <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>재질</option>
-				  <option value="N"
-					 <c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-				  <option value="">--</option>
-				  <option value="TC"
-					 <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>카테고리
-					 or 재질</option>
-				  <option value="TCN"
-					 <c:out value="${pageMaker.cri.type eq 'TCN'?'selected':''}" />>전체 검색</option>
-				</select> 
+		<div class="row" >
+			<div class="col-lg-12">
+				<!-- Header -->
+				<div class="line-height-fixed font-size-lg">
+				<strong class="mx-auto">Search Products</strong>
 				</div>
-				
-				<div class="input-group input-group-merge">
-				<input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />' class="form-control"  id="keyword" placeholder="Search"/> 
-				<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.productcriteria.pageNum}"/>' /> 
-				<input type='hidden' name='amount' value='<c:out value="${pageMaker.productcriteria.amount}" />' />
-				<button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
-				</div>
-				
-			</form>
-		 </div>
+				<form action="/product/shop" id="searchForm" method="get">
+				 	<div class="form-group">
+						<select name='type' class="custom-select">
+						  <option value=""
+							 <c:out value="${pageMaker.cri.type == null?'selected':'' }" />>원하시는 입력방법을 선택해주세요.</option>
+						  <option value="T"
+							 <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>카테고리</option>
+						  <option value="C"
+							 <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>재질</option>
+						  <option value="N"
+							 <c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
+						  <option value="">--</option>
+						  <option value="TC"
+							 <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>카테고리
+							 or 재질</option>
+						  <option value="TCN"
+							 <c:out value="${pageMaker.cri.type eq 'TCN'?'selected':''}" />>전체 검색</option>
+						</select> 
+					</div>
+					
+					<div class="input-group input-group-merge">
+						<input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />' class="form-control"  id="keyword" placeholder="Search"/> 
+						<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.productcriteria.pageNum}"/>' /> 
+						<input type='hidden' name='amount' value='<c:out value="${pageMaker.productcriteria.amount}" />' />
+						<button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
+					</div>
+					
+				</form>
+			 </div>
 	  </div>
 	  <!-- 검색 처리 끝 -->
 

@@ -18,22 +18,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-
-<<<<<<< HEAD
-				<!-- Breadcrumb -->
-				<ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-					<li class="breadcrumb-item"><a class="text-gray-400"
-						href="index.html">Home</a></li>
-					<li class="breadcrumb-item active">게시판</li>
-				</ol>
-=======
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
               <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
               <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/boardList">Board</a></li>
             </ol>
->>>>>>> refs/heads/yoojin
-
 			</div>
 		</div>
 	</div>
@@ -45,11 +34,13 @@
 		<div class="row">
 			<div class="col-12">
 				<!-- Heading -->
+				<div class="panel-heading">
+					<button id="regBtn" type="button" class="btn btn-outline-dark btn-xxs pull-right"
+						style="float: right; height:37px; margin-top: 30px;">글쓰기</button>
+				</div>
 				<h3 class="mb-7 text-center" style="margin-left:100px">SSS 자유 게시판</h3>
-				<hr>
 			</div>
 		</div>
-
 		<!-- /.row -->
 
 		<div class="row">
@@ -92,119 +83,75 @@
 							</tbody>
 						</table>
 						<!-- table태그의 끝 -->
-						
-<<<<<<< HEAD
-						
-						<div class='pull-right' style="margin-left:590px">
-							<ul class="pagination">
-=======
+					
 						<!-- 검색 -->
-					<section class="py-7 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
-						<div class="container">
-					      <div class="row align-items-center">
-					         <div class="col-12 col-md">
-								<div class="row" style="display: ">
-								<div class="col-lg-12">
+						<div class="row">
+					        <div class="col-lg-12">
 								<form action="/shop/boardList" id="searchForm" method="get">
-								<label class="sr-only" for="modalSearchCategories">Categories:</label>
-									<select class="custom-select" name='type'>
-										<option value=""
-											<c:out value="${pageMaker.cri.type == null?'selected':'' }" />>--</option>
-										<option value="T"
-											<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>제목</option>
-										<option value="C"
-											<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>내용</option>
-										<option value="W"
-											<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}" />>작성자</option>
-										<option value="TC"
-											<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>제목
-											or 내용</option>
-										<option value="TW"
-											<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}" />>제목
-											or 작성자</option>
-										<option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>
-											제목 or 내용 or 작성자
-										</option>
-									</select> 
-									<input type='text' name='keyword'
-										value='<c:out value="${pageMaker.cri.keyword }" />' /> 
+									<div class="form-group">
+										<select class="custom-select" name='type'>
+											<option value="form-group"
+												<c:out value="${pageMaker.cri.type == null?'selected':'' }" />>--</option>
+											<option value="T"
+												<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>제목</option>
+											<option value="C"
+												<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>내용</option>
+											<option value="W"
+												<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}" />>작성자</option>
+											<option value="TC"
+												<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>제목
+												or 내용</option>
+											<option value="TW"
+												<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}" />>제목
+												or 작성자</option>
+											<option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>
+												제목 or 내용 or 작성자
+											</option>
+										</select> 
+									</div>
+									<div class="input-group input-group-merge">
+										<input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />'class="form-control"  id="keyword" placeholder="Search" /> 
 										<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> 
 										<input type='hidden' name='amount' value='<c:out value="${pageMaker.boardcri.amount}" />' />
-									<button type="button" class="btn btn-outline-dark mb-1 btn-sm">
-										검색
-									</button>
-									</form>
-								</div>
-							</div>
+										<button type="button" class="btn btn-outline-info"> <i class="fe fe-search"></i>검색</button>
+									</div>
+								</form>
 						</div>
 			         <div class="col-12 col-md-auto text-center"></div>
-			      </div>
 			   </div>
-			</section>
 			<!-- 검색 끝-->
 
-						<div class='pull-right'>
-							<ul class="pagination pagination-lg">
->>>>>>> refs/heads/yoojin
-
-								<c:if test="${pageMaker.prev }">
-									<li class="page-item previous"><a class="page-link page-link-arrow" href="${pageMaker.startPage -1 }">이전</a></li>
-								</c:if>
-
-								<c:forEach var="num" begin="${pageMaker.startPage }"
-									end="${pageMaker.endPage }">
-									<li class="page-item  ${pageMaker.cri.pageNum == num ? "active" : ""} "><a
-										class="page-link page-link-arrow" href="${num }">${num }</a></li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next }">
-									<li class="page-item next"><a
-										class="page-link page-link-arrow"
-										href="${pageMaker.endPage +1 }">다음</a></li>
-								</c:if>
-							</ul>
+			<div class="row">
+				 <div class="col-12">
+					<div class="row justify-content-center mt-7">
+						<div class="col-12 text-center">
+							<nav class="d-flex justify-content-center mt-9">
+								 <ul class="pagination pagination-sm text-gray-400">
+		
+									<c:if test="${pageMaker.prev }">
+										<li class="page-item previous"><a class="page-link page-link-arrow" href="${pageMaker.startPage -1 }">이전</a></li>
+									</c:if>
+			
+									<c:forEach var="num" begin="${pageMaker.startPage }"
+										end="${pageMaker.endPage }">
+										<li class="page-item  ${pageMaker.boardcri.pageNum == num ? "active" : ""} "><a
+											class="page-link" href="${num }">${num }</a></li>
+									</c:forEach>
+			
+									<c:if test="${pageMaker.next }">
+										<li class="page-item next"><a
+											class="page-link page-link-arrow"
+											href="${pageMaker.endPage +1 }">다음</a></li>
+									</c:if>
+								</ul>
+							</nav>
 						</div>
+					</div>
+				</div>
+			</div>
 						<!--  end Pagination -->
 						
-					<div class="panel-heading">
-						<button id="regBtn" type="button" class="btn btn-outline-dark btn-xxs pull-right"
-							style="float: right; margin-bottom:15px; height:37px">글쓰기</button>
-					</div>
 					
-						<div class="row" style="margin-left:340px">
-							<div class="col-lg-12">
-								<form action="/shop/boardList" id="searchForm" method="get">
-									<select name='type'>
-										<option value=""
-											<c:out value="${pageMaker.cri.type == null?'selected':'' }" />>---</option>
-										<option value="T"
-											<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>제목</option>
-										<option value="C"
-											<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>내용</option>
-										<option value="W"
-											<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}" />>작성자</option>
-										<option value="TC"
-											<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>제목
-											or 내용</option>
-										<option value="TW"
-											<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}" />>제목
-											or 작성자</option>
-										<option value="TWC"
-											<c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>제목
-											or 내용 or 작성자</option>
-									</select> <input type='text' name='keyword'
-										value='<c:out value="${pageMaker.cri.keyword }" />' /> 
-										<input
-										type='hidden' name='pageNum'
-										value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> 
-										<input
-										type='hidden' name='amount'
-										value='<c:out value="${pageMaker.boardcri.amount}" />' />
-										
-									<button type="button" class="btn btn-outline-dark btn-xxs" style="height:37px">검색하기</button>
-								</form>
-							</div>
-						</div>
 
 						<form action="/shop/boardList" id='actionForm' method='get'>
 							<input type='hidden' name='pageNum'

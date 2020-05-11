@@ -13,6 +13,7 @@
 	<!-- <bean id ="customPasswordEncoder" class="com.sss.security.CustomNoOpPasswordEncoder"></bean> -->
 	<bean id ="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	<bean id="customUserDetailsService" class="com.sss.security.CustomUserDetailsService"></bean>
+	
 	<security:http>
 		<!-- <security:intercept-url pattern="/member/**" access="permitAll"/>
 		<security:intercept-url pattern="/shop/**" access="permitAll"/>
@@ -35,12 +36,6 @@
 			<security:concurrency-control max-sessions="1" expired-url="/member/login"/>
 		</security:session-management>
 	</security:http>
-	<!-- 중복 로그인 방지 -->
-      
-	
-	<!-- <security:jdbc-user-service data-source-ref="dataSource" id="userService" 
-	users-by-username-query="select username, password, enabled from users where username = ?" 
-	authorities-by-username-query="select id as username, authority from AUTHORITIES where username=?"/> -->
 	
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="customUserDetailsService">
