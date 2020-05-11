@@ -10,7 +10,7 @@
 <sec:authentication property="principal.member.m_no" var='m_no'/>
 
 	<!-- BREADCRUMB -->
-    <nav class="py-5">
+    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
