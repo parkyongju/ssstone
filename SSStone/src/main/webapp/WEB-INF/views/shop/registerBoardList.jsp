@@ -47,7 +47,7 @@
  
             <form role="form" action="/shop/registerBoardList" method="post">
                <div class="form-group">
-                  <label>제목</label> <input class="form-control" name="b_title">
+                  <label>제목</label> <input class="form-control" name="b_title" maxlength="50">
                </div>
            
                <div class="form-group">

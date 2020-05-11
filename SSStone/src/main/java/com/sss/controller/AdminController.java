@@ -53,7 +53,7 @@ public class AdminController {
 	public void memberList(@RequestParam("m_no") Long m_no, @ModelAttribute("cri") MemberCriteria cri, Model model) {
 		model.addAttribute("member", memberservice.read(m_no));
 		model.addAttribute("memberTotalPurchaseAmount",memberservice.memberTotalPurchaseAmount(m_no));
-		model.addAttribute("memberPurchaseAmount",memberservice.memberPurchaseAmount(m_no));
+	    model.addAttribute("memberPurchaseAmount",memberservice.memberPurchaseAmount(m_no));
 	}
 
 	@GetMapping("/index")

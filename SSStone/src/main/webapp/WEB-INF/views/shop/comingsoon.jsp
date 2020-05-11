@@ -9,7 +9,7 @@
 	<%@ include file="../includes/modal.jsp" %>
 
     <!-- CONTENT -->
-    <section class="bg-cover" style="margin-top: -90px; background-image: url(/resources/img/covers/cover-22.jpg);">
+    <section class="bg-cover" style="margin-top: 10px; background-image: url(/resources/img/covers/cover-22.jpg);">
       <div class="container d-flex flex-column">
         <div class="row align-items-center justify-content-center min-vh-100 pt-13 pb-12">
           <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center text-white">

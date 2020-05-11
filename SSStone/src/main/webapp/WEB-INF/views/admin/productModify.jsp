@@ -106,9 +106,11 @@
 									name="p_category1">
 									<option value="선택 안됨">대분류를 선택해주세요.</option>
 									<option value="목걸이">목걸이</option>
-									<option value="반지">반지</option>
-									<option value="팔찌">팔찌</option>
-									<option value="귀걸이">귀걸이</option>
+                           			<option value="반지">반지</option>
+                           			<option value="시계">시계</option>
+                           			<option value="팔찌">팔찌</option>
+                           			<option value="헤어">헤어</option>
+                           			<option value="귀걸이">귀걸이</option>
 								</select> <select id="good" style="width: 270px; margin-left:5px" name="p_category2">
 									<option value="선택 안됨">소분류를 선택해주세요.</option>
 								</select>
@@ -454,30 +456,34 @@
 </script>
 
 
-<script>
-	//파일 분류 스크립트
-	function categoryChange(e) {
-		var good_a = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_b = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_c = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var good_d = [ "금 24k", "은", "동", "써스", "스댕" ];
-		var target = document.getElementById("good");
-		if (e.value == "목걸이")
-			var d = good_a;
-		else if (e.value == "반지")
-			var d = good_b;
-		else if (e.value == "팔찌")
-			var d = good_c;
-		else if (e.value == "귀걸이")
-			var d = good_d;
-		target.options.length = 0;
-		for (x in d) {
-			var opt = document.createElement("option");
-			opt.value = d[x];
-			opt.innerHTML = d[x];
-			target.appendChild(opt);
-		}
-	}
+<script>   //파일 분류 스크립트
+   function categoryChange(e) {
+      var good_a = [ "골드" , "실버" , "초커" ,"써지컬"];
+      var good_b = [ "골드", "실버" ,"써지컬"];
+      var good_c = [ "가죽" , "메탈"];
+      var good_d = [ "골드" , "실버", "게르마늄" ,"써지컬"];
+      var good_e = [ "끈", "곱창밴드", "헤어벤드(머리띠)" , "반다나" , "헤어핀" , "집게핀" ];
+      var target = document.getElementById("good");
+      if (e.value == "목걸이")
+         var d = good_a;
+      else if (e.value == "반지")
+          var d = good_b;
+      else if (e.value == "시계")
+         var d = good_c;
+      else if (e.value == "팔찌")
+          var d = good_d;
+      else if (e.value == "헤어")
+         var d = good_e;
+      else if (e.value == "귀걸이")
+          var d = good_b;
+      target.options.length = 0;
+      for (x in d) {
+         var opt = document.createElement("option");
+         opt.value = d[x];
+         opt.innerHTML = d[x];
+         target.appendChild(opt);
+      }
+   }
 </script>
 
 

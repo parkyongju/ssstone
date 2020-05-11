@@ -216,12 +216,9 @@
     
 <!-- 결제 모달창 시작 -->
 <div class="row" style="font-family: 'Do Hyeon', sans-serif;">
-   <div class="modal fade" id="modal" tabindex="-1">
+   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal-Title" aria-hidden="true">
       <div class="modal-dialog">
-         <div class="modal-content" style="width:100%; height:100%">
-            <div class="modal-header">
-                     결제하기
-            </div>
+         <div class="modal-content" style="width:100%; height:100%; margin-top:-20px">
             <div class="modal-body">
                <h6 class="mb-7">결제 정보</h6>
               <hr>
@@ -318,14 +315,12 @@
                    </div>
                 </div>
           </div>
-            </div>
-            <hr>
-         <div class="col-12">
-            <div class="form-group" style="text-align:center">
+          <div class="form-group" style="text-align:center;">
                <button class="btn btn-dark btn-lg"  data-target="#modal-com" data-toggle="modal" data-dismiss="modal">결제하기</button>
                <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal">닫기</button>
             </div>
-         </div>
+            </div>
+            <hr>
          </div>
       </div>
    </div>
