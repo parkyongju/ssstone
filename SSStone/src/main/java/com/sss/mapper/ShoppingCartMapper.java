@@ -14,4 +14,6 @@ public interface ShoppingCartMapper {
    public int delete(Long s_no);
    public int deleteAll(Long m_no);
    public long getamount(Shopping_cartVO vo);
+   public List<Shopping_cartVO> readByM_no(Long m_no);
+   public void update (Shopping_cartVO vo);
 }

@@ -135,8 +135,10 @@
                 <div class="collapse" id="faqCollapseFive" data-parent="#faqCollapseParentTwo">
                   <div class="mt-5">
                     <p class="mb-0 font-size-lg text-gray-500">
-                      	메인 페이지에서 마음에 드는 상품의 옵션과 상품 정보를 충분히 읽어본 뒤 구매 버튼을 누른 후 우측상단에 쇼핑카트
-                      	아이콘을 선택하여 장바구니 로 넘어가셔서 구매 확인버튼을 클릭하시면 결제가 진행됩니다.
+                      	1.메인 페이지에서 쇼핑하기 글씨를 누른다.<br>
+                      	2.마음의 드는 상품을 고른후 장바구니로 이동한다.<br>
+                      	3.결제 버튼을 누른 후 결제를 진행한다.<br>
+                      	4.주문한 상품을 집에서 편하게 받는다.
                     </p>
                   </div>
                 </div>
@@ -286,7 +288,7 @@
                     <p class="mb-0 font-size-lg text-gray-500">
                       &num; 주민등록번호 대신 본인임을 확인 받을 수 있는 사이버 신원 확인번호<br>
 					    아이핀으로 G마켓 회원가입 진행 시 먼저 아이핀 발급기관에 신원정보를 제공한 후 아이핀을 발급받아야 합니다.<br>
-					  <a href="http://www.vno.co.kr/">아이핀 발급하러가기</a>
+					  <a href="http://www.niceipin.co.kr/niceipin/index.asp">아이핀 발급하러가기</a>
                     </p>
                   </div>
                 </div>
