@@ -12,11 +12,11 @@ public interface MemberService {
    public boolean update(MemberVO member);
    public boolean delete(Long m_no);
    public List<MemberVO> getList(MemberCriteria cri);
-   public int getMemberTotal();
+   public Integer getMemberTotal();
 //   public List<MemberVO> getListWithPaging(Criteria cri);
    public List<MemberVO> countTodayAccountMember();
    public List<MemberVO> countTodayWithdrawalMember();
-   public int memberTotalPurchaseAmount(Long m_no);
+   public Integer memberTotalPurchaseAmount(Long m_no);
    public List<MemberVO> memberPurchaseAmount(Long m_no);
    public int checkID(String m_email);
    public MemberVO readByEmail(String e_mail);
