@@ -1,17 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%
-   request.setCharacterEncoding("utf-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec"
-   uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
-<link
-   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-   rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
 
 <!-- BREADCRUMB -->
@@ -22,15 +16,15 @@
 
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-               <li class="breadcrumb-item"><a class="text-gray-400"
-                  href="index.html">Home</a></li>
-               <li class="breadcrumb-item active">장바구니</li>
+               <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+               <li class="breadcrumb-item "><a class="text-gray-400" href="/payment/shopcart">Shopping Cart</a></li>
             </ol>
 
          </div>
       </div>
    </div>
 </nav>
+<!-- BREADCRUMB end-->
 
 <!-- CONTENT -->
 <section class="pt-7 pb-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
@@ -51,16 +45,16 @@
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">
                 <sec:authentication property="principal.member.m_no" var='m_no'/>
               <!--  회원번호 가져오기 -->
-              <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
-                 	배송현황
+              <a class="list-group-item list-group-item-action dropright-toggle" href="/member/mypage?m_no=${m_no}">
+                 	My Page
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   	회원 정보 수정
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
                   	구매목록
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
+                <a class="list-group-item list-group-item-action dropright-toggle active" href="/payment/shopcart?m_no=${m_no}">
                   	장바구니
                 </a>           
                  <a class="list-group-item list-group-item-action dropright-toggle" href="/member/withdrawal?m_no=${m_no}">
@@ -84,6 +78,7 @@
                         <div class="delBtn">
                             <button id="selectDelete_btn"
                             type="button" style="width: 50px; height: 25px;">삭제</button>
+
                         </div>
                               <table style="width:100%; text-align:center; font-size: 40px;" class="table">
                                  <thead class="thead-dark">
@@ -99,15 +94,7 @@
                                  <tbody style="border-bottom:1px solid #dcdcda;" id="pc_list">
                                  </tbody>
                               </table>
-                                 
-                              
-                              <div class="col-12" id= "priceResult">
-                                 <%-- <div class="form-group" style="font-size:25px; text-align:center;">
-                                    총 주문 상품 : <fmt:formatNumber pattern="###,###,###" value="${sum }"/>원 +
-                                    총 배송비 : 2500원 =
-                                    총 합계 : <fmt:formatNumber pattern="###,###,###" value="${sum + 2500 }"/>원
-                                 </div> --%>
-                             </div>
+    
                         </div>
                      </div>
                      <br />

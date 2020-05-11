@@ -41,7 +41,7 @@
           <div class="col-12">
             <!-- Text -->
             <div class="text-center text-white">
-              <span class="heading-xxs letter-spacing-xl">
+              <span class="heading-xxs letter-spacing-xl" style="margin-left:130px">
                 ⚡️ Super Shining Stone ⚡️
               </span>
             </div>
@@ -52,7 +52,7 @@
     <!-- PROMO end-->
     
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-light @@classList" style="height:90px; line-height:17px">
+    <nav class="navbar navbar-expand-sm navbar-light @@classList" style="height:90px; line-height:17px; margin-left:200px">
     
       <div class="container">
         <!-- Brand -->
@@ -72,22 +72,22 @@
               <!-- Toggle -->
               <a class="nav-link font-weight-bold font-size-xl" href="/shop/main" onclick="self.location='/shop/main'" title="홈으로">Home</a>
             </li>
-            
-            <li class="nav-item dropdown position-static">
+          
+            <li class="nav-item dropdown">
               <!-- Toggle -->
               
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="귀걸이 / 목걸이">귀걸이 / 목걸이</a>
               <!-- Menu -->
-              <div class="dropdown-menu w-100">
+              <div class="dropdown-menu w-100" style="min-width:650px; margin-left:230px">
                 <div class="card card-lg">
                   <div class="card-body">
                     <div class="container">
                       <div class="row">
-                        <div class="col-4 col-md">
+                        <div class="col-6 col-md">
                           <!-- Heading -->
-                          <div class="mb-5 font-weight-bold">귀걸이</div>
+                          <div class="mb-5 font-weight-bold" style="font-size:25px">귀걸이</div>
                           <!-- Links -->
-                          <ul class="list-styled mb-0 font-size-sm">
+                          <ul class="list-styled mb-0 font-size-h6">
                             <li class="list-styled-item" >
                               <a class="list-styled-link" href="/product/shop?p_category1=귀걸이&p_category2=골드">Gold</a>
                             </li>
@@ -104,9 +104,9 @@
                         </div>
                         <div class="col-4 col-md">
                           <!-- Heading -->
-                          <div class="mb-5 font-weight-bold">목걸이</div>
+                          <div class="mb-5 font-weight-bold" style="font-size:25px">목걸이</div>
                           <!-- Links -->
-                          <ul class="list-styled mb-0 font-size-sm">
+                          <ul class="list-styled mb-0 font-size-h6">
                         <li class="list-styled-item">
                               <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=골드">Gold</a>
                             </li>
@@ -124,47 +124,13 @@
                             </li> 
                           </ul>
                         </div>
-                        <div class="d-none d-md-flex flex-column col-md-3">
-                          <!-- Card -->
-                          <div class="card mb-7 bg-cover" style="min-height: 150px;">
-                            <!-- Background -->
-                            <div class="card-bg">
-                              <div class="card-bg-img bg-cover" style="background-image: url(/resources/img/products/product-2.jpg);"></div>
-                            </div>
-                            <!-- Body -->
-                            <div class="card-body my-auto px-7">
-                              <a class="stretched-link font-weight-bold text-body" href="./shop.html">
-                                Men's Shirts
-                              </a>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          <div class="card bg-cover" style="min-height: 150px;">
-                            <!-- Background -->
-                            <div class="card-bg">
-                              <div class="card-bg-img bg-cover" style="background-image: url(/resources/img/products/product-3.jpg);"></div>
-                            </div>
-                            <!-- Body -->
-                            <div class="card-body my-auto px-7">
-                              <a class="stretched-link font-weight-bold text-body" href="./shop.html">
-                                Floral Dresses
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+
                         <div class="d-none d-md-flex flex-column col-md-3">
                           <!-- Card -->
                           <div class="card bg-cover" style="min-height: 330px;">
                             <!-- Background -->
                             <div class="card-bg">
                               <div class="card-bg-img bg-cover" style="background-image: url(/resources/img/products/product-111.jpg);"></div>
-                            </div>
-                            <!-- Body -->
-                            <div class="card-body my-auto text-center">
-                              <a class="stretched-link text-white" href="./shop.html">
-                                <h1 class="mb-1 font-weight-bold text-uppercase">50% off</h1>
-                                <h6>Women’s Watches</h6>
-                              </a>
                             </div>
                           </div>
                         </div>
@@ -174,19 +140,21 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            
+            <li class="nav-item dropdown position-relative">
               <!-- Toggle -->
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="팔찌 / 시계">팔찌 / 시계</a>
               <!-- Menu -->
-              <div class="dropdown-menu" style="min-width: 650px;">
+              <div class="dropdown-menu" style="min-width: 650px; margin-left:230px">
                 <div class="card card-lg">
                   <div class="card-body">
+                   <div class="container">
                     <div class="row">
                       <div class="col">
                         <!-- Heading -->
-                        <div class="mb-5 font-weight-bold">팔찌</div>
+                        <div class="mb-5 font-weight-bold" style="font-size:25px">팔찌</div>
                         <!-- Links -->
-                        <ul class="list-styled mb-7 font-size-sm">
+                        <ul class="list-styled mb-7 font-size-h6">
                           <li class="list-styled-item">
                             <a class="list-styled-link" href="/product/shop?p_category1=팔찌&p_category2=골드">Gold</a>
                           </li>
@@ -206,9 +174,9 @@
                       </div>
                       <div class="col">
                         <!-- Heading -->
-                        <div class="mb-5 font-weight-bold">시계</div>
+                        <div class="mb-5 font-weight-bold" style="font-size:25px">시계</div>
                         <!-- Links -->
-                        <ul class="list-styled mb-7 font-size-sm">
+                        <ul class="list-styled mb-7 font-size-h6">
                           <li class="list-styled-item">
                             <a class="list-styled-link" href="/product/shop?p_category1=시계&p_category2=가죽">leather</a>
                           </li>
@@ -221,23 +189,24 @@
                         </ul>
                       </div>
                     </div>
+                   </div>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="no-js nav-item dropdown" >
+            <li class="no-js nav-item dropdown">
                  <!-- Toggle -->
                  <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="반지 / 헤어">반지 / 헤어</a>
                  <!-- Menu -->
-                 <div class="dropdown-menu" style="min-width: 650px;">
-                   <div class="card card-lg">
+                 <div class="dropdown-menu" style="min-width:650px; margin-left:270px">
+                   <div class="card">
                      <div class="card-body">
                        <div class="row">
                          <div class="col">
                            <!-- Heading -->
-                           <div class="mb-5 font-weight-bold">반지</div>
+                           <div class="mb-5 font-weight-bold" style="font-size:25px">반지</div>
                            <!-- Links -->
-                           <ul class="list-styled mb-7 font-size-sm">
+                           <ul class="list-styled mb-7 font-size-h6">
                              <li class="list-styled-item">
                                <a class="list-styled-link" href="/product/shop?p_category1=반지&p_category2=골드">Gold</a>
                              </li>
@@ -256,9 +225,9 @@
                          </div>
                          <div class="col">
                            <!-- Heading -->
-                           <div class="mb-5 font-weight-bold">헤어용품</div>
+                           <div class="mb-5 font-weight-bold" style="font-size:25px">헤어용품</div>
                            <!-- Links -->
-                           <ul class="list-styled mb-7 font-size-sm">
+                           <ul class="list-styled mb-7 font-size-h6">
                              <li class="list-styled-item">
                                <a class="list-styled-link" href="/product/shop?p_category1=헤어&p_category2=끈">hair tie</a>
                              </li>
@@ -287,6 +256,7 @@
                      </div>
                     </div>
                   </li>
+                  
                       
           <!-- Brand -->
           <a class="no-js" href="/shop/main" style="position: relative; bottom: 35px;">
@@ -371,10 +341,15 @@
                })
             </script>
           </ul>
-          
+       </ul>
+         
         </div>
+       
       </div>
+     
     </nav>
-    
+    </body>
+    </html>
+  
     
     <!-- NAVBAR end--> 

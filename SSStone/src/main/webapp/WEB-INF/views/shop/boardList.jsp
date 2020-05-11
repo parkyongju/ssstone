@@ -1,36 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%request.setCharacterEncoding("utf-8");%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ include file="../includes/header.jsp"%>
 <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-   
-    <!-- BREADCRUMB -->
-    <nav class="my-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
+<link
+   href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+   rel="stylesheet">
+<nav class="py-2 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
 
+<<<<<<< HEAD
+				<!-- Breadcrumb -->
+				<ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+					<li class="breadcrumb-item"><a class="text-gray-400"
+						href="index.html">Home</a></li>
+					<li class="breadcrumb-item active">게시판</li>
+				</ol>
+=======
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
               <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
-              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/boardList"> Board</a></li>
+              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/boardList">Board</a></li>
             </ol>
+>>>>>>> refs/heads/yoojin
 
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- BREADCRUMB end-->
-
+			</div>
+		</div>
+	</div>
+</nav>
 
 <!-- CONTENT -->
-<section class="col-12 py-12" style="font-family: 'Do Hyeon', sans-serif; font-size:20px">
-	<div class="container">
+<section class="col-12 py-6 bg-light" style="font-family: 'Do Hyeon', sans-serif; font-size:20px">
+	<div class="container py-6" style="background-color:#fff; border:1px solid #D8D8D8; border-radius:10px">
 		<div class="row">
 			<div class="col-12">
 				<!-- Heading -->
@@ -44,17 +55,13 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						게시판 목록
-						<button id="regBtn" type="button" class="btn btn-xs pull-right"	style="float: right">게시글 작성</button>
-					</div>
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<table class="table table-bordered table-hover text-center"
 							style="text-align: center" id="">
-							<thead class="thead-dark" style="text-align: center;">
+							<thead class="thead-dark" style="text-align: center; font-size:1.5rem">
 								<tr>
-									<th>번호</th>
+									<th style="width: 13%;">번호</th>
 									<th>아이디</th>
 									<th style="width: 60%;">제목</th>
 									<th style="width: 15%;">작성일</th>
@@ -85,10 +92,22 @@
 							</tbody>
 						</table>
 						<!-- table태그의 끝 -->
-						<div class="row" style="display: ">
-							<div class="col-lg-12">
+						
+<<<<<<< HEAD
+						
+						<div class='pull-right' style="margin-left:590px">
+							<ul class="pagination">
+=======
+						<!-- 검색 -->
+					<section class="py-7 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
+						<div class="container">
+					      <div class="row align-items-center">
+					         <div class="col-12 col-md">
+								<div class="row" style="display: ">
+								<div class="col-lg-12">
 								<form action="/shop/boardList" id="searchForm" method="get">
-									<select name='type'>
+								<label class="sr-only" for="modalSearchCategories">Categories:</label>
+									<select class="custom-select" name='type'>
 										<option value=""
 											<c:out value="${pageMaker.cri.type == null?'selected':'' }" />>--</option>
 										<option value="T"
@@ -103,27 +122,33 @@
 										<option value="TW"
 											<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}" />>제목
 											or 작성자</option>
-										<option value="TWC"
-											<c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>제목
-											or 내용 or 작성자</option>
-									</select> <input type='text' name='keyword'
-										value='<c:out value="${pageMaker.cri.keyword }" />' /> <input
-										type='hidden' name='pageNum'
-										value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> <input
-										type='hidden' name='amount'
-										value='<c:out value="${pageMaker.boardcri.amount}" />' />
-									<button type="button" class="btn btn-outline-info">검색</button>
-								</form>
+										<option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>
+											제목 or 내용 or 작성자
+										</option>
+									</select> 
+									<input type='text' name='keyword'
+										value='<c:out value="${pageMaker.cri.keyword }" />' /> 
+										<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> 
+										<input type='hidden' name='amount' value='<c:out value="${pageMaker.boardcri.amount}" />' />
+									<button type="button" class="btn btn-outline-dark mb-1 btn-sm">
+										검색
+									</button>
+									</form>
+								</div>
 							</div>
 						</div>
+			         <div class="col-12 col-md-auto text-center"></div>
+			      </div>
+			   </div>
+			</section>
+			<!-- 검색 끝-->
 
 						<div class='pull-right'>
 							<ul class="pagination pagination-lg">
+>>>>>>> refs/heads/yoojin
 
 								<c:if test="${pageMaker.prev }">
-									<li class="page-item previous"><a
-										class="page-link page-link-arrow"
-										href="${pageMaker.startPage -1 }">이전</a></li>
+									<li class="page-item previous"><a class="page-link page-link-arrow" href="${pageMaker.startPage -1 }">이전</a></li>
 								</c:if>
 
 								<c:forEach var="num" begin="${pageMaker.startPage }"
@@ -140,7 +165,46 @@
 							</ul>
 						</div>
 						<!--  end Pagination -->
-
+						
+					<div class="panel-heading">
+						<button id="regBtn" type="button" class="btn btn-outline-dark btn-xxs pull-right"
+							style="float: right; margin-bottom:15px; height:37px">글쓰기</button>
+					</div>
+					
+						<div class="row" style="margin-left:340px">
+							<div class="col-lg-12">
+								<form action="/shop/boardList" id="searchForm" method="get">
+									<select name='type'>
+										<option value=""
+											<c:out value="${pageMaker.cri.type == null?'selected':'' }" />>---</option>
+										<option value="T"
+											<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>제목</option>
+										<option value="C"
+											<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>내용</option>
+										<option value="W"
+											<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}" />>작성자</option>
+										<option value="TC"
+											<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>제목
+											or 내용</option>
+										<option value="TW"
+											<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}" />>제목
+											or 작성자</option>
+										<option value="TWC"
+											<c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}" />>제목
+											or 내용 or 작성자</option>
+									</select> <input type='text' name='keyword'
+										value='<c:out value="${pageMaker.cri.keyword }" />' /> 
+										<input
+										type='hidden' name='pageNum'
+										value='<c:out value="${pageMaker.boardcri.pageNum}"/>' /> 
+										<input
+										type='hidden' name='amount'
+										value='<c:out value="${pageMaker.boardcri.amount}" />' />
+										
+									<button type="button" class="btn btn-outline-dark btn-xxs" style="height:37px">검색하기</button>
+								</form>
+							</div>
+						</div>
 
 						<form action="/shop/boardList" id='actionForm' method='get'>
 							<input type='hidden' name='pageNum'

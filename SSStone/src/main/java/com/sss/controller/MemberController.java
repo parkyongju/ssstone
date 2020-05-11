@@ -45,12 +45,18 @@ public class MemberController {
 		log.info("register : " + vo);
 		log.info("=========================");
 		memberservice.insert(vo);
-		return "redirect:/member/mypage";
-	}
+		return "redirect:/member/accountCompleted";
+	   }
+	   
+	   @GetMapping("/accountCompleted")
+	   public void accountCompleted()
+	   {
+	      
+	   }	
 
 	@GetMapping("/mypage")
 	public void mypage(@RequestParam("m_no") Long m_no, Model model) {
-		List<MemberVO> vo = memberservice.mypage(52L);	
+		List<MemberVO> vo = memberservice.mypage(92L);	
 		model.addAttribute("mypage", memberservice.mypage(m_no));
 		model.addAttribute("member",memberservice.read(m_no));
 	}
@@ -67,7 +73,7 @@ public class MemberController {
    @GetMapping("/order")
    public void order(@RequestParam("m_no") Long m_no, Model model) 
    {
-	    List<MemberVO> vo = memberservice.order(52L);	
+	    List<MemberVO> vo = memberservice.order(92L);	
 		model.addAttribute("order", memberservice.order(m_no));
 		model.addAttribute("member",memberservice.read(m_no));
 		
