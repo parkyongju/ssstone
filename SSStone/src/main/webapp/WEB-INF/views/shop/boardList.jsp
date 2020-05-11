@@ -19,12 +19,12 @@
 		<div class="row">
 			<div class="col-12">
 
-				<!-- Breadcrumb -->
-				<ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-					<li class="breadcrumb-item"><a class="text-gray-400"
-						href="index.html">Home</a></li>
-					<li class="breadcrumb-item active">게시판</li>
-				</ol>
+			<input type = "hidden">
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+              <li class="breadcrumb-item"> <a class="text-gray-400" href="/shop/main">Home</a> </li>
+              <li class="breadcrumb-item active"> <a class="text-gray-400" href="/shop/boardList">Board</a></li>
+            </ol>
 			</div>
 		</div>
 	</div>
