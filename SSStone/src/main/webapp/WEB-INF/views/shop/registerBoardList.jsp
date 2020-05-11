@@ -17,8 +17,8 @@
          <div class="col-12">
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-               <li class="breadcrumb-item"><a class="text-gray-400" href="index.html">Home</a></li>
-               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boradList">게시판</a></li>
+               <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+               <li class="breadcrumb-item active"><a class="text-gray-400" href="/shop/boardList">Board</a></li>
                <li class="breadcrumb-item active">글쓰기</li>
             </ol>
 
@@ -59,12 +59,17 @@
                <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div> 
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
+<<<<<<< HEAD
                
 			<div class="py-3" style="margin-left:520px">             
                <button type="submit" class="btn btn-outline-dark btn-xs">작성하기</button>
                <button onclick="location.href='/shop/boardList'" type="button" class="btn btn-outline-dark btn-xs" title="게시판으로 돌아가기">돌아가기</button>
             </div>
             
+=======
+               <button type="submit" class="btn btn-outline-dark mb-1 btn-s ">작성</button>
+               <button type="reset" class="btn btn-outline-dark mb-1 btn-s">이전으로</button>
+>>>>>>> refs/heads/yoojin
                
             </form>
          
