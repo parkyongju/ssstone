@@ -354,11 +354,6 @@
                {
                 self.location="/member/login";
                }
-             if(s_count == null)
-           	 {
-           	 	alert("매진 되었습니다.");
-           	 	return false;
-           	 }
              $.ajax({
                type : 'post',
                url:'/payment/shopcart',
