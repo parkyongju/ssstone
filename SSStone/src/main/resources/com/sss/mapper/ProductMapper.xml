@@ -157,7 +157,7 @@
    	<![CDATA[
       select * from tbl_product_img a inner join 
 			(select p_no, min(p_stock) from tbl_product where p_stock= 
-			(select min(p_stock) from tbl_product) group by p_no) b on a.p_no = b.p_no
+			(select min(p_stock) from tbl_product where p_stock <> 0) group by p_no) b on a.p_no = b.p_no
       ]]>
    </select>
    
