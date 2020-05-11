@@ -162,15 +162,19 @@ public class MemberController {
 	}
 
 	@PostMapping("/withdrawal")
-	public String updateWithdrawal(Long m_no) {
+	public String updateWithdrawal(Long m_no, Model model) {
 
 		MemberVO vo = memberservice.read(m_no);
 
 		vo.setM_email("탈퇴한 회원" + (vo.getM_email()));
 		vo.setM_password(pwencoder.encode("1"));
 		memberservice.update(vo);
-
+		
 		return "redirect:/shop/main";
 
+	}
+	@GetMapping("/purchaseList")
+	public void purchaseList(){
+		
 	}
 }
