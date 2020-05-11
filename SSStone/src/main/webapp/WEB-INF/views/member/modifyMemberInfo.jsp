@@ -1,107 +1,101 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ include file="../includes/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ include file="../includes/header.jsp"%>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-   <!-- BREADCRUMB -->
-    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
+<!-- BREADCRUMB -->
+<nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">  
+		   <!-- Breadcrumb -->
+		   <ol class="breadcrumb mb-0 font-size-xs text-gray-400 font-size-xs">
+		      <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
+              	<li class="breadcrumb-item"><a class="text-gray-400" href="/member/mypage">My Page</a></li>
+              	<li class="breadcrumb-item active"><a class="text-gray-400" href="/member/modifyMemberInfo">Modify Member Info</a></li>
+		   </ol>
+            </div>
+      </div>
+   </div>
+</nav>
+<!-- BREADCRUMB end-->
 
-            <!-- Breadcrumb -->
-            <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
-              <li class="breadcrumb-item"><a class="text-gray-400" href="/shop/main">Home</a></li>
-              <li class="breadcrumb-item"><a class="text-gray-400" href="/member/mypage">My Page</a></li>
-              <li class="breadcrumb-item active"><a class="text-gray-400" href="/member/modifyMemberInfo">Modify Member Info</a></li>
-            </ol>
+<!-- CONTENT -->
+<section class="pt-7 pb-12" style="font-family: 'Do Hyeon', sans-serif;">
+   <div class="container">
+      <div class="row">
+      <div class="col-12 text-center">
+        <!-- Heading -->
+         <h3 class="mb-10">정보수정</h3>
           </div>
         </div>
-      </div>
-    </nav>
-   <!-- BREADCRUMB end--> 
-    
-
-    <!-- CONTENT -->
-    <section class="pt-7 " style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
-      <div class="container">
-        <div class="row col-auto" >
-          <div class="col-12 text-center">
-
-            <!-- Heading -->
-            <h3 class="mb-10 mr-15">정보수정</h3>
-
-          </div>
-         
- 
-		<div class="row row-cols-4">
-		  <div class="col-4 col-md-4" >
-        <!-- Nav -->
+        
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <!-- Nav -->
             <nav class="mb-10 mb-md-0">
-              <div class="list-group list-group-sm list-group-strong list-group-flush-x">               
+              <div class="list-group list-group-sm list-group-strong list-group-flush-x">
+                <sec:authentication property="principal.member.m_no" var='m_no'/>
+              <!--  회원번호 가져오기 -->
               <a class="list-group-item list-group-item-action dropright-toggle" href="/member/mypage?m_no=${m_no}">
                   My Page
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   회원 정보 수정
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/order?m_no=${m_no}">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
                   구매목록
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
                   장바구니
                 </a>           
-                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/withdrawal?m_no=${m_no}">
+                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/?m_no=${m_no}">
                   회원 탈퇴
                 </a>
               </div>
             </nav>
-            <!-- Nav 종료 -->
-       		</div>
-        </div>
+            <!-- 옆메뉴 종료 -->
+          </div>
+          
+                 
+         <div class="col-12 col-md-8">
+            <!-- Card -->
+            <div class="card card-lg mb-10 mb-md-0">
+               <div class="card-body">
+                  <!-- Heading -->
+                  <h6 class="mb-7">회원 정보 수정</h6>
+                  
+                  <!-- Form -->
+                  <form method="post" action ="/member/modifyMemberInfo">
+                  <input type="hidden" name= "m_no" value="${member.m_no }">
+                     <div class="row">
+                        <div class="col-12">
+                           <!-- Email -->
+                       <div class="form-group">                          
+                              <label for="loginEmail">Email (ID)</label> 
+                              <input class="form-control form-control-sm" name = "m_email" id="m_email" type="text" readonly="readonly" required="required"  value='<c:out value="${member.m_email}"/>' >
+                           </div>
+                        </div>
+						<!-- /.Email -->
 
-            <!-- Form -->
-            <form method ="post" action ="/member/modifyMemberInfo" class="form-group">
-            <input type="hidden" name= "m_no" value="${member.m_no }">
-              <div class="row row-cols-7">
-              <div class="row row-cols-4">
-                
-                <div class="col-6 col-md-6">
-                  <!-- Email -->
-                  <div class="form-group">
-                    <label for="m_email">
-                      Email (ID) 
-                    </label>                   
-                    <input class="form-control form-control-sm" name = "m_email" id="m_email" type="text" readonly="readonly" required="required"  value='<c:out value="${member.m_email}"/>' >
-              
-                  </div>
-                </div>
-                <!-- /.Email -->
-                
-                
-                <div class="col-5">
+ 				<div class="col-12">
                   <!-- 이름 -->
                   <div class="form-group">
-                    <label for="accountName">
-                      이름 
-                    </label>
-                    <input class="form-control form-control-sm" id="accountName" name ="m_name" type="text" readonly="readonly" required="required" value='<c:out value="${member.m_name}"/>' placeholder="이름" style="width: 300px">
+                    <label for="accountName">이름</label>
+                    <input class="form-control form-control-sm" id="accountName" name ="m_name" type="text" readonly="readonly" required="required" value='<c:out value="${member.m_name}"/>' placeholder="이름" >
                   </div>
                   <!-- /.이름 -->
             </div>
                 
-                <div class="col-6">
+                <div class="col-12">
                   <!-- 번호 -->
                   <div class="form-group">
-                    <label for="AccountNewPhone">
-                      번호 *
-                    </label>
-                    <div>
-                    
+                    <label for="AccountNewPhone">번호 *</label>                   
+                    <div style="display:flex;">                    
                     <select class="custom-select custom-select-sm" style="width:30%; float:left" name="m_phone1">                
                        <option selected>010</option>
                        <option>031</option>
@@ -110,36 +104,34 @@
                        <option>080</option>
                        <option>030</option>
                     </select>
-                    <div class="col-7" style="display:flex; width:290px">
+
                     <input class="AccountNewPhone form-control form-control-sm" name ="m_phone2" value='<c:out value="${member.m_phone2}"/>' id="AccountNewPhone" type="text" maxlength="4" placeholder="0000 *" required >
                     <input class="AccountNewPhone form-control form-control-sm" name ="m_phone3" value='<c:out value="${member.m_phone3}"/>' id="AccountNewPhone" type="text" maxlength="4" placeholder="0000 *" required >
-            </div>
-                </div>
+            	</div>
                </div>
               </div>
               
-              <div class="col-5">
+            <div class="col-12">            			
                   <!-- 비밀번호 확인 -->
                   <div class="form-group">
-                    <label for="m_password">
-                      비밀번호 *
-                    </label>
+                    <label for="m_password">비밀번호 *</label>
+                    <div style="display:flex;">
                     <input class="form-control form-control-sm" id="m_password" type="password" maxlength="50" placeholder="비밀번호 *" name="m_password" required="required" >
                     <div id="pw_chk"><br/></div>
                   </div>
             </div>
-            
-            <div class="col-5">
+                   
               <!-- Password -->
               <div class="form-group">
-                <label for="m_password_rck">
-                  비밀번호 확인 *
-                </label>
+                <label for="m_password_rck">비밀번호 확인 *</label>
+                <div style="display:flex;">
                 <input class="form-control form-control-sm" onchange="pw_check(this)" id="m_password_rck" type="password" maxlength="50" placeholder="비밀번호 확인 *" name="m_password_rck" required="required">                          
               </div>
             </div>
+            </div>
            
-           <div class="col-7">
+           
+           <div class="col-12">
              <!-- Birthday -->
              <div class="form-group">
 
@@ -148,85 +140,86 @@
 
                <!-- Inputs -->
                <div class="form-row">
-                 <div class="col-auto">
+                 <div class="col-4" style="display:flex;">
                    <!-- Date -->
-                   <label class="sr-only" for="accountYear">
-                     년
-                   </label>                  
+                   <label class="sr-only" for="accountYear">년</label>                  
                    <input class="form-control form-control-sm" name="m_birth1" value='<c:out value="${member.m_birth1}"/>' readonly="readonly" >                  
                </div>
                
-               <div class="col-auto">
+               <div class="col-4" style="display:flex;">
                  <!-- Date -->
-                 <label class="sr-only" for="accountMonth">
-                   월
-                 </label>
+                 <label class="sr-only" for="accountMonth"> 월</label>                
                  <input class="form-control form-control-sm" name="m_birth2" value='<c:out value="${member.m_birth2}"/>' readonly="readonly" >
                </div>
                
-               <div class="col-auto">
+               <div class="col-4" style="display:flex;">
                  <!-- Date -->
-                 <label class="sr-only" for="accountDate">
-                   일
-                 </label>
+                 <label class="sr-only" for="accountDate">일</label>
                  <input class="form-control form-control-sm" name="m_birth3" value='<c:out value="${member.m_birth3}"/>' readonly="readonly" >
                </div>
              </div>
            </div>
      </div>
                 
-        <div class="col-5">
-       <div class="col-2">
-       <!-- 우편번호 -->
-         <div>
-       <label for="accountAddress">
-           우편번호 *
-        </label>
-           <input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>       
-       </div>       
-      <!-- /. 우편번호 -->
-      
-      <div style="margin-top:2rem">
-         <button type="button" onclick="sample6_execDaumPostcode()" class="btn btn-outline-dark mb-1 btn-sm" style="float:right">우편번호 찾기</button>
+ 
+    
+             <!-- 우편번호 -->
+  	           			      
+      <div class="form-group">
+        <label for="accountAddress">&nbsp;&nbsp;&nbsp;주소*</label>
+        <label class="sr-only">우편번호 *</label>
+       		<div class="col-9 " style="display:flex;">           
+        	<input class="form-control form-control-sm" name ="m_address1" id="sample6_postcode" type="text" placeholder="우편번호 *" value='<c:out value="${member.m_address1}"/>'>       
+           
+      <!-- /. 우편번호 -->        
+       <button type="button" onclick="sample6_execDaumPostcode()" class="btn btn-outline-dark mb-1 btn-sm" style="float:right;display:flex;">우편번호 찾기</button>
+      </div>      
       </div>
-      </div>
       
-      <div class="col-7">
+     
+      <div class="col-12">
       <!-- 주소 -->
         <div class="form-group">
            <input class="form-control form-control-sm" name="m_address2" id="sample6_address" type="text"  value='<c:out value="${member.m_address2}"/>' maxlength="50" placeholder="주소 *">
         </div>
       </div>
-
-      
-      <div class="col-5">
+     
+      <div class="col-12" >
       <!-- 상세주소 -->
         <div class="form-group">
            <input name = "m_address3" value='<c:out value="${member.m_address3}"/>' class="form-control form-control-sm" id="sample6_detailAddress" type="text" maxlength="50" placeholder="상세주소 *" >
         </div>
       </div>
       
+     
       <div class="col-5">
       <!-- 참고사항 -->
         <div class="form-group">
            <input class="form-control form-control-sm" id="sample6_extraAddress" type="text" placeholder="참고사항 *">
         </div>
-      </div>
-      </div>
-     
-       <!-- 수정버튼 -->
-       <div class="col-6" id="allCheck">
-         <button id="submitBtn" class="btn btn-outline-dark mb-1 btn-sm" type="submit">수정</button>
+      </div>  
+          
+                  
+           <div class="col-12 col-md-auto" id="allCheck">
+            <!-- 수정버튼 -->
+             <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
+               <div class="col-12" style="left: 170px;">
+               <!-- Button -->
+               <button class="login btn btn-outline-dark" id="submitBtn" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                수정
+                </button>
+                </div>
+            </div>
+           </div>
+        </form>
+          </div>
+          <!-- .row -->
        </div>
-     </div>
-    	 <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-    	 </div>
-  	 </form>
-  	 
-	</div>
-	</div>
+      </div>
+   </div>
+  </div> 
 
-	</section>
+</section>
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
@@ -452,4 +445,4 @@ var pw_passed = true;  // 추후 벨리데이션 처리시에 해당 인자값 �
 </script>
 
 
-<%@ include file="../includes/footer.jsp" %>
+<%@ include file="../includes/footer.jsp"%>

@@ -63,7 +63,7 @@ public class MemberServiceImpl implements MemberService {
 	 */
 
 	@Override
-	public int getMemberTotal() {
+	public Integer getMemberTotal() {
 		log.info("get total count");
 		return mapper.getMemberTotal();
 	}
@@ -81,7 +81,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int memberTotalPurchaseAmount(Long m_no) {
+	public Integer memberTotalPurchaseAmount(Long m_no) {
 		log.info(mapper.memberTotalPurchaseAmount(m_no));
 		return mapper.memberTotalPurchaseAmount(m_no);
 	}
