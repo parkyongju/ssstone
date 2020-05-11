@@ -72,7 +72,7 @@
               <div class="card-body pb-0">
                 <!-- Info -->
                 <div class="card card-sm">
-                  <div class="card-body bg-light">
+                  <div class="card-body bg-light" style="margin-bottom: 20px;">
                     
                     <div class="row" style="margin-bottom: 15px;">   
                                                         
