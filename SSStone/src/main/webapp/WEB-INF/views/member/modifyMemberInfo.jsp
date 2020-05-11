@@ -27,7 +27,7 @@
     
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12" style="margin-left:12%; font-family: 'Do Hyeon', sans-serif;">
+    <section class="pt-7" style="margin-left:8%; font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -39,7 +39,7 @@
          </div>
  
 		<div class="row">
-		  <div class="col-12 col-md-3">
+		  <div class="col-12 col-md-3" style="right: 60px;">
         <!-- Nav -->
             <nav class="mb-10 mb-md-0">
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">               
@@ -67,7 +67,7 @@
             <!-- Form -->
             <form method ="post" action ="/member/modifyMemberInfo">
             <input type="hidden" name= "m_no" value="${member.m_no }">
-              <div class="row">
+              <div class="row" style="width: 800px; left: 200px; bottom: 400px;">
                 <div class="col-9">
 
                   <!-- Email -->

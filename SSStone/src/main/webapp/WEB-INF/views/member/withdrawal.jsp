@@ -8,13 +8,22 @@
 <%@ include file="../includes/header.jsp"%>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-   
-   <!-- Breadcrumb -->
-   <ol class="breadcrumb justify-content-center mb-0 text-center text-white font-size-xs">
-      <li class="breadcrumb-item"><a class="text-reset" href="/shop/main">Home</a></li>      
-      <li class="breadcrumb-item active"><a class="text-reset" href="/member/mypage">My Page</a></li>      
-      <li class="breadcrumb-item active"><a class="text-reset" href="/member/withdrawal">Withdrawal</a></li>
-   </ol>
+<!-- BREADCRUMB -->
+<nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">  
+		   <!-- Breadcrumb -->
+		   <ol class="breadcrumb mb-0 font-size-xs text-gray-400 font-size-xs">
+		      <li class="breadcrumb-item"><a class="text-reset" href="/shop/main">Home</a></li>      
+		      <li class="breadcrumb-item"><a class="text-reset text-gray-400" href="/member/mypage">My Page</a></li>      
+		      <li class="breadcrumb-item"><a class="text-reset text-gray-400" href="/member/withdrawal">Withdrawal</a></li>
+		   </ol>
+            </div>
+      </div>
+   </div>
+</nav>
+<!-- BREADCRUMB end-->
 
 <!-- CONTENT -->
 <section class="pt-7 pb-12" style="font-family: 'Do Hyeon', sans-serif;">
@@ -32,10 +41,10 @@
               <div class="list-group list-group-sm list-group-strong list-group-flush-x">
                 <sec:authentication property="principal.member.m_no" var='m_no'/>
               <!--  회원번호 가져오기 -->
-              <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/mypage?m_no=${m_no}">
-                  배송현황
+              <a class="list-group-item list-group-item-action dropright-toggle" href="/member/mypage?m_no=${m_no}">
+                  My Page
                 </a>
-                <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/modifyMemberInfo?m_no=${m_no} ">
+                <a class="list-group-item list-group-item-action dropright-toggle" href="/member/modifyMemberInfo?m_no=${m_no} ">
                   회원 정보 수정
                 </a>
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/purchaseList?m_no=${m_no}">
@@ -44,7 +53,7 @@
                 <a class="list-group-item list-group-item-action dropright-toggle" href="/payment/shopcart?m_no=${m_no}">
                   장바구니
                 </a>           
-                 <a class="list-group-item list-group-item-action dropright-toggle" href="/member/?m_no=${m_no}">
+                 <a class="list-group-item list-group-item-action dropright-toggle active" href="/member/?m_no=${m_no}">
                   회원 탈퇴
                 </a>
               </div>
@@ -65,8 +74,13 @@
                            <!-- Email -->
                            <div class="form-group">
                            
+<<<<<<< HEAD
                               <label class="sr-only" for="loginEmail"></label> 
                               <input class="form-control form-control-sm" name="username" id="loginEmail" type="text" readonly="readonly" value='ID : <c:out value="${member.m_email}"/>'>
+=======
+                              <label class="sr-only" for="loginEmail"> Email Address</label> 
+                              <input class="form-control form-control-sm" value='ID : <c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
+>>>>>>> branch 'fbwjddn' of https://github.com/parkyongju/ssstone
                            </div>
                         </div>
                         <div class="col-12">
