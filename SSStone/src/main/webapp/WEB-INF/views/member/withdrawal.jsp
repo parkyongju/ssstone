@@ -34,7 +34,6 @@
          <h3 class="mb-10">My Withdrawal</h3>
           </div>
         </div>
-        
         <div class="row">
           <div class="col-12 col-md-3">
             <!-- Nav -->
@@ -61,7 +60,6 @@
             </nav>
             <!-- 옆메뉴 종료 -->
           </div>
-          </div>
                  
          <div class="col-12 col-md-6">
             <!-- Card -->
@@ -76,11 +74,10 @@
                            <!-- Email -->
                            <div class="form-group">
                            
-                              <label class="sr-only" for="loginEmail"> Email (ID) </label> 
-                              <input class="form-control form-control-sm" value='<c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
+                              <label class="sr-only" for="loginEmail"> Email Address</label> 
+                              <input class="form-control form-control-sm" value='ID : <c:out value="${member.m_email }" />' name="username" id="loginEmail" type="text" readonly="readonly">
                            </div>
                         </div>
-                        
                         <div class="col-12">
                            <!-- Password -->
                            <div class="form-group">
@@ -98,7 +95,7 @@
                         <div class="col-12" style="left: 170px;">
                            <!-- Button -->
                         <button class="login btn btn-outline-border" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
-                           	탈퇴
+                           	탈퇴하기
                         </button>
                         </div>
                      </div>
@@ -108,7 +105,7 @@
             </div>
          </div>
       </div>
-   
+   </div>
 </section>
 
 
