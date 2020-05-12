@@ -94,11 +94,17 @@
                            <!-- Link -->
             
                         <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
-                        <div class="col-12" style="left: 170px;">
+                        <div class="col-12">
                            <!-- Button -->
-                        <button class="login btn btn-outline-dark" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
-                              탈퇴
+                        <button class="login btn btn-outline-border" id="withdrawal" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                           탈퇴하기
                         </button>
+                        
+                        <sec:authorize access="isAuthenticated()">
+                        
+                              <input id = "m_no" type="hidden" value="<sec:authentication property="principal.member.m_no"/>">
+                     
+                  </sec:authorize>
                         </div>
                      </div>
                      </div>
@@ -111,6 +117,17 @@
 </section>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+   $("#withdrawal").on("click", function(){
+      var m_no = $("#m_no").val();
+      if(confirm("정말로 탈퇴하시겠습니까?")){
+         document.form1.action = "/member/withdrawal?m_no="+m_no;
+         document.form1.submit();
+      }
+   });
+});
+</script>
 
 
 
