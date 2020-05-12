@@ -134,6 +134,15 @@
 		<include refid="criteria"></include>
 		p_no >= 0
 	</select>
+	<select id = "getProductSearchTotal" resultType="int">
+		select count(*)
+			from TBL_PRODUCT 
+			where 
+		<include refid="criteria"></include>
+		<![CDATA[
+			(p_category1 like'%'||#{p_category1}||'%' and p_category2 like'%'||#{p_category2}||'%') and p_no>=0
+		]]>
+	</select>
 
 	<select id="category" resultType="com.sss.domain.ProductVO">
 		select p_category from

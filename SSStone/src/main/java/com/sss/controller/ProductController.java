@@ -31,9 +31,11 @@ public class ProductController {
 	public void shop(Model model, ProductCriteria cri) {
 		if (cri.getP_category1() != null || cri.getP_category1() != null) {
 			model.addAttribute("productList", productservice.getListSearchPaging(cri));
-			int total = productservice.getTotalProduct(cri);
+			int total = productservice.getProductSearchTotal(cri);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
-		} else {
+		}
+		else
+		{
 			model.addAttribute("productList", productservice.getListWithMain(cri));
 			int total = productservice.getTotalProduct(cri);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
