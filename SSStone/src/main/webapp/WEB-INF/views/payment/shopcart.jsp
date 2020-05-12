@@ -101,7 +101,7 @@
                            <a class="btn btn-sm btn-block btn-outline-dark"
                               href="/product/shop"> 계속 쇼핑 하기 </a>
                         </div>
-                        <div class="col-6">
+                        <div class="noitem col-6">
                            <!-- Button -->
                            <button id="payment" class="btn btn-sm btn-block btn-outline-dark" > 주문 하기 </button>
               		 	</div>
@@ -133,10 +133,13 @@ $(document).ready(function() {
       {m_no : m_no1},function(cart) {
          console.log(cart);
          var str = "";
+         var str1 ="";
          if (cart == null
                || cart.length == 0) {
-            pc_list.html("");
-            return;
+            pc_list.html("<tr><th colspan=6>장바구니가 비었습니다");
+            str1 += "<button id='noitembtn' class='btn btn-sm btn-block btn-outline-dark' > 주문 하기 </button>";
+            $(".noitem").html(str1);
+            return false;
          }
          var sum = 0;
          for (var i = 0, len = cart.length || 0; i < len; i++) 
@@ -200,6 +203,9 @@ $(document).ready(function() {
       } else {
          $(".chBox").prop("checked", false);
       }
+   });
+   $(".noitem").on("click","#noitembtn",function(e){
+	   alert("장바구니가 비었습니다.");
    });
    
    /* 모두 선택 체크를 하면 개별박스에도 체크가됨 */
