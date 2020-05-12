@@ -267,7 +267,7 @@
                           + "<a class='btn btn-block btn-outline-dark' href='/product/shop'>쇼핑 하러 가기</a></div></li>";
                       shoppingcartList.html(str);
                       str1 += "<a id = 'noitem' class='btn btn-block btn-dark' href='#'>결제하기</a>"	
-                     		+"<a class='btn btn-block btn-outline-dark' href=''/payment/shopcart?m_no=${user_no }'>장바구니 상세보기</a>";
+                     		+"<a class='btn btn-block btn-outline-dark' href= '/payment/shopcart?m_no="+m_no1+"'>장바구니 상세보기</a>";
                       $(".paymentbtn").html(str1);
                       return;
                    }
