@@ -71,7 +71,7 @@
                         <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
                         <div class="col-12">
                            <!-- Button -->
-                        <button class="login btn btn-outline-border" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                        <button class="login btn btn-outline-dark" id="login" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
                            로그인
                         </button>
                         </div>
