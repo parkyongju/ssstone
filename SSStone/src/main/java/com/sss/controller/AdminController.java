@@ -41,7 +41,7 @@ public class AdminController {
 	private ProductService productservice;
 	private PurchaseService purchaseservice;
 	private PasswordEncoder pwencoder;
-
+	
 	@GetMapping("/member") // list 창 들어 갈때
 	public void member(MemberCriteria cri, Model model) {
 		model.addAttribute("list", memberservice.getList(cri));

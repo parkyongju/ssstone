@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sss.mapper.ShoppingCartMapper">
+	
+	<!-- 쇼핑카트 생성 -->
    <insert id ="insert">
       insert into tbl_shopping_cart(s_no, p_no , m_no, s_amount) 
       values (seq_shopping_cart.nextval , #{p_no}, #{m_no}, #{s_amount})
    </insert>
    
+   <!-- 쇼핑카트 삭제 -->
    <delete id ="delete">
       delete from tbl_shopping_cart where s_no=#{s_no}
    </delete>
    
+   
    <delete id="deleteAll">
       delete from tbl_shopping_cart where m_no=#{m_no}
    </delete>
+   
    
    <select id="listCart" resultType="com.sss.domain.Shopping_cartVO">
       select s_no, a.p_no, m_no, s_amount, p_name, p_category1, p_category2, p_price, p_option, p_filename, p_uuid, p_filepath, p_filetype 
@@ -22,10 +25,12 @@
        where m_no=#{m_no} and p_filename like '%main%'
    </select>
    
+   <!-- 쇼핑카트 갯수 -->
    <select id ="countCart" resultType="int">
       select count(*) from tbl_shopping_cart where m_no=#{m_no} and p_no=#{p_no}
    </select>
    
+   <!-- 쇼핑카드 총 금액 -->
    <select id="sumMoney" resultType="int">
       <![CDATA[
          select sum(p_price * s_amount) 
@@ -34,6 +39,7 @@
       ]]>
    </select>
    
+   <!-- 금액합산 -->
    <select id="cartMoney" resultType="int">
       <![CDATA[
          select p_price* s_amount
@@ -41,14 +47,20 @@
             where m_no = #{m_no}
       ]]>
    </select>
+   
+   
    <select id = "getamount" resultType="long">
       select s_amount from tbl_shopping_cart where m_no=#{m_no} and p_no=#{p_no}
    </select>
+   
+   
    <select id = "readByM_no" resultType="com.sss.domain.Shopping_cartVO">
       <![CDATA[
          select * from tbl_shopping_cart where m_no=#{m_no}
       ]]>
    </select>
+   
+   
    <update id = "update">
       update tbl_shopping_cart set s_amount = ${s_amount} where s_no = #{s_no}
    </update>

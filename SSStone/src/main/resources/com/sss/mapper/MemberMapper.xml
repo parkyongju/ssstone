@@ -26,6 +26,7 @@
       <result property="m_auth" column="m_auth"/>
    </resultMap>
    
+   <!-- 이메일로 정보 불러오기 -->
    <select id="readByEmail" resultMap="memberMap">
       select
          m_email, a.m_no, m_name, m_password, m_birth1, m_birth2, m_birth3,
@@ -49,11 +50,13 @@
          #{m_birth1}, #{m_birth2}, #{m_birth3},
          #{m_phone1}, #{m_phone2}, #{m_phone3}) <!-- 데이터를 베이스에 넣는 값을 정해준다 -->
    </insert>
-
+	
+	<!-- 회원번호로 회원정보 조회 -->
    <select id="read" resultType="com.sss.domain.MemberVO"> <!-- 원하는 회원의 정보를 보여주는 sql문 -->
       select * from tbl_member where m_no = #{m_no}
    </select>
-
+	
+	<!-- 회원정보 삭제 -->
    <delete id="delete">
       delete from tbl_member where m_no=#{m_no}
    </delete>
@@ -82,7 +85,8 @@
          from tbl_member
          where m_no >= 0
    </select>
-
+	
+	<!-- 검색 -->
    <sql id="criteria"> 
       <trim prefix="(" suffix=") AND " prefixOverrides="OR"> 
          <foreach collection="typeArr" item='type'>
@@ -96,7 +100,8 @@
          </foreach>
       </trim>
    </sql>
-
+	
+	
    <select id="getList" resultType="com.sss.domain.MemberVO"> 
       <![CDATA[ 
          select 
@@ -175,7 +180,7 @@
       ]]>
    </select>
    
-   <!-- 아이디 중복체크 -->
+   <!-- 아이디(이메일) 중복체크 -->
    <select id="checkID"  parameterType="String" resultType="Integer">
       select count(*) 
          from tbl_member 
@@ -252,6 +257,7 @@
                  on pm.pc_no=pc.pc_no
        where pc.pc_no=#{pc_no}   
    </select>
+   
     <!-- 관리자만 보여주기 -->
    <select id="readManager" resultType="com.sss.domain.MemberVO">
         <![CDATA[

@@ -3,7 +3,8 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sss.mapper.BoardMapper">
-
+	
+	<!-- 게시글 리스트 -->
    <select id="getList" resultType="com.sss.domain.BoardVO">
       <![CDATA[
       select * from tbl_board a inner join tbl_member b on a.m_no=b.m_no where a.b_no>0 
@@ -44,6 +45,7 @@
       where b_no=#{b_no}
    </update>
 
+	<!-- 게시글 검색 -->
    <sql id="criteria">
       <trim prefix="(" suffix=") AND " prefixOverrides="OR">
          <foreach collection="typeArr" item='type'>
@@ -63,7 +65,8 @@
          </foreach>
       </trim>
    </sql>
-
+	
+	<!-- 페이지 처리 -->
    <select id="getListWithPaging" resultType="com.sss.domain.BoardVO">
       <![CDATA[
       select
@@ -82,14 +85,16 @@
          where rn > ( #{pageNum} - 1 ) * #{amount} order by rn desc
       ]]>
    </select>
-
+	
+	<!-- 게시글 총 개수 -->
    <select id="getTotalCount" resultType="int">
       select count(*) from tbl_board
       where
       <include refid="criteria"></include>
       b_no > 0
    </select>
-
+	
+	<!-- 리플 수정 -->
    <update id="updateReplyCnt">
       update tbl_board set b_content = b_content + #{amount} where b_no = #{b_no}
    </update>

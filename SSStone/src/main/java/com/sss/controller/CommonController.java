@@ -21,7 +21,7 @@ public class CommonController {
 		log.info("logout : " + logout);
 		
 		if(error != null){
-			model.addAttribute("error", "Login Error Check Your Account");
+			model.addAttribute("error", "아이디 혹은 비밀번호가 틀렸습니다.");
 		}
 		
 		if(logout != null){
