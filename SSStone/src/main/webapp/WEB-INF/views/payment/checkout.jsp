@@ -204,8 +204,8 @@
                 <button class="btn btn-dark btn-lg" type="button" data-target="#modal" data-toggle="modal" id="nextBtn">
                    주문하기
                 </button>
-               <button class="btn btn-outline-secondary btn-lg" onclick="location.href='../shop/main'" type="button">
-                  이전 단계로
+               <button class="btn btn-outline-dark btn-lg" onclick="location.href='../shop/main'" type="button">
+                  홈으로
                </button>
                </div>
            </div>
