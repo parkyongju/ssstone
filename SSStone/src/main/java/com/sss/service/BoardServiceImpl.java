@@ -17,56 +17,61 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @Log4j
 @Service
-public class BoardServiceImpl implements BoardService{
-   @Setter(onMethod_ = @Autowired)
-   private BoardMapper mapper;
-   
-   @Transactional
-   @Override
-   public void insert(BoardVO board) {
-      log.info("insert.............."+board);
-      mapper.insertSelectKey(board);
-   }
+public class BoardServiceImpl implements BoardService {
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper mapper;
 
-   @Override
-   public BoardVO read(Long b_no) {
-      log.info("get.............."+b_no);
-      return mapper.read(b_no);
-   }
+	@Transactional
+	@Override
+	public void insert(BoardVO board) {
+		log.info("insert.............." + board);
+		mapper.insertSelectKey(board);
+	}
 
-   @Transactional
-   @Override
-   public boolean update(BoardVO board) {
-      log.info("update..........." + board);
-      boolean updateResult = mapper.update(board) == 1;
-      log.info("=====================================================");
-      log.info(updateResult);
-      return updateResult;
-   }
+	@Override
+	public BoardVO read(Long b_no) {
+		log.info("get.............." + b_no);
+		return mapper.read(b_no);
+	}
 
-   @Transactional
-   @Override
-   public boolean delete(Long b_no) {
-      log.info("remove......."+b_no);
-      return mapper.delete(b_no)==1;
-   }
-   
-   @Override
-   public List<BoardVO> getListWithPaging(Criteria cri) {
-      log.info("get List with criteria : " + cri);
-      return mapper.getListWithPaging(cri);
-   }
+	@Transactional
+	@Override
+	public boolean update(BoardVO board) {
+		log.info("update..........." + board);
+		boolean updateResult = mapper.update(board) == 1;
+		log.info("=====================================================");
+		log.info(updateResult);
+		return updateResult;
+	}
 
-   @Override
-   public int getTotalCount(Criteria cri) {
-      log.info("get total count");
-      return mapper.getTotalCount(cri);
-   }
-   
-   @Override
-   public List<BoardVO> getList(Criteria cri) {
-      log.info("get List with criteria: " + cri);
-      return mapper.getListWithPaging(cri);
-   }
+	@Transactional
+	@Override
+	public boolean delete(Long b_no) {
+		log.info("remove......." + b_no);
+		return mapper.delete(b_no) == 1;
+	}
+
+	@Override
+	public List<BoardVO> getListWithPaging(Criteria cri) {
+		log.info("get List with criteria : " + cri);
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotalCount(Criteria cri) {
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public void insertInfo(BoardVO board) {
+		mapper.insertInfo(board);
+	}
 
 }

@@ -9,6 +9,7 @@ import com.sss.domain.Criteria;
 
 public interface BoardService {
    public void insert(BoardVO board);
+   public void insertInfo(BoardVO board);
    public BoardVO read(Long b_no);
    public boolean update(BoardVO board);
    public boolean delete(Long b_no);

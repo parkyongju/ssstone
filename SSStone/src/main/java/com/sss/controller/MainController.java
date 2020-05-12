@@ -119,6 +119,14 @@ public class MainController {
       return "redirect:/shop/boardList" + cri.getListLink();
    }
    
+   @PostMapping("/infoRegister")
+   public String infoRegister(BoardVO vo)
+   {
+	   boardservice.insertInfo(vo);
+	   
+	   return "redirect:/shop/boardList";
+   }
+   
    @GetMapping("/storelocator")
    public void storelocator()
    {

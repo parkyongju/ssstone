@@ -295,6 +295,9 @@
              var p_no = $("#p_no").val();
              var m_no = $("#m_no").val();
              var s_count = $("#s_count option:selected").val();
+             <sec:authorize access="isAuthenticated()">
+          		   m_no = '<sec:authentication property="principal.member.m_no"/>';
+         	 </sec:authorize>
              if(m_no == null)
                {
                 self.location="/member/login";

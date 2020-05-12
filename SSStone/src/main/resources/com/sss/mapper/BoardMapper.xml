@@ -15,6 +15,10 @@
       insert into tbl_board(b_no, b_title, b_content, m_no)
       values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no})
    </insert>
+   <insert id="insertInfo">
+      insert into tbl_board(b_no, b_title, b_content, m_no, b_info)
+      values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no}, seq_info.nextval)
+   </insert>
 
    <insert id="insertSelectKey">
       <selectKey keyProperty="b_no" order="BEFORE" resultType="long">
@@ -70,19 +74,19 @@
    <select id="getListWithPaging" resultType="com.sss.domain.BoardVO">
       <![CDATA[
       select
-         b_no, b_title, b_content, m_no, b_regdate, b_updatedate, m_email
+         a.b_no, a.b_title, a.b_content, a.m_no, a.b_regdate, a.b_updatedate, b.m_email, b_info
          from
             (
                (select /*+INDEX_DESC(TBL_BOARD PK_BOARD) */
-               rownum rn, a.b_no, a.b_title, a.b_content, a.m_no, a.b_regdate , a.b_updatedate, b.m_email
-	              from tbl_board a left join tbl_member b on a.m_no=b.m_no
+               rownum rn, b_no, b_title, b_content, m_no, b_regdate , b_updatedate, b_info
+	              from tbl_board 
 	              where
       ]]>
       <include refid="criteria"></include>
       <![CDATA[   
          rownum <= #{pageNum} * #{amount}
-            ) )
-         where rn > ( #{pageNum} - 1 ) * #{amount} order by rn desc
+            ) ) a left join tbl_member b on a.m_no = b.m_no
+         where rn > ( #{pageNum} - 1 ) * #{amount} order by a.b_info desc, rn
       ]]>
    </select>
 	
