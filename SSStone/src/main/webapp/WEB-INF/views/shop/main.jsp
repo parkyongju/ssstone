@@ -374,7 +374,7 @@
                     <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
-                      <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
+                      <img style="height:160px" class="card-img-top" src="/resources/img/covers/sss.gif" alt="전체상품">
 
                       <!-- Body -->
                       <div class="card-body py-4 px-0 text-center">
