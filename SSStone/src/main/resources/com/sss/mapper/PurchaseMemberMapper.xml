@@ -11,8 +11,7 @@
 	</select>
 
 	<delete id="delete">
-		delete from tbl_purchase_member where pc_no =
-		#{pc_no}
+		delete from tbl_purchase_member where pc_no =#{pc_no}
 	</delete>
 
 	<select id="read" resultType="com.sss.domain.PurchaseVO">

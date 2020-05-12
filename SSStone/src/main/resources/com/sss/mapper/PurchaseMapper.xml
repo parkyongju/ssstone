@@ -10,16 +10,20 @@
       values(seq_purchase.nextval, #{m_no})
    </select>
    
+   <!-- 구매번호로 구매정보 삭제 -->
    <delete id="delete">
          delete from tbl_purchase where pc_no = #{pc_no}
    </delete>
    
+   <!-- 구매 번호로 구매정보 리스트 보기 -->
    <select id="getList" resultType="com.sss.domain.PurchaseVO">
       <![CDATA[ 
          select * from tbl_purchase where pc_no>0 
       ]]>
    </select>
-      <select id="purchaseMember" resultType="com.sss.domain.PurchaseVO">
+   
+   <!-- 구매번호로 구매정보보기 -->
+    <select id="purchaseMember" resultType="com.sss.domain.PurchaseVO">
     <![CDATA[ 
    select 
         m.m_email, m.m_name, m.m_address1, m.m_address2, m.m_address3, 
@@ -31,6 +35,7 @@
     ]]>
    </select>
    
+   <!-- 배송여부 변경 -->
    <update id="updateTrue" >
       update tbl_purchase set 
       pc_deliverystatus = 'true' where pc_no = #{pc_no}
@@ -40,11 +45,14 @@
       pc_deliverystatus = 'false' where pc_no = #{pc_no}
    </update>
    
+   <!-- 구매번호로 구매정보 보기 -->
    <select id="read" resultType="com.sss.domain.PurchaseVO">
       <![CDATA[ 
          select * from tbl_purchase where pc_no = #{pc_no}
       ]]>
    </select>
+   
+   
    <select id ="readByM_no" resultType="Long">
       <![CDATA[ 
          select pc_no from (select /*+INDEX_DESC(tbl_purchase pk_pc_no) */
@@ -52,19 +60,22 @@
       ]]>
    </select>
    
+   <!-- 배송전 상품 갯수 -->
    <select id="countNotDelivery" resultType="int">
    <![CDATA[ 
       select count(*) from tbl_purchase where pc_deliveryStatus ='false'
       ]]>
    </select>
    
+   <!-- 오늘 팔린 구매 갯수 -->
    <select id="countSalesToday" resultType="int">
    <![CDATA[ 
       select count(*) from tbl_purchase where to_char(pc_date, 'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD')
       ]]>
    </select>
    
-      <select id="priceSalesToday" resultType="Long">
+   <!-- 오늘 판매된 총금액 -->
+   <select id="priceSalesToday" resultType="Long">
    <![CDATA[ 
       select sum(tbl_product.p_price * tbl_purchase_member.s_amount) 
           from tbl_purchase 
@@ -76,6 +87,7 @@
       ]]>
    </select>
    
+   <!-- 총 판매 금액 -->
    <select id="priceSalesTotal" resultType="Long">
    <![CDATA[ 
       select sum(tbl_product.p_price *tbl_purchase_member.s_amount) 
@@ -86,14 +98,7 @@
           on tbl_purchase_member.p_no=tbl_product.p_no
           
       ]]>
-   </select>
-   
-   <!-- 특정 날짜 조회 -->
-<!--    <select id="serchTheDay" resultType="com.dot09.domain.PurchaseVO">
-      <![CDATA[
-         select * from tbl_product where to_char(regdate, 'YYYYMMDD')=#{p_regdate}
-      ]]>
-   </select> -->
+   </select>   
    
    
 </mapper>
