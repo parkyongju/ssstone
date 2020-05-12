@@ -324,7 +324,7 @@
             
             <sec:authorize access="isAuthenticated()">
              <li class="nav-item ml-lg-n4">
-             <form action="/logout" method="post" id="logout">
+             <form action="/logout" method="post" role="form">
                 <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
                  <a class="logout nav-link"  href="#" title="로그아웃">
                    <i class="fe fe-log-out" ></i>
