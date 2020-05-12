@@ -26,7 +26,7 @@
                   <!-- Heading -->
                   <h6 class="mb-7">Login</h6>
                   <!-- Form -->
-                  <div style="color:red; display:inline; font-size: 0.7em;" >${error }${logout }</div>
+                  <div style="color:red; display:inline; font-size: 0.7em;" >${error }</div>
                   <form method="post" action="/login">
                      <div class="row">
                         <div class="col-12">

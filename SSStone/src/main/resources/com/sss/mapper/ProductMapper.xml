@@ -101,7 +101,7 @@
 			p_no , p_name , P_CONTENT , P_PRICE , P_stock , P_OPTION , p_category1 , p_category2 , P_REGDATE, P_UPDATEDATE,
 			p_filename,p_uuid, p_filepath
 			from(
-				select /*+INDEX_DESC(tbl_board pk_board) */
+				select /*+INDEX_DESC(tbl_product TBL_PRODUCT_PK) */
 				rownum rn, a.p_no, p_name, P_CONTENT,P_PRICE,P_stock,P_OPTION,
 				p_category1,p_category2, P_REGDATE, P_UPDATEDATE , p_filename, b.p_uuid, p_filepath 
 					from TBL_PRODUCT a inner join tbl_product_img b on a.p_no = b.p_no
@@ -110,7 +110,7 @@
 			<include refid="criteria"></include>
 			<![CDATA[	
 			rownum <= #{pageNum} * #{amount} and b.p_filename like 'main%'
-				)
+				) 
 			where 
 			
 			rn > ( #{pageNum} - 1 ) * #{amount}
@@ -124,7 +124,7 @@
 			p_no , p_name , P_CONTENT , P_PRICE , P_stock , P_OPTION , p_category1 , p_category2 , P_REGDATE, P_UPDATEDATE,
 			p_filename,p_uuid, p_filepath
 			from(
-				select /*+INDEX_DESC(TBL_PRODUCT product_pk) */
+				select /*+INDEX_DESC(tbl_product TBL_PRODUCT_PK) */
 				rownum rn, a.p_no, p_name, P_CONTENT,P_PRICE,P_stock,P_OPTION,
 				p_category1,p_category2, P_REGDATE, P_UPDATEDATE , p_filename, b.p_uuid, p_filepath 
 					from TBL_PRODUCT a inner join tbl_product_img b on a.p_no = b.p_no
