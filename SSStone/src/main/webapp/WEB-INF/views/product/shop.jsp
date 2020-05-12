@@ -167,13 +167,9 @@
        <div class="col-12">
 
          <!-- Progress -->
-<<<<<<< HEAD
+
          <div class="row justify-content-center mt-7">
             <div class="col-12 text-center">
-=======
-         <div class="row justify-content-center mt-7">
-            <div class="col-12 text-center">
->>>>>>> branch 'master' of https://github.com/parkyongju/ssstone
 				  <!-- Pagination -->
 				  <nav class="d-flex justify-content-center mt-9">
 					 <ul class="pagination pagination-sm text-gray-400">

@@ -13,7 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<!-- Favicons -->
+<link rel="icon" href="/resources/img/favicons/favicon.ico">
 <title>Admin Site</title>
 
 <!-- Bootstrap Core CSS -->

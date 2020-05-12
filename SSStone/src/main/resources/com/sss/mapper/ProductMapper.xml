@@ -110,11 +110,7 @@
 			<include refid="criteria"></include>
 			<![CDATA[	
 			rownum <= #{pageNum} * #{amount} and b.p_filename like 'main%'
-<<<<<<< HEAD
-				)
-=======
 				) 
->>>>>>> branch 'master' of https://github.com/parkyongju/ssstone
 			where 
 			
 			rn > ( #{pageNum} - 1 ) * #{amount}
