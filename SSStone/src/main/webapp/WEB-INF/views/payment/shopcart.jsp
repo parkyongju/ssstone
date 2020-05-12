@@ -87,13 +87,13 @@
                                     <th>상품 금액</th>
                                     <th>상품 수량</th>
                                     <th>배송비</th>
-                                  </tr>
+                                  </tr> 
                                  </thead>
                                  <tbody style="border-bottom:1px solid #dcdcda;" id="pc_list">
                                  </tbody>
                               </table>
-    
                                   <!-- 1개 끝 -->
+
                   <div class="col-12 py-5" style="width:100%;">
                      <div class="form-row" style="text-align:center">
                         <div class="col-6">
@@ -104,12 +104,11 @@
                         <div class="col-6">
                            <!-- Button -->
                            <button id="payment" class="btn btn-sm btn-block btn-outline-dark" > 주문 하기 </button>
-                        </div>
+              		 	</div>
                      </div>
-                  </div>
+		            </div>
                         </div>            
                      </div>              
-        
                </div>
             </div>
    <form action="/payment/checkout" id='actionForm' method='get'>
@@ -120,7 +119,6 @@
 <script type="text/javascript" src="/resources/js/ajax.js"></script>
 <script>
 /* 모두 선택 */
-
 $(document).ready(function() {
    var actionForm = $("#actionForm");
    var pc_list = $("#pc_list");
@@ -129,6 +127,8 @@ $(document).ready(function() {
       m_no1 = '<sec:authentication property="principal.member.m_no"/>';
    </sec:authorize>
    showList(m_no1);
+   
+   
    function showList(m_no1) { cartservice.getshoppingcart(
       {m_no : m_no1},function(cart) {
          console.log(cart);
@@ -165,7 +165,7 @@ $(document).ready(function() {
                    + "</th>"
                    
                    + "<th style='line-height:50px'>"
-                 + eachsumPrice  + "원"
+                 + numberWithCommas(eachsumPrice)  + "원"
                   +  "</th>"
                   
                    + "<th style='line-height:50px'>"
@@ -178,13 +178,18 @@ $(document).ready(function() {
                    + "</th>";
                    if(i==0)
                    {
-                      str += "<th style = 'line-height:"+center+"; ' rowspan='"+ cart.length + "'>2500원";
+                      str += "<th style = 'line-height:"+center+"; ' rowspan='"+ cart.length + "'>2,500원";
                       str += "</th>";
                    }
                    str += "</tr>"
-               + "}"; 
+               + "}";
+ 
          }
+      			var sumsum = sum+2500;
+            	  str += "<tr ><th colspan=6 style='font-size:20px' > 총 주문 상품 : " + numberWithCommas(sum) + "원 + " + "총 배송비 : 2,500원 = 총 합계 : " + numberWithCommas(sumsum) + " 원"
+            	  str += "</th>"
          pc_list.html(str);
+            	  
       });
    }
    $("#allCheck").click(function(){
@@ -258,6 +263,9 @@ $(document).ready(function() {
       actionForm.submit();
    });
 });
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 </script>
 
 <%@ include file="../includes/footer.jsp"%>
