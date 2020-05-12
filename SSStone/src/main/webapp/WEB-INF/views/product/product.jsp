@@ -251,22 +251,22 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Standard Delivery</td>
-                            <td>Delivery in 5 - 7 working days</td>
-                            <td>3,000원</td>
+                            <td>일반 배송</td>
+                            <td>배송일 : 5 - 7일 (토,일 휴일 제외)</td>
+                            <td>2,500원</td>
                           </tr>
                           <tr>
-                            <td>Express Delivery</td>
-                            <td>Delivery in 3 - 5 working days</td>
-                            <td>10,000원</td>
+                            <td>특급배송</td>
+                            <td>배송일 : 2 - 3일 (토,일 휴일 제외)</td>
+                            <td>쇼핑몰에 별도 요청</td>
                           </tr>
-                          <tr>
+                     <!--      <tr>
                             <td>무료 배송</td>
                             <td>
                               10만원 이상 구매 시 무료배송
                             </td>
                             <td>무료배송</td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -281,65 +281,7 @@
     </section>
     <br/><br/><br/><br/><br/><br/><br/>
    <br/><br/><br/><br/><br/><br/><br/>
-   <!-- PRODUCTS -->
-    <section class="pt-11">
-      <div class="container">
-        <div class="row">
-          <div class="col-12" style="margin-top: 200px;">
-
-            <!-- Heading -->
-            <h4 class="mb-10 text-center">유사 상품</h4>
-
-            <!-- Items -->
-            <div class="row">
-              <div class="col-6 col-sm-6 col-md-4">
-
-                <!-- Card -->
-                <div class="card mb-7 mb-md-0">
-
-                  <!-- Image -->
-                  <img class="card-img-top" src="/resources/img/products/lamp/심플 사각2.jpg" alt="...">
-
-                  <!-- Body -->
-                  <div class="card-body px-0 pb-0 bg-white">
-                    <div class="row no-gutters">
-                      <div class="col">
-
-                        <!-- Title -->
-                        <a class="d-block font-weight-bold text-body" href="product.html">
-                          title
-                        </a>
-
-                        <!-- Category -->
-                        <a class="font-size-xs text-muted" href="shop.html">
-                                귀걸이
-                        </a>
-
-                      </div>
-                      <div class="col-auto">
-
-                        <!-- Price -->
-                        <div class="font-size-sm font-weight-bold text-muted">
-                          <c:out value="${product.p_price}" />
-                        </div>
-                        <input type="hidden" id="p_no" name="p_no" value="${product.p_no }">
-                        <sec:authorize access="isAuthenticated()">
-                           <input type="hidden" id="m_no" name="m_no" value='<sec:authentication property="principal.member.m_no"/>'>
-                        </sec:authorize>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- PRODUCTS end -->
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-<br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/>
     
     <script>
        $(document).ready(function(e){
