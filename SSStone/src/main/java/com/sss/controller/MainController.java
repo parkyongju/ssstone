@@ -54,7 +54,7 @@ public class MainController {
    public void blogPost() {
 
    }
-   
+   //게시판 목록
    @GetMapping("/boardList")
    public void BoardList(Model model, Criteria cri) {
       model.addAttribute("list", boardservice.getListWithPaging(cri));
@@ -62,6 +62,7 @@ public class MainController {
       model.addAttribute("pageMaker", new PageDTO(cri, total));
    }
    
+   //게시판 등록 - 로그인 해야 함
    @PreAuthorize("isAuthenticated()")
    @PostMapping("/registerBoardList")
    public String RegisterBoardList(BoardVO board, RedirectAttributes rttr){
@@ -70,13 +71,13 @@ public class MainController {
    rttr.addFlashAttribute("registerBoardList", board.getB_no());
       return "redirect:/shop/boardList";
    }
-   
+   //게시판 등록 페이지
    @PreAuthorize("isAuthenticated()")
    @GetMapping("/registerBoardList")
    public void RegisterBoardList(){
       
    }
-   
+   //게시판 상세
    @GetMapping({"/getBoardList", "/modifyBoardList"})
    public void get(@RequestParam("b_no") Long b_no, @ModelAttribute("cri") Criteria cri, Model model){
       
@@ -84,9 +85,10 @@ public class MainController {
       model.addAttribute("board", boardservice.read(b_no));
    }
    
-   @PreAuthorize("isAuthenticated()")
+   //게시판 수정 - 등록자만 수정 가능
+//   @PreAuthorize("isAuthenticated() and (principal.username == #board.m_email or hasRole('ROLE_MANAGER') )")
    @PostMapping("/modifyBoardList")
-   public String modify(BoardVO board,@ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
+   public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
       log.info("modifyBoardList :" + board);
       
       if(boardservice.update(board)) {
@@ -100,8 +102,7 @@ public class MainController {
       
       return "redirect:/shop/boardList" + cri.getListLink();
    }
-
-   @PreAuthorize("isAuthenticated()")
+   
    @PostMapping("/removeBoardList")
    public String RemoveBoardList(@RequestParam("b_no") Long b_no, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
       
@@ -117,7 +118,6 @@ public class MainController {
       
       return "redirect:/shop/boardList" + cri.getListLink();
    }
-   
    
    @GetMapping("/storelocator")
    public void storelocator()

@@ -209,18 +209,11 @@
                <strong>총 금액</strong> <strong class="ml-auto">0원</strong>
              </div>
              <!-- Buttons -->
-             <div class="modal-body">
-                  <a class="paymentbtn btn-block btn-dark">결제하기</a>
-                <a class="btn btn-block btn-outline-dark" href="/payment/shopcart?m_no=${user_no }">장바구니 상세보기</a>
+             <div class="paymentbtn modal-body">
+                  <a class="btn btn-block btn-dark" href='/payment/checkout?m_no=${user_no }'>결제하기</a>
+                  <a class="btn btn-block btn-outline-dark" href="/payment/shopcart?m_no=${user_no }">장바구니 상세보기</a>
              </div>
            </div>
-           <script>
-           	$(document).ready(function(e){
-           		$(".paymentbtn").on("click",function(e){
-           			
-           		})
-           	})
-           </script>
            <!-- Empty cart (remove `.d-none` to enable it) -->
            <div class="modal-content d-none">
              <!-- Close -->
@@ -255,7 +248,12 @@
              </sec:authorize>
              showList(m_no1);
              var str = "";
+             var str1 = "";
              var summoney=0;
+             $(".paymentbtn").on("click","#noitem", function(e){
+          	   alert("장바구니가 비었습니다.");
+          	   return false;
+             });
              function showList(m_no) { cartservice.getshoppingcart(
                   {m_no : m_no},function(list) {
                 console.log(list);
@@ -268,6 +266,9 @@
                           + "</div><div class='modal-body flex-grow-0 my-auto'><h6 class='mb-7 text-center'>장바구니가 비었습니다 😞</h6>"
                           + "<a class='btn btn-block btn-outline-dark' href='/product/shop'>쇼핑 하러 가기</a></div></li>";
                       shoppingcartList.html(str);
+                      str1 += "<a id = 'noitem' class='btn btn-block btn-dark' href='#'>결제하기</a>"	
+                     		+"<a class='btn btn-block btn-outline-dark' href=''/payment/shopcart?m_no=${user_no }'>장바구니 상세보기</a>";
+                      $(".paymentbtn").html(str1);
                       return;
                    }
                    

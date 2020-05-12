@@ -26,6 +26,7 @@
                   <!-- Heading -->
                   <h6 class="mb-7">Login</h6>
                   <!-- Form -->
+                  <div style="color:red; display:inline; font-size: 0.7em;" >${error }${logout }</div>
                   <form method="post" action="/login">
                      <div class="row">
                         <div class="col-12">
@@ -45,6 +46,7 @@
                               <input class="form-control form-control-sm" name="loginPwd" id="loginPassword" type="password" placeholder="Password *" required>
                            </div>
                         </div>
+                        
                         <div class="col-12 col-md">
                            <!-- Remember -->
                            <div class="form-group">
@@ -54,6 +56,7 @@
                               </div>
                            </div>
                         </div>
+                        
                         <div class="col-12 col-md-auto">
                            <!-- Link -->
                            <div class="form-group">

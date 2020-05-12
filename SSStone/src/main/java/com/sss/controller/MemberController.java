@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Random;
 
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,53 +47,50 @@ public class MemberController {
 		log.info("=========================");
 		memberservice.insert(vo);
 		return "redirect:/member/accountCompleted";
-	   }
-	   
-	   @GetMapping("/accountCompleted")
-	   public void accountCompleted()
-	   {
-	      
-	   }	
+	}
 
+	@GetMapping("/accountCompleted")
+	public void accountCompleted() {
+
+	}
+
+	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
 	@GetMapping("/mypage")
 	public void mypage(@RequestParam("m_no") Long m_no, Model model) {
-		List<MemberVO> vo = memberservice.mypage(92L);	
+		List<MemberVO> vo = memberservice.mypage(92L);
 		model.addAttribute("mypage", memberservice.mypage(m_no));
-		model.addAttribute("member",memberservice.read(m_no));
+		model.addAttribute("member", memberservice.read(m_no));
 	}
 	
-   @GetMapping("/mypageDetail")
-   public void mypageDetail(@RequestParam("pc_no") Long pc_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.mypageDetail(1L);		
-		model.addAttribute("mypageDetail", memberservice.mypageDetail(pc_no));	
+	@GetMapping("/mypageDetail")
+	public void mypageDetail(@RequestParam("pc_no") Long pc_no, Model model) {
+		List<MemberVO> vo = memberservice.mypageDetail(1L);
+		model.addAttribute("mypageDetail", memberservice.mypageDetail(pc_no));
 		model.addAttribute("total", memberservice.total(pc_no));
-	
-   }
-	
-   @GetMapping("/order")
-   public void order(@RequestParam("m_no") Long m_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.order(92L);	
+
+	}
+	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
+	@GetMapping("/order")
+	public void order(@RequestParam("m_no") Long m_no, Model model) {
+		List<MemberVO> vo = memberservice.order(92L);
 		model.addAttribute("order", memberservice.order(m_no));
-		model.addAttribute("member",memberservice.read(m_no));
-		
-   }
-   
-   @GetMapping("/orderDetail")
-   public void orderDetail(@RequestParam("pc_no") Long pc_no, Model model) 
-   {
-	    List<MemberVO> vo = memberservice.orderDetail(1L);		
+		model.addAttribute("member", memberservice.read(m_no));
+
+	}
+	
+	@GetMapping("/orderDetail")
+	public void orderDetail(@RequestParam("pc_no") Long pc_no, Model model) {
+		List<MemberVO> vo = memberservice.orderDetail(1L);
 		model.addAttribute("orderDetail", memberservice.orderDetail(pc_no));
 		model.addAttribute("total", memberservice.total(pc_no));
-	
-   }   
+
+	}
 
 	@GetMapping("/agreement")
 	public void agreement() {
 
 	}
-
+	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
 	@GetMapping("/modifyMemberInfo")
 	public void modifyMemberInfo(@RequestParam("m_no") Long m_no, Model model) {
 		log.info("update...");
@@ -111,7 +109,7 @@ public class MemberController {
 	 * ResponseEntity<>("success",HttpStatus.OK): new
 	 * ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); }
 	 */
-
+	@PreAuthorize("isAuthenticated() and (principal.username == #member.m_email or hasRole('ROLE_MANAGER') )")
 	@PostMapping("/modifyMemberInfo")
 	public String modifyMemberInfo(MemberVO member) {
 		MemberVO vo = new MemberVO();
@@ -142,7 +140,7 @@ public class MemberController {
 	public void logoutGET() {
 		log.info("로그아웃");
 	}
-
+	
 	@GetMapping("/passwordReset")
 	public String passwordReset(@RequestParam("m_email") String m_email,
 			@RequestParam("m_password") String m_password) {
@@ -154,13 +152,12 @@ public class MemberController {
 		memberservice.update(vo);
 		return "redirect:/member/login";
 	}
-
+	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
 	@GetMapping("/withdrawal")
-	public void withdrawal(@RequestParam("m_no") Long m_no,Model model) 
-	{
+	public void withdrawal(@RequestParam("m_no") Long m_no, Model model) {
 		model.addAttribute("member", memberservice.read(m_no));
 	}
-
+	@PreAuthorize("isAuthenticated() and (principal.username == #m_email or hasRole('ROLE_MANAGER') )")
 	@PostMapping("/withdrawal")
 	public String updateWithdrawal(Long m_no, Model model) {
 
@@ -169,12 +166,13 @@ public class MemberController {
 		vo.setM_email("탈퇴한 회원" + (vo.getM_email()));
 		vo.setM_password(pwencoder.encode("1"));
 		memberservice.update(vo);
-		
+
 		return "redirect:/shop/main";
 
 	}
+
 	@GetMapping("/purchaseList")
-	public void purchaseList(){
-		
+	public void purchaseList() {
+
 	}
 }

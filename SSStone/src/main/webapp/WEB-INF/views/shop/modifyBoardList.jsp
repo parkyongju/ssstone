@@ -57,7 +57,7 @@
                <!--  /.panel-heading -->
                <div class="panel-body">
 
-                  <form role="form" action="/shop/modifyBoardList" method="post">
+                  <form id="modifyform" action="/shop/modifyBoardList" method="post">
 
                      <!-- 추가 -->
                      <input type='hidden' name='pageNum'
@@ -92,7 +92,6 @@
                   <div>   
                      <input type="hidden" name="${_csrf.parameterName }"
                         value="${_csrf.token }">
-                     <sec:authorize access="isAuthenticated()">
                     
                         <button type="submit" data-oper='remove'
                            class="btn btn-outline-dark btn-s mb-1" title="글 삭제" style="float:right">삭제하기</button>
@@ -100,10 +99,9 @@
                            class="btn btn-outline-dark btn-s mb-1" title="글 수정" style="float:right; margin-right:5px">수정하기</button>
                         <button type="submit" data-oper='list'
                            class="btn btn-outline-dark btn-s mb-1" title="게시판으로 돌아가기">목록으로</button>
-                     </sec:authorize>
                  </div>    
                      
-                  </form>
+                </form>
             </div>
             <!--  end panel-body  -->
          </div>
@@ -116,7 +114,7 @@
 
 <script type="text/javascript">
    $(document).ready(function() {
-      var formObj = $("form");
+      var formObj = $("#modifyform");
       $('button').on("click",function(e) {
          e.preventDefault();
          var operation = $(this).data("oper");
@@ -138,11 +136,13 @@
             formObj.append(keywordTag);
             formObj.append(typeTag);
             formObj.empty();
-            }
-         
+         }
+         else{
+        	 
+         }
          formObj.submit();
-         });
       });
+   });
 </script>
 
 
