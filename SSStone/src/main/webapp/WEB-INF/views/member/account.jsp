@@ -356,7 +356,7 @@ $(document).ready(function(){
 	{
 		str += "<input class='form-control form-control-sm' id='emailAuth' type='email'"+
 			"maxlength='140' placeholder='인증번호'>";
-		str1 += "<button type='button' class='btn btn-outline-success btn-sm' id='emailAuthBtn' style='float: right; margin-right : 3px;'>이메일 인증</button>";
+		str1 += "<button type='button' class='btn btn-outline-dark btn-sm' id='emailAuthBtn' style='float: right; margin-right : 3px;'>이메일 인증</button>";
 		$("#authentication").html(str);
 		$("#authdiv").html(str1);
 		str = "";
