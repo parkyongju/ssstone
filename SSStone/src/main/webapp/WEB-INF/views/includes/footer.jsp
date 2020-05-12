@@ -9,7 +9,7 @@
     <!-- FOOTER -->
     <footer class="bg-dark bg-cover @@classList" style="background-image: url(/resources/img/patterns/pattern-2.svg); font-family: 'Do Hyeon', sans-serif; font-size:20px; font-weight:100" >
     <div id="bottom" class="no-js"></div>
-      <div class="py-12 border-bottom border-gray-700">
+      <div class="py-8 border-bottom border-gray-700">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8 col-xl-6">

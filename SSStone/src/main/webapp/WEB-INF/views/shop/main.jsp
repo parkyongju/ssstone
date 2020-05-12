@@ -20,7 +20,7 @@
               <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-1">
 
                 <!-- Heading -->
-                <h1>이쁜악세사리</h1>
+                <h1>이쁜 악세사리</h1>
 
                 <!-- Heading -->
                 <h2 class="display-1 text-primary">SSStone</h2>
@@ -42,12 +42,11 @@
               <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-n1">
 
                 <!-- Heading -->
-                <h1 class="mb-5">Spring Collection</h1>
+                <h1 class="mb-5">Summer Collection</h1>
 
                 <!-- Text -->
                 <p class="mb-8 font-size-lg text-gray-500">
-                     싱그러운 봄, 예쁜 주얼리와 함께!
-                </p>
+                     뜨거운 여름 태양보다<br> 빛나는 스톤들이 왔다!                </p>
 
                 <!-- Button -->
                 <a class="btn btn-dark" href="/product/shop">
@@ -174,7 +173,7 @@
     </section>
 
     <!-- PRODUCTS -->
-    <section class="pt-8" style="font-family: 'Do Hyeon', sans-serif;">
+    <section class="py-6 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
     
       <div class="container">
       <div class="container">
@@ -191,11 +190,11 @@
           <div class="col-12 col-md-6">
             
             <!-- 품절임박 상품 카드 -->
-            <div class="card card-lg">
+            <div class="card card-lg" style="border:1px solid #F2F2F2">
               <!-- Image -->
               <c:forEach items="${read}" var="read" begin="0" end="0">
               <img src='/display?fileName=<c:out value="${read.p_filepath}"/>/<c:out value="${read.p_uuid}"/>_<c:out value="${read.p_filename}"/>'
-                    alt="..." height="565px;" width="520px;">
+                    alt="..." height="565px;" width="535px;">
               
               <!-- Body -->
               <div class="card-body position-relative mx-6 mx-lg-11 mt-n11 bg-white text-center">
@@ -214,7 +213,7 @@
           <div class="col-12 col-md-6">
 
             <!-- Card -->
-            <div class="card card-lg">
+            <div class="card card-lg" style="border:1px solid #F2F2F2">
 
               <!-- Circle -->
               <div class="card-circle card-circle-lg card-circle-right">
@@ -224,7 +223,7 @@
               <!-- Image -->
               <c:forEach items="${readHot}" var="readHot" begin="0" end="0">
               <img src='/display?fileName=<c:out value="${readHot.p_filepath}"/>/<c:out value="${readHot.p_uuid}"/>_<c:out value="${readHot.p_filename}"/>'
-                    alt="..." height="565px;" width="520px;">
+                    alt="..." height="565px;" width="535px;">
               
               <!-- Body -->
               <div class="card-body position-relative mx-6 mx-lg-11 mt-n11 bg-white text-center">
@@ -247,7 +246,7 @@
     </section>
 
     <!-- ARRIVALS -->
-    <section class="pt-1" style="font-family: 'Do Hyeon', sans-serif;">
+    <section class="py-6 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -261,8 +260,8 @@
       <div class="flickity-page-dots-progress" data-flickity='{"pageDots": true, "freeScroll":true, "wrapAround":true}'>
       <c:forEach items="${readNew}" var="readnew" begin="0" end="7" step="1">
         <!-- Item -->
-        <div class="col" style="max-width: 300px;">
-          <div class="card">
+        <div class="col" style="max-width: 303px;">
+          <div class="card" style="border:1px solid #F2F2F2">
 
             <!-- Image -->
             <div class="card-img">
@@ -281,7 +280,7 @@
             <!-- Body -->
             <div class="card-body font-weight-bold text-center">
               <a class="text-body" href="/product/shop"><c:out value="${readnew.p_name}"/></a><br>
-              <span class="text-muted"><c:out value="${readnew.p_category1}"/><br><c:out value="${readnew.p_price}"/>&#8361;</span>
+              <span class="text-muted"><c:out value="${readnew.p_category1}"/><br><fmt:formatNumber value="${readnew.p_price}" pattern="#,###"/>원</span>
             </div>
           </div>
         </div>
@@ -289,7 +288,7 @@
       </div>
     </section>
     <!-- CATEGORIES -->
-    <section class="py-12" style="font-family: 'Do Hyeon', sans-serif;">
+    <section class="py-8 bg-light" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -318,7 +317,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px;" class="card-img-top" src="/resources/img/products/금귀걸이.jpg" alt="...">
@@ -336,7 +335,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/은귀걸이.jpg" alt="...">
@@ -354,7 +353,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/써지컬귀걸이.png" alt="...">
@@ -371,8 +370,8 @@
                   </div>
                   
                   <!-- Item -->
-                  <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                  <div class="col" style="max-width: 190px;">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
@@ -400,7 +399,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/금목걸이.jpg" alt="...">
@@ -418,7 +417,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/은목걸이.jpg" alt="...">
@@ -436,7 +435,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/초커.jpg" alt="...">
@@ -454,7 +453,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/써지컬목걸이.jpg" alt="...">
@@ -472,7 +471,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
@@ -499,7 +498,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/금팔찌.jpg" alt="...">
@@ -517,7 +516,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/은팔찌.jpg" alt="...">
@@ -535,7 +534,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/게르마늄팔찌.jpg" alt="...">
@@ -553,7 +552,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/써지컬팔찌.png" alt="...">
@@ -571,7 +570,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
@@ -598,7 +597,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/가죽시계.jpg" alt="...">
@@ -616,7 +615,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/메탈시계.jpg" alt="...">
@@ -634,7 +633,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
@@ -660,7 +659,7 @@
                 <div class="flickity-buttons-lg flickity-buttons-offset px-lg-12" style="display:flex; justify-content:center">
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/금반지.jpg" alt="...">
@@ -678,7 +677,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/은반지.jpg" alt="...">
@@ -696,7 +695,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/써지컬반지.jpg" alt="...">
@@ -714,7 +713,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">
@@ -741,7 +740,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/헤어끈.jpg" alt="...">
@@ -759,7 +758,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/곱창밴드.jpg" alt="...">
@@ -777,7 +776,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/헤어밴드.jpg" alt="...">
@@ -795,7 +794,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/반다나.jpg" alt="...">
@@ -813,7 +812,7 @@
 
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/헤어핀.jpg" alt="...">
@@ -830,7 +829,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/집게핀.jpg" alt="...">
@@ -848,7 +847,7 @@
                   
                   <!-- Item -->
                   <div class="col" style="max-width: 200px;">
-                    <div class="card">
+                    <div class="card" style="border:1px solid #F2F2F2">
 
                       <!-- Image -->
                       <img style="height:160px" class="card-img-top" src="/resources/img/products/ALL.png" alt="...">

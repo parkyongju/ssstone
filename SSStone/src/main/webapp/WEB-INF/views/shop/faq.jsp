@@ -70,7 +70,7 @@
                 <!-- Collapse -->
                 <div class="collapse" id="faqCollapseTwo" data-parent="#faqCollapseParentOne">
                   <div class="mt-5">
-                    <p class="mb-0 font-size-lg text-gray-500">
+                    <p class="mb-0 font-size-lg text-gray-500" style="font-family: 'Oswald', sans-serif;">
                       Saw wherein fruitful good days image them, midst, waters upon, saw. Seas lights seasons. Fourth
                       hath rule creepeth own lesser years itself so seed fifth for grass.
                     </p>
@@ -235,7 +235,7 @@
                 <!-- Collapse -->
                 <div class="collapse" id="faqCollapseNine" data-parent="#faqCollapseParentTwo">
                   <div class="mt-5">
-                    <p class="mb-0 font-size-lg text-gray-500">
+                    <p class="mb-0 font-size-lg text-gray-500" style="font-family: 'Oswald', sans-serif;">
                       Two roads diverged in a yellow wood, And sorry I could not travel both And be one traveler, long I stood And looked down one as far as I could To where it bent in the undergrowth;　 Then took the other, as just as fair, And having perhaps the better claim, Because it was grassy and wanted wear; Though as for that the passing there Had worn them really about the same,　 And both that morning equally lay In leaves no step had trodden black.
 					  Oh, I kept the first for another day!
 					  Yet knowing how way leads on to way, I doubted if I should ever come back.
@@ -334,7 +334,7 @@
                 <!-- Collapse -->
                 <div class="collapse" id="faqCollapseThirteen" data-parent="#faqCollapseParentThree">
                   <div class="mt-5">
-                    <p class="mb-0 font-size-lg text-gray-500">
+                    <p class="mb-0 font-size-lg text-gray-500" style="font-family: 'Oswald', sans-serif;">
                       Some say the world will end in fire, Some say in ice.
 					  From what I've tasted of desire I hold with those who favor fire.
 					  But if it had to perish twice, I think I know enough of hate To say that for destruction ice Is also great And would suffice

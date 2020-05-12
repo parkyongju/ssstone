@@ -31,7 +31,7 @@
                      <tr>
                         <th style="text-align: center;">구매번호</th>
                         <th style="text-align: center;">회원번호</th>
-                        <th style="text-align: center;">구매날짜</th>                        
+                        <th style="text-align: center;">구매날짜-구매시간</th>                        
                         <th style="text-align: center;">배송현황</th>
                         <th style="text-align: center;" colspan=4>배송상태 변경</th>
                      </tr>
@@ -227,7 +227,7 @@
             var dd = dateObj.getDate();
 
             return [ yy, '/', (mm > 9 ? '' : '0') + mm, '/',
-                  (dd > 9 ? '' : '0') + dd, '--',(hh > 9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi,
+                  (dd > 9 ? '' : '0') + dd, '-',(hh > 9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi,
                   ':', (ss > 9 ? '' : '0') + ss ].join('');
         
       }

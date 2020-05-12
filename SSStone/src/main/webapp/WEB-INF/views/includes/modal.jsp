@@ -59,8 +59,8 @@
             <i class="fe fe-x" aria-hidden="true"></i>
           </button>
           <!-- Header -->
-          <div class="modal-header line-height-fixed font-size-lg">
-            <strong class="mx-auto">Search Products</strong>
+          <div class="modal-header line-height-fixed font-size-lg bg-dark bg-pattern">
+            <strong class="mx-auto" style="color:#fff">상품검색</strong>
           </div>
           <!-- Body: Form -->
           <div class="modal-body">
@@ -160,7 +160,7 @@
              </button>
              <!-- Header -->
              <div>
-               <div class="py-6 bg-dark bg-pattern @@classList">
+               <div class="py-6 bg-dark bg-pattern">
       			<div class="container">
             				<!-- Text -->
             				<div class="text-center text-white" style="width:450px;"> 
@@ -273,7 +273,7 @@
                       str += "<div class='col-8'>"
                            + "<p class='font-size-sm font-weight-bold mb-6'>"
                            + "<a class='text-body' href='./product.html'><strong>"+list[i].p_name+"<strong></a><br>"
-                           + "<span class='text-muted'>"+list[i].p_price+"원<strong class= 'pull-right text-muted' style='float:right;'>"+list[i].p_category1+" > "+list[i].p_category2+"</strong></span></p>"
+                           + "<span class='text-muted'>"+numberWithCommas(list[i].p_price)+"원<strong class= 'pull-right text-muted' style='float:right;'>"+list[i].p_category1+" > "+list[i].p_category2+"</strong></span></p>"
                            + "<div class='d-flex align-items-center'>";
                       str  + "<a class='font-size-xs text-gray-400 ml-auto' href=''#'>"
                            + "<i class='fe fe-x'></i> Remove"
@@ -281,11 +281,14 @@
                       summoney+= list[i].p_price;
                 }
                  shoppingcartList.html(str);
-                 str="<strong>총 금액</strong> <strong class='ml-auto'>"+summoney+"원</strong>";
+                 str="<strong>총 금액</strong> <strong class='ml-auto'>"+numberWithCommas(summoney)+"원</strong>";
                  moneyResult.html(str);
                 });  //end function
              } // end showList
           });
+          function numberWithCommas(x) {
+        	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        	}
        </script>
     </sec:authorize>
     <!--  Shopping Cart end -->

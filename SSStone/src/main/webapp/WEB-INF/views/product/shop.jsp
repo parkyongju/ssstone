@@ -31,7 +31,7 @@
 
 
 <!-- FILTERS -->
-<section class="py-7 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
+<section class="py-4 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row align-items-center">
          <div class="col-12 col-md">
@@ -62,7 +62,7 @@
 </section>
 
 <!-- 상품 페이지 -->
-<section class="py-12" style="font-family: 'Do Hyeon', sans-serif;">
+<section class="py-6" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row" style="margin-top: 70px;">
      
@@ -75,7 +75,7 @@
                <c:if test="${i%j==0 }">
                   <li style="display:flex;">
                </c:if>
-               <div class="col-12 col-md-3 col-lg" style="justify-content:space-between">
+               <div class="col-12 col-md-3 py-6" style="justify-content:space-between; border:1px solid #F2F2F2;">
                   <!-- Card -->
                   <div class="move card mb-7" data-toggle="card-collapse" href= '<c:out value="${product.p_no }"/>' >
                     <!-- Image -->

@@ -12,7 +12,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.11.0/css/font-awesome.min.css">
    
    <!-- BREADCRUMB -->
-    <nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
+    <nav class="py-3" style="font-family: 'Do Hyeon', sans-serif; margin-left:180px">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -51,7 +51,7 @@
 
               <!-- Heading -->
               <!-- 주문 회원 정보 -->
-              <h6 class="mb-7">주문자 정보</h6>
+              <h6 class="mb-7">결제자 정보</h6>
               <!-- Billing details -->
               <div class="row mb-9">
                 <div class="col-6">
@@ -154,7 +154,7 @@
 
                     <!-- Image -->
                     <a class="card mb-4" href="#" data-fancybox>
-                       <img src='/display?fileName=<c:out value="${list.p_filepath}"/>/<c:out value="${list.p_uuid}"/>_<c:out value="${list.p_filename }"/>' alt="..." class="card-img-top" >
+                       <img src='/display?fileName=<c:out value="${list.p_filepath}"/>/<c:out value="${list.p_uuid}"/>_<c:out value="${list.p_filename }"/>' alt="..." class="card-img-top" style="border:1px solid #D8D8D8">
                </a>
 
                   </div>
@@ -163,7 +163,7 @@
                       <a class="text-body" href="product.html"><c:out value="${list.p_name}"/></a> <br>
                       <span class="text-muted"><c:out value="${list.p_category1}"/></span>
                       <span class="text-muted"><c:out value="${list.p_category2}"/></span>
-                      <span class="text-muted"><c:out value="${list.p_price}"/>원</span>
+                      <span class="text-muted"><fmt:formatNumber value="${list.p_price}" pattern="#,###"/>원</span>
                     </p>
 
                     <!-- Text -->
@@ -202,7 +202,7 @@
             <div class="form-group" style="text-align:center">
                <div class="box on">
                 <button class="btn btn-dark btn-lg" type="button" data-target="#modal" data-toggle="modal" id="nextBtn">
-                   주문하기
+                   결제하기
                 </button>
                <button class="btn btn-outline-dark btn-lg" onclick="location.href='../shop/main'" type="button">
                   홈으로
@@ -333,14 +333,14 @@
       <div class="modal-dialog">
          <div class="modal-content" style="font-family:'Do Hyeon', sans-serif; width:650px; height:800px;">
             <div class="modal-header">
-                  상품주문 완료
+                  상품결제 완료
             </div>
             <div class="modal-body" style="text-align:center">
             <i class="far fa-laugh-squint fa-9x"></i><br>
                   구매해주셔서 감사합니다!!
             </div> 
             <div class="form-group" style="text-align:center">
-                  자세한 주문 정보는 마이페이지에서 확인할 수 있습니다.
+                  자세한 결제 정보는 마이페이지에서 확인할 수 있습니다.
             </div>
             <div class="col-12">
             <form method="post">

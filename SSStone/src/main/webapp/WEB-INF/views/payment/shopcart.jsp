@@ -9,7 +9,7 @@
 
 
 <!-- BREADCRUMB -->
-<nav class="py-5" style="font-family: 'Do Hyeon', sans-serif;">
+<nav class="py-5" style="font-family: 'Do Hyeon', sans-serif; margin-left:190px; margin-bottom:-50px">
    <div class="container">
       <div class="row">
          <div class="col-12">
@@ -157,7 +157,7 @@ $(document).ready(function() {
                     + "<th style='line-height:50px'>"
                     + "<a href='#' data-fancybox> <img" 
                    + " src='/display?fileName=" + cart[i].p_filepath + "/" + cart[i].p_uuid + "_" + cart[i].p_filename + "'"
-                   + "alt='...' class='card-img-top' style='width:110px;'>"
+                   + "alt='...' class='card-img-top' style='width:110px; border:1px solid #D8D8D8'>"
                    + "</a>"
                    + "</th>"
                    

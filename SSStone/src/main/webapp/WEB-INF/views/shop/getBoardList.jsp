@@ -39,11 +39,11 @@
          <div class="col-12">
             <div class="panel panel-default">
                <div class="panel-body">
-                  <div class="form-group" style="float: right">
+                  <div class="form-group" style="float: right; margin-right:10px">
                      <label style="color:grey;">작성일</label><br/>
                      <fmt:formatDate pattern="yyyy-MM-dd" value="${board.b_regdate}" />
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="margin-left:10px">
                      <label style="color:grey;">작성자</label> <br/>
                      <c:out value="${board.m_email }"/>
                      <hr>
@@ -52,12 +52,12 @@
 
                   <div class="form-group">
 							<label>제목</label> <textarea  class="form-control" name="b_content"
-								 readonly="readonly" rows="1" style="resize:none"><c:out value="${board.b_title }"/></textarea>
+								 readonly="readonly" rows="1" style="resize:none; background:#fff"><c:out value="${board.b_title }"/></textarea>
 						</div>
 						
 						<div class="form-group">
 							<label>내용</label> <textarea  class="form-control" name="b_content"
-								 readonly="readonly" rows="15" style="resize:none"><c:out value="${board.b_content }"/></textarea>
+								 readonly="readonly" rows="15" style="resize:none; background:#fff"><c:out value="${board.b_content }"/></textarea>
 						</div>
                   
                   <div class="form-group" style="margin-left:470px">

@@ -52,7 +52,7 @@
     <!-- PROMO end-->
     
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-light @@classList" style="height:90px; line-height:17px; margin-left:200px">
+    <nav class="navbar navbar-expand-sm navbar-light @@classList" style="height:90px; line-height:17px; margin-left:200px;">
     
       <div class="container">
         <!-- Brand -->
@@ -78,7 +78,7 @@
               
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="귀걸이 / 목걸이">귀걸이 / 목걸이</a>
               <!-- Menu -->
-              <div class="dropdown-menu" style="min-width:1000px; height:250px">
+              <div class="dropdown-menu" style="min-width:600px; margin-left:-200px; height:300px">
                 <div class="card card-lg">
                   <div class="card-body">
                     <div class="container">
@@ -104,9 +104,9 @@
                         </div>
                         <div class="col-6 col-md">
                           <!-- Heading -->
-                          <div class="mb-5 font-weight-bold" style="font-size:25px; padding-left:50px">목걸이</div>
+                          <div class="mb-5 font-weight-bold" style="font-size:25px;">목걸이</div>
                           <!-- Links -->
-                          <ul class="list-styled mb-0 font-size-h6" style="padding-left:50px">
+                          <ul class="list-styled mb-0 font-size-h6">
                         <li class="list-styled-item">
                               <a class="list-styled-link" href="/product/shop?p_category1=목걸이&p_category2=골드">Gold</a>
                             </li>
@@ -124,16 +124,6 @@
                             </li> 
                           </ul>
                         </div>
-
-                        <div class="d-none d-md-flex flex-column col-md-3">
-                          <!-- Card -->
-                          <div class="card bg-cover" style="min-height: 330px;">
-                            <!-- Background -->
-                            <div class="card-bg">
-                              <div class="card-bg-img bg-cover" style="background-image: url(/resources/img/products/product-111.jpg);"></div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -145,7 +135,7 @@
               <!-- Toggle -->
               <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="팔찌 / 시계">팔찌 / 시계</a>
               <!-- Menu -->
-              <div class="dropdown-menu" style="min-width:700px;">
+              <div class="dropdown-menu" style="min-width:600px; margin-left:-60px">
                 <div class="card card-lg">
                   <div class="card-body">
                    <div class="container">
@@ -199,7 +189,7 @@
                  <!-- Toggle -->
                  <a class="nav-link font-weight-bold font-size-xl" data-toggle="dropdown" href="#" title="반지 / 헤어">반지 / 헤어</a>
                  <!-- Menu -->
-                 <div class="dropdown-menu" style="width:530px; padding:16px">
+                 <div class="dropdown-menu" style="width:600px; padding:16px; margin-left:50px">
                    <div class="card">
                      <div class="card-body">
                        <div class="row">

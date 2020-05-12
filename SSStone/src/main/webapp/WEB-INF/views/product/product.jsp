@@ -5,9 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ include file="../includes/header.jsp" %>
-   
+  
     <!-- BREADCRUMB -->
-    <nav class="my-5">
+    <nav class="my-5" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -27,7 +27,7 @@
 
 
     <!-- PRODUCT -->
-    <section>
+    <section style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container" style="height: auto;">
         <div class="row">
           <div class="col-12">
@@ -42,7 +42,7 @@
                     <c:forEach items="${productmain }" var ="mainimg">
                      <a class="card mb-4" href="#" data-fancybox> <img
                         src='/display?fileName=<c:out value="${mainimg.p_filepath}"/>/<c:out value="${mainimg.p_uuid}"/>_<c:out value="${mainimg.p_filename }"/>'
-                        alt="..." class="card-img-top" width="160%" height="160%">
+                        alt="..." class="card-img-top" width="160%" height="160%" style="border:1px solid #D8D8D8">
                      </a>
                   </c:forEach>
                     </div>
@@ -89,7 +89,7 @@
                   </div>
                   <div class="form-group">
                     <div class="form-row mb-7">
-                    <p class="mb-4" style="font-size: 20px; margin-top: 10px;">&nbsp;수량 : </p>
+                    <p class="mb-4" style="font-size:20px; margin-top:10px;">&nbsp;수량 : </p>
                       <div class="col-12 col-lg-auto">
 
                         <!-- Quantity -->
@@ -132,14 +132,17 @@
 
                       </div>
                       <!-- 남은 수량 -->
-                      <c:choose>
-
+                <c:choose>
                   <c:when test="${product.p_stock <= 10}">
-                     <a>&nbsp;&nbsp;수량이 얼마 남지않았습니다.</a>
+                  <div class="col-6">
+                     <a>수량이 얼마 남지않았습니다.</a>
+                  </div>
                   </c:when>
-                  
+               
                   <c:otherwise>
-                     <a>수량이 <c:out value="${product.p_stock}"/>개 남았습니다.</a>
+                  <div class="col-6">
+                    <br><a>수량이 <c:out value="${product.p_stock}"/>개 남았습니다.</a>
+                  </div>
                   </c:otherwise>
                  </c:choose>
                  <!-- 남은 수량 끝 -->
@@ -205,7 +208,7 @@
                         <c:forEach items="${productsub }" var="subImg">
                     <a class="card mb-4" href="#" data-fancybox>
                           <img src='/display?fileName=<c:out value="${subImg.p_filepath}"/>\<c:out value="${subImg.p_uuid}"/>_<c:out value="${subImg.p_filename }"/>' alt="..."
-                           class="card-img-top" width="200px" height="400px">
+                           class="card-img-top" width="200px" height="400px" style="border:1px solid #F2F2F2">
                     </a>
                     </c:forEach>
                     <!-- 서브이미지 종료 -->

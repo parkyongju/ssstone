@@ -27,13 +27,13 @@
     <!-- BREADCRUMB end -->
 
     <!-- CONTENT -->
-    <section class="pt-7 pb-12">
+    <section class="pt-7 pb-12" style="font-family: 'Do Hyeon', sans-serif;">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
 
             <!-- Heading -->
-            <h3 class="mb-10">Purchase List</h3>
+            <h3 class="mb-10">구매 목록</h3>
 
           </div>
         </div>

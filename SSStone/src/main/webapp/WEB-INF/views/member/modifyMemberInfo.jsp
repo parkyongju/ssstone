@@ -77,7 +77,7 @@
                            <!-- Email -->
                        <div class="form-group">                          
                               <label for="loginEmail">Email (ID)</label> 
-                              <input class="form-control form-control-sm" name = "m_email" id="m_email" type="text" readonly="readonly" required="required"  value='<c:out value="${member.m_email}"/>' >
+                              <input class="form-control form-control-sm" name = "m_email" id="m_email" type="text" readonly="readonly" required="required"  value='<c:out value="${member.m_email}"/>' style="background:#fff" title="ID는 변경할 수 없습니다.">
                            </div>
                         </div>
                   <!-- /.Email -->
@@ -86,7 +86,7 @@
                   <!-- 이름 -->
                   <div class="form-group">
                     <label for="accountName">이름</label>
-                    <input class="form-control form-control-sm" id="accountName" name ="m_name" type="text" readonly="readonly" required="required" value='<c:out value="${member.m_name}"/>' placeholder="이름" >
+                    <input class="form-control form-control-sm" id="accountName" name ="m_name" type="text" readonly="readonly" required="required" value='<c:out value="${member.m_name}"/>' placeholder="이름"  style="background:#fff" title="이름은 변경할 수 없습니다.">
                   </div>
                   <!-- /.이름 -->
             </div>
@@ -144,19 +144,19 @@
                  <div class="col-4" style="display:flex;">
                    <!-- Date -->
                    <label class="sr-only" for="accountYear">년</label>                  
-                   <input class="form-control form-control-sm" name="m_birth1" value='<c:out value="${member.m_birth1}"/>' readonly="readonly" >                  
+                   <input class="form-control form-control-sm" name="m_birth1" value='<c:out value="${member.m_birth1}"/>' readonly="readonly" style="background:#fff" title="생년월일은 변경할 수 없습니다.">                  
                </div>
                
                <div class="col-4" style="display:flex;">
                  <!-- Date -->
                  <label class="sr-only" for="accountMonth"> 월</label>                
-                 <input class="form-control form-control-sm" name="m_birth2" value='<c:out value="${member.m_birth2}"/>' readonly="readonly" >
+                 <input class="form-control form-control-sm" name="m_birth2" value='<c:out value="${member.m_birth2}"/>' readonly="readonly" style="background:#fff" title="생년월일은 변경할 수 없습니다.">
                </div>
                
                <div class="col-4" style="display:flex;">
                  <!-- Date -->
                  <label class="sr-only" for="accountDate">일</label>
-                 <input class="form-control form-control-sm" name="m_birth3" value='<c:out value="${member.m_birth3}"/>' readonly="readonly" >
+                 <input class="form-control form-control-sm" name="m_birth3" value='<c:out value="${member.m_birth3}"/>' readonly="readonly" style="background:#fff" title="생년월일은 변경할 수 없습니다.">
                </div>
              </div>
            </div>

@@ -70,7 +70,7 @@
 
                      <div class="from-group">
                         <label>게시판 번호</label> <input class="form-control" name='b_no'
-                           value='<c:out value="${board.b_no }"/>' readonly="readonly">
+                           value='<c:out value="${board.b_no }"/>' readonly="readonly" style="background:#fff" title="게시판 번호는 변경할 수 없습니다.">
                      </div>
                      <div class="form-group">
                         <label>제목</label> <input class="form-control" name='b_title'
