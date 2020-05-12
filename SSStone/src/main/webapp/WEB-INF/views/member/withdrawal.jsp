@@ -34,7 +34,8 @@
          <h3 class="mb-10">회원탈퇴</h3>
           </div>
         </div>
-        
+         <!-- Form -->
+        <form role="form" method="post" action="/member/withdrawal" name="form1">
         <div class="row">
           <div class="col-12 col-md-3">
             <!-- Nav -->
@@ -69,7 +70,7 @@
                   <!-- Heading -->
                 
                   <!-- Form -->
-                  <form method="post" action="/withdrawal">
+                  <form method="post" action="/withdrawal" >
                      <div class="row">
                         <div class="col-12">
                            <!-- Email -->
@@ -92,11 +93,10 @@
                   
                         <div class="col-12 col-md-auto">
                            <!-- Link -->
-            
                         <input type=hidden name="${_csrf.parameterName }" value="${_csrf.token }">
                         <div class="col-12">
                            <!-- Button -->
-                        <button class="login btn btn-outline-border" id="withdrawal" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
+                        <button class="login btn btn-outline-dark" id="withdrawal" type="submit" style="float: left; font-family: 'Do Hyeon', sans-serif">
                            탈퇴하기
                         </button>
                         
