@@ -59,9 +59,10 @@
                <input type ="hidden" class="form-control" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                </div> 
                <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" >
-
-               <button type="submit" class="btn btn-outline-dark mb-1 btn-s ">작성</button>
-               <button type="reset" class="btn btn-outline-dark mb-1 btn-s">이전으로</button>
+			<div class="py-3" style="margin-left:460px">
+               <button type="submit" class="btn btn-outline-dark mb-1 btn-s ">작성하기</button>
+               <button onclick="location.href='/shop/boardList'" type="button" class="btn btn-outline-dark mb-1 btn-s" title="게시판으로 돌아가기">이전으로</button>
+            </div>
                
             </form>
          

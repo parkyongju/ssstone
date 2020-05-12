@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
     <!-- BREADCRUMB -->
-    <nav class="py-5">
+    <nav class="py-5 bg-light">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -25,14 +25,13 @@
     <!-- BREADCRUMB end -->
 
 <!-- CONTENT -->
-<section class="pt-7 pb-12"
-	style="margin-left: 12%; font-family: 'Do Hyeon', sans-serif;">
-	<div class="container">
+<section class="py-6 bg-light" style="padding-left:10%; font-family: 'Do Hyeon', sans-serif;">
+	<div class="container py-5" style="background-color: #fff; border: 1px solid #D8D8D8; border-radius: 10px">
 		<div class="row">
 			<div class="col-12 text-center">
 
 				<!-- Heading -->
-				<h3 class="mb-10 mr-15">회원가입</h3>
+				<h3 class="mb-10 mr-15" style="margin-left:150px">회원가입</h3>
 
 			</div>
 		</div>

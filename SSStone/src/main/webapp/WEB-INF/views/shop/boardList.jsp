@@ -55,8 +55,8 @@
                         <tr>
                            <th style="width: 13%;">번호</th>
                            <th>아이디</th>
-                           <th style="width: 60%;">제목</th>
-                           <th style="width: 15%;">작성일</th>
+                           <th style="width: 55%;">제목</th>
+                           <th style="width: 20%;">작성일</th>
                         </tr>
                      </thead>
                      <tbody>

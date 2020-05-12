@@ -24,8 +24,8 @@
    </div>
 </nav>
 
-<section class="col-12">
-   <div class="container">
+<section class="col-12 bg-light py-6" style="font-family: 'Do Hyeon', sans-serif; font-size:20px">
+	<div class="container py-5" style="background-color:#fff; border:1px solid #D8D8D8; border-radius:10px">
       <div class="row">
          <div class="col-12">
             <!-- Heading -->
@@ -46,33 +46,32 @@
                   <div class="form-group">
                      <label style="color:grey;">작성자</label> <br/>
                      <c:out value="${board.m_email }"/>
+                     <hr>
                   </div>
                   
 
                   <div class="form-group">
-                     <label style="color:grey;">제목 </label> 
-                     <textarea  class="form-control" name="b_title" style="background-color : white; color:black; " readonly="readonly"><c:out value="${board.b_title }"/></textarea>                  
-                  </div>
+							<label>제목</label> <textarea  class="form-control" name="b_content"
+								 readonly="readonly" rows="1" style="resize:none"><c:out value="${board.b_title }"/></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label>내용</label> <textarea  class="form-control" name="b_content"
+								 readonly="readonly" rows="15" style="resize:none"><c:out value="${board.b_content }"/></textarea>
+						</div>
                   
-                  <div class="form-group ">
-                     <label style="color:grey;">내용</label> 
-                     <textarea  class="form-control" name="b_content" readonly="readonly" rows="15" style="resize:none">
-                        <c:out value="${board.b_content }"/>
-                     </textarea>
-                  </div>
-                  
-                  <div class="form-group">
+                  <div class="form-group" style="margin-left:470px">
                   
                      <sec:authorize access="isAuthenticated()">
                         <sec:authentication property="principal.member.m_no" var = "pinfo"/>
                         <c:if test="${pinfo eq board.m_no }">
                            <button data-oper='modify' class="btn btn-outline-dark mb-1 btn-s" onclick="location.href='/shop/modifyBoardList?b_no=<c:out value="${board.b_no }" />'">
-                              수정
+                              수정하기
                            </button>
                         </c:if>
                      </sec:authorize>
                   <button data-oper='list' class="btn btn-outline-dark mb-1 btn-s" onclick="location.href='/shop/boardList'">
-                     목록
+                     목록으로
                   </button>
                   
                   </div>
@@ -97,11 +96,11 @@
             <div class="panel panel-default">
                <div class="panel-heading">
                   <sec:authorize access="isAuthenticated()">
-                  <i class="fa fa-comments fa-fw fa-x"></i> 
-                  <input class="col-md-9 " name="r_content" type="text" placeholder="내용을 입력하세요" >
+                  <i class="fa fa-comments fa-fw fa-x" style="margin-left:55px"></i> 
+                  <input class="col-md-9 " name="r_content" type="text" placeholder="내용을 입력하세요" style="width:1200px;">
                   <input type ='hidden'name='r_order' value='0'>
                   <input type='hidden' name='r_depth' value='0'>
-                  <button id='replyRegisterBtn' class='btn btn-outline-dark mb-1 btn-xxs pull-right'>댓글</button>
+                  <button id='replyRegisterBtn' class='btn btn-outline-dark mb-1 btn-xxs'  style="height:35px">댓글달기</button>
                   <input class="col-md-1" type="hidden" name="m_no" value='<sec:authentication property="principal.member.m_no"/>' readonly="readonly">
                   </sec:authorize>
                </div>
@@ -216,7 +215,7 @@ $(document).ready(function() {
                + "</small>";
 
                /* <sec:authorize access="isAuthenticated()"> */
-               str += "<i data-r_no='"+list[i].r_no+"' data-r_depth='"+list[i].r_depth +"' class='rereply fa fa-plus' style='float: right;cursor:pointer;'> <small style='cursor:pointer;'>답글</small></i>";
+               str += "<i data-r_no='"+list[i].r_no+"' data-r_depth='"+list[i].r_depth +"' class='rereply fa fa-plus' style='float: right;cursor:pointer;'> <small style='cursor:pointer; margin-right:10px'>답글</small></i>";
                /* </sec:authorize> */
                str+="</div>";
                str += " <p>" + "<label style='color:grey;'>내용  </label> "
@@ -224,7 +223,7 @@ $(document).ready(function() {
                <sec:authorize access="isAuthenticated()">
                if(user_no == list[i].m_no )
                {
-               str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;cursor:pointer;'>수정<i class='fe fe-edit-2'></i></small></span>";
+               str += "<span data-r_no='"+list[i].r_no+"'> <small id ='modify' class='text-muted' style='text-decoration:underline;float: right;cursor:pointer;'>댓글수정<i class='fe fe-edit-2'></i></small></span>";
                }
                </sec:authorize>
                
@@ -250,9 +249,9 @@ $(document).ready(function() {
       if (endNum * 10 < replyCnt) {
          next = true;
       }
-      var str = "<ul class='pagination pull-right'>";
+      var str = "<ul class='pagination' style='margin-left:520px'>";
       if (prev) {
-         str += "<li class='page-item'><a class='page-link' href='"
+         str += "<li class='page-item' ><a class='page-link' href='"
                + (startNum - 1)
                + "'>Previous</a></li>";
       }
