@@ -76,8 +76,7 @@
                                  <input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">전체선택 / </label>
                            </div>
                         <div class="delBtn">
-                            <button id="selectDelete_btn"
-                            type="button" style="width: 50px; height: 25px;">삭제</button>
+                            <button id="selectDelete_btn" type="button" class="btn btn-outline-dark btn-xxs" >삭제</button>
                         </div>
                               <table style="width:100%; text-align:center; font-size: 40px;" class="table">
                                  <thead class="thead-dark">
@@ -94,10 +93,7 @@
                                  </tbody>
                               </table>
     
-                        </div>
-                     </div>
-                     <br />
-                  <!-- 1개 끝 -->
+                                  <!-- 1개 끝 -->
                   <div class="col-12 py-5" style="width:100%;">
                      <div class="form-row" style="text-align:center">
                         <div class="col-6">
@@ -111,6 +107,9 @@
                         </div>
                      </div>
                   </div>
+                        </div>            
+                     </div>              
+        
                </div>
             </div>
    <form action="/payment/checkout" id='actionForm' method='get'>
