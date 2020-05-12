@@ -65,7 +65,7 @@
 
                 <!-- Price -->
                 <div class="mb-7">
-                  <span class="ml-1 font-size-h5 font-weight-bold">금액 : <c:out value="${product.p_price}" />원</span>
+                  <span class="ml-1 font-size-h5 font-weight-bold">금액 : <fmt:formatNumber value="${product.p_price}" pattern="#,###"/>원</span>
                 </div>
 
                 <!-- Form -->

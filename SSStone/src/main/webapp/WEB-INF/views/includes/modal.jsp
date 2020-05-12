@@ -210,10 +210,17 @@
              </div>
              <!-- Buttons -->
              <div class="modal-body">
-                  <a class="btn btn-block btn-dark" href="/payment/checkout?m_no=${user_no }">결제하기</a>
+                  <a class="paymentbtn btn-block btn-dark">결제하기</a>
                 <a class="btn btn-block btn-outline-dark" href="/payment/shopcart?m_no=${user_no }">장바구니 상세보기</a>
              </div>
            </div>
+           <script>
+           	$(document).ready(function(e){
+           		$(".paymentbtn").on("click",function(e){
+           			
+           		})
+           	})
+           </script>
            <!-- Empty cart (remove `.d-none` to enable it) -->
            <div class="modal-content d-none">
              <!-- Close -->

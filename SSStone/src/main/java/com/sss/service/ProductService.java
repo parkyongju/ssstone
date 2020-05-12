@@ -19,6 +19,7 @@ public interface ProductService {
 	public List<ProductVO> getListSearchPaging(ProductCriteria cri);
 	public List<ProductImgDTO> getSubFileList(Long p_no);
 	public int getTotalProduct(ProductCriteria cri);
+	public int getProductSearchTotal(ProductCriteria cri);
 	
 	public ProductVO read(Long p_no);
 	public List<ProductImgDTO> readMainImg(Long p_no);
