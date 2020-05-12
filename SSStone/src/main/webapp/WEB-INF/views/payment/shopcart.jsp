@@ -119,7 +119,6 @@
 <script type="text/javascript" src="/resources/js/ajax.js"></script>
 <script>
 /* 모두 선택 */
-
 $(document).ready(function() {
    var actionForm = $("#actionForm");
    var pc_list = $("#pc_list");
@@ -193,7 +192,6 @@ $(document).ready(function() {
             	  
       });
    }
-
    $("#allCheck").click(function(){
       var chk = $("#allCheck").prop("checked");
       
@@ -265,7 +263,6 @@ $(document).ready(function() {
       actionForm.submit();
    });
 });
-
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

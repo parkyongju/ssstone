@@ -314,6 +314,14 @@
             </li>
             </sec:authorize>
             
+            <sec:authorize access="hasRole('ROLE_MANAGER')">
+            <li class="nav-item ml-lg-n4">
+              <a class="nav-link" data-toggle="modal" onclick="self.location='/admin/index'" href ='#' title="관리자 페이지">
+                  <i class="fa fa-star fa-fw"></i>
+              </a>
+            </li>
+            </sec:authorize>
+            
             <sec:authorize access="isAuthenticated()">
              <li class="nav-item ml-lg-n4">
              <form action="/logout" method="post" role="form">

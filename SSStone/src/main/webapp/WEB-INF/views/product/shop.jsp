@@ -38,18 +38,18 @@
 
             <!-- Categories -->
             <nav class="nav nav-overflow mb-6 mb-md-0">
-               <a class="nav-link active" data-toggle="tab" href="/product/shop" onclick="self.location='/product/shop'">All</a> 
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=귀걸이&p_category2=" 
+               <a class='nav-link ${ pageMaker.productcriteria.p_category1 == null ? "active" : "" }' data-toggle="tab" href="/product/shop" onclick="self.location='/product/shop'">All</a> 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '귀걸이' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=귀걸이&p_category2=" 
                onclick="self.location='/product/shop?p_category1=귀걸이&p_category2='">귀걸이</a>
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=목걸이&p_category2=" 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '목걸이' ? "active" : "" }"  data-toggle="tab" href="/product/shop?p_category1=목걸이&p_category2=" 
                onclick="self.location='/product/shop?p_category1=목걸이&p_category2='">목걸이</a>
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=팔찌&p_category2=" 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '팔찌' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=팔찌&p_category2=" 
                onclick="self.location='/product/shop?p_category1=팔찌&p_category2='">팔찌</a>
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=시계&p_category2=" 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '시계' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=시계&p_category2=" 
                onclick="self.location='/product/shop?p_category1=시계&p_category2='">시계</a>
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=반지&p_category2=" 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '반지' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=반지&p_category2=" 
                onclick="self.location='/product/shop?p_category1=반지&p_category2='">반지</a>
-               <a class="nav-link" data-toggle="tab" href="/product/shop?p_category1=헤어&p_category2=" 
+               <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '헤어용품' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=헤어&p_category2=" 
                onclick="self.location='/product/shop?p_category1=헤어&p_category2='">헤어용품</a>
                <a class="nav-link" data-toggle="tab" href="/shop/comingsoon"
                  title="준비중" onclick="self.location='/shop/comingsoon'">Commingsoon</a>
@@ -65,12 +65,9 @@
 <section class="py-6" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row" style="margin-top: 70px;">
-     
-      <c:set var="i" value="0" />
+      	 <c:set var="i" value="0" />
          <c:set var="j" value="4" />
             <ul style="padding:0px 1px 0px 1px;">
-         <c:choose>
-            <c:when test="${productList != null && fn:length(productList) > 0 }">
                <c:forEach items="${productList }" var="product">
                <c:if test="${i%j==0 }">
                   <li style="display:flex;">
@@ -115,13 +112,11 @@
                   </div>
                </div>
                <c:if test="${i%j==j-1 }">
+               		</li>
                </c:if>
                <c:set var="i" value="${i+1 }"/>
-               
              </c:forEach>
           
-        </c:when>
-     </c:choose>
      </ul>
      
      </div>
@@ -138,23 +133,23 @@
                 <div class="form-group">
                   <select name='type' class="custom-select">
                     <option value=""
-                      <c:out value="${pageMaker.cri.type == null?'selected':'' }" />>원하시는 입력방법을 선택해주세요.</option>
+                      <c:out value="${pageMaker.productcriteria.type == null?'selected':'' }" />>원하시는 입력방법을 선택해주세요.</option>
                     <option value="T"
-                      <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}" />>카테고리</option>
+                      <c:out value="${pageMaker.productcriteria.type eq 'T'?'selected':''}" />>카테고리</option>
                     <option value="C"
-                      <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}" />>재질</option>
+                      <c:out value="${pageMaker.productcriteria.type eq 'C'?'selected':''}" />>재질</option>
                     <option value="N"
-                      <c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
+                      <c:out value="${pageMaker.productcriteria.type eq 'N'?'selected':''}" />>이름</option>
                     <option value="TC"
-                      <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}" />>카테고리
+                      <c:out value="${pageMaker.productcriteria.type eq 'TC'?'selected':''}" />>카테고리
                       or 재질</option>
                     <option value="TCN"
-                      <c:out value="${pageMaker.cri.type eq 'TCN'?'selected':''}" />>전체 검색</option>
+                      <c:out value="${pageMaker.productcriteria.type eq 'TCN'?'selected':''}" />>전체 검색</option>
                   </select> 
                </div>
                
                <div class="input-group input-group-merge">
-                  <input type='search' name='keyword' value='<c:out value="${pageMaker.cri.keyword }" />' class="form-control"  id="keyword" placeholder="Search"/> 
+                  <input type='search' name='keyword' value='<c:out value="${pageMaker.productcriteria.keyword }" />' class="form-control"  id="keyword" placeholder="Search"/> 
                   <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.productcriteria.pageNum}"/>' /> 
                   <input type='hidden' name='amount' value='<c:out value="${pageMaker.productcriteria.amount}" />' />
                   <button type="button" class="btn btn-outline-dark"> <i class="fe fe-search"></i>검색</button>
@@ -172,8 +167,13 @@
        <div class="col-12">
 
          <!-- Progress -->
+<<<<<<< HEAD
          <div class="row justify-content-center mt-7">
             <div class="col-12 text-center">
+=======
+         <div class="row justify-content-center mt-7">
+            <div class="col-12 text-center">
+>>>>>>> branch 'master' of https://github.com/parkyongju/ssstone
 				  <!-- Pagination -->
 				  <nav class="d-flex justify-content-center mt-9">
 					 <ul class="pagination pagination-sm text-gray-400">
@@ -200,15 +200,17 @@
 	  <!-- 페이징 처리 끝 -->
 
      <form action="/product/shop" id='actionForm' method='get'>
-       <input type='hidden' name='pageNum'
-         value='${pageMaker.productcriteria.pageNum }'> <input
-         type='hidden' name='amount'
-         value='${pageMaker.productcriteria.amount }'>
+       <input type='hidden' name='pageNum' value='${pageMaker.productcriteria.pageNum }'> 
+       <input type='hidden' name='amount' value='${pageMaker.productcriteria.amount }'>
        <!-- 검색후 검색조건과 키워드 유지 -->
-       <input type='hidden' name='type'
-         value='<c:out value="${pageMaker.cri.type }" />'> <input
-         type='hidden' name='keyword'
-         value='<c:out value="${pageMaker.cri.keyword }" />'>
+       <input type='hidden' name='type' value='<c:out value="${pageMaker.productcriteria.type }" />'> 
+       <input type='hidden' name='keyword' value='<c:out value="${pageMaker.productcriteria.keyword }" />'>
+       <c:if test="${pageMaker.productcriteria.p_category1 !=null }">
+       <input type ="hidden" name ="p_category1" value='<c:out value="${pageMaker.productcriteria.p_category1 }" />'>
+       </c:if>
+       <c:if test="${pageMaker.productcriteria.p_category2 !=null }">
+       <input type ="hidden" name ="p_category2" value='<c:out value="${pageMaker.productcriteria.p_category2 }" />'>
+       </c:if>
      </form>
    </div>
 </section>
