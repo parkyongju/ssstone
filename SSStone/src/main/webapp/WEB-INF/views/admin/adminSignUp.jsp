@@ -50,7 +50,7 @@
                     <label for="accountEmail">
                       Email (ID) *
                     </label>
-                    <input class="form-control form-control-sm" id="accountEmail" type="email" maxlength="140" placeholder="Email (ID) *" name="m_email" required>
+                    <input class="form-control form-control-sm" id="accountEmail" type="text" maxlength="140" placeholder="ID *" name="m_email" required>
                   </div>
                 </div>
                 
