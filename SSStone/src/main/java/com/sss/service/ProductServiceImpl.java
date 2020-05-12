@@ -131,6 +131,10 @@ public class ProductServiceImpl implements ProductService {
 
 		return mapper.getProductTotal(cri);
 	}
+	@Override
+	public int getProductSearchTotal(ProductCriteria cri){
+		return mapper.getProductSearchTotal(cri);
+	}
 
 	public List<ProductVO> readSoldout() {
 		

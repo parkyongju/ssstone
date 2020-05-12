@@ -65,12 +65,9 @@
 <section class="py-12" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row" style="margin-top: 70px;">
-     
-      <c:set var="i" value="0" />
+      	 <c:set var="i" value="0" />
          <c:set var="j" value="4" />
             <ul style="padding:0px 1px 0px 1px;">
-         <c:choose>
-            <c:when test="${productList != null && fn:length(productList) > 0 }">
                <c:forEach items="${productList }" var="product">
                <c:if test="${i%j==0 }">
                   <li style="display:flex;">
@@ -115,13 +112,11 @@
                   </div>
                </div>
                <c:if test="${i%j==j-1 }">
+               		</li>
                </c:if>
                <c:set var="i" value="${i+1 }"/>
-               
              </c:forEach>
           
-        </c:when>
-     </c:choose>
      </ul>
      
      </div>

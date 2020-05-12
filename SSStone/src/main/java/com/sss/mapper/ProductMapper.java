@@ -20,6 +20,7 @@ public interface ProductMapper {
 	public List<ProductVO> category();
 	public int countUpdate(ProductVO product);
 	public int getProductTotal(ProductCriteria cri);
+	public int getProductSearchTotal(ProductCriteria cri);
 	public ProductVO readWithMainImg(long p_no);
 	public long countStockShartage();
 	public List<ProductVO> readSoldout(); /* 품절임박 상품을 메인페이지에 보여줌*/
