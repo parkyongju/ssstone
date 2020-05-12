@@ -76,7 +76,7 @@
                                  <input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">전체선택 / </label>
                            </div>
                         <div class="delBtn">
-                            <button id="selectDelete_btn" type="button" class="btn btn-outline-dark btn-xxs" >삭제</button>
+                            <button id="selectDelete_btn" type="button" class="btn btn-outline-dark btn-xxs" style="margin-left:5px; height:27px">삭제</button>
                         </div>
                               <table style="width:100%; text-align:center; font-size: 40px;" class="table">
                                  <thead class="thead-dark">

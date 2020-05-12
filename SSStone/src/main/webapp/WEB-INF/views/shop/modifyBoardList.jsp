@@ -37,12 +37,12 @@
 
 <section class="col-12 bg-light py-6"
    style="font-family: 'Do Hyeon', sans-serif;">
-   <div class="container"
+   <div class="container py-4"
       style="background-color: #fff; border: 1px solid #D8D8D8; border-radius: 10px">
 
       <div class="row py-3">
          <div class="col-12">
-            <h1 class="page-header text-center" style="margin-left: 120px">게시글
+            <h1 class="page-header text-center" style="margin-left: 90px">게시글
                수정</h1>
             <hr>
          </div>
@@ -89,16 +89,20 @@
                         value='<sec:authentication property="principal.member.m_no"/>'
                         readonly="readonly">
                      
+                  <div>   
                      <input type="hidden" name="${_csrf.parameterName }"
                         value="${_csrf.token }">
                      <sec:authorize access="isAuthenticated()">
-                        <button type="submit" data-oper='modify'
-                           class="btn btn-outline-dark btn-s mb-1">수정</button>
+                    
                         <button type="submit" data-oper='remove'
-                           class="btn btn-outline-dark btn-s mb-1">삭제</button>
+                           class="btn btn-outline-dark btn-s mb-1" title="글 삭제" style="float:right">삭제하기</button>
+                        <button type="submit" data-oper='modify'
+                           class="btn btn-outline-dark btn-s mb-1" title="글 수정" style="float:right; margin-right:5px">수정하기</button>
                         <button type="submit" data-oper='list'
-                           class="btn btn-outline-dark btn-s mb-1">목록</button>
+                           class="btn btn-outline-dark btn-s mb-1" title="게시판으로 돌아가기">목록으로</button>
                      </sec:authorize>
+                 </div>    
+                     
                   </form>
             </div>
             <!--  end panel-body  -->
