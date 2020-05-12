@@ -285,7 +285,7 @@
     <br/><br/><br/><br/><br/><br/><br/>
    <br/><br/><br/><br/><br/><br/><br/>
 	<br/><br/><br/><br/><br/><br/><br/><br/>
-    
+    <input id ="p_no" type ="hidden" value='<c:out value="${product.p_no }" ></c:out>'>
     <script>
        $(document).ready(function(e){
           var csrfHeaderName = "${_csrf.headerName}";
