@@ -1,5 +1,4 @@
-package com.sss.task;
-//package org.zerock.task;
+//package com.sss.task;
 //
 //import java.io.File;
 //import java.nio.file.Path;
@@ -16,6 +15,9 @@ package com.sss.task;
 //import org.zerock.domain.BoardAttachVO;
 //import org.zerock.mapper.BoardAttachMapper;
 //
+//import com.sss.domain.ProductImgDTO;
+//import com.sss.mapper.ProductImgMapper;
+//
 //import lombok.Setter;
 //import lombok.extern.log4j.Log4j;
 //
@@ -24,7 +26,7 @@ package com.sss.task;
 //public class FileCheckTask {
 //
 //   @Setter(onMethod_ = { @Autowired })
-//   private BoardAttachMapper attachMapper;
+//   private ProductImgMapper imgMapper;
 //
 //   private String getFolderYesterDay() {
 //
@@ -45,16 +47,15 @@ package com.sss.task;
 //      log.warn("File Check Task run.................");
 //      log.warn(new Date());
 //      // file list in database
-//      List<BoardAttachVO> fileList = attachMapper.getOldFiles();
+//      List<ProductImgDTO> fileList = imgMapper.getOldFiles();
 //
 //      // ready for check file in directory with database file list
 //      List<Path> fileListPaths = fileList.stream()
-//            .map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName()))
-//            .collect(Collectors.toList());
+//            .map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName())).collect(Collectors.toList());
 //
 //      // image file has thumnail file
 //      fileList.stream().filter(vo -> vo.isFiletype() == true)
-//            .map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), "s_" + vo.getUuid() + "_" + vo.getFileName()))
+//      .map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), "s_" + vo.getUuid() + "_" + vo.getFileName()))
 //            .forEach(p -> fileListPaths.add(p));
 //
 //      log.warn("===========================================");
