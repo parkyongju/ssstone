@@ -41,7 +41,6 @@ public class MemberServiceImpl implements MemberService {
    @Override
    public boolean update(MemberVO member) {
       boolean updated = mapper.update(member) == 1;
-      System.out.println("비밀번호 바뀜");
       return updated;
    }
 

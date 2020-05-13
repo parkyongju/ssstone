@@ -54,7 +54,6 @@ public class UploadController {
 		File uploadPath = new File(uploadFolder, getFolder());			//저장되는 폴더 경로
 		if(uploadPath.exists() == false){
 			uploadPath.mkdirs();
-			System.out.println("폴더 만듬");
 		}
 		for(MultipartFile multipartFile : uploadMainFile){
 			ProductImgDTO productDTO = new ProductImgDTO();
@@ -68,7 +67,6 @@ public class UploadController {
 			
 			try{
 				File saveFile = new File(uploadPath,uploadFileName);
-				System.out.println(saveFile.getPath());
 				multipartFile.transferTo(saveFile);
 				productDTO.setP_uuid(uuid.toString());
 				productDTO.setP_filepath(uploadFolderPath);
@@ -103,7 +101,6 @@ public class UploadController {
 		File uploadPath = new File(uploadFolder, getFolder());			//저장되는 폴더 경로
 		if(uploadPath.exists() == false){
 			uploadPath.mkdirs();
-			System.out.println("폴더 만듬");
 		}
 		
 		for(MultipartFile multipartFile : uploadFile){

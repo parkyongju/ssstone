@@ -32,9 +32,7 @@ public class ProductController {
 		if (cri.getP_category1() != null || cri.getP_category1() != null) {
 			model.addAttribute("productList", productservice.getListSearchPaging(cri));
 			int total = productservice.getProductSearchTotal(cri);
-			System.out.println("total : " + total);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
-			System.out.println(cri);
 		} else {
 			model.addAttribute("productList", productservice.getListWithMain(cri));
 			int total = productservice.getTotalProduct(cri);
@@ -70,7 +68,6 @@ public class ProductController {
 		if (p_category1.equals("*")) {
 			return new ResponseEntity<>(productservice.getListWithMain(cri), HttpStatus.OK);
 		} else {
-			System.out.println(productservice.getListSearchPaging(cri));
 			return new ResponseEntity<>(productservice.getListSearchPaging(cri), HttpStatus.OK);
 		}
 	}
