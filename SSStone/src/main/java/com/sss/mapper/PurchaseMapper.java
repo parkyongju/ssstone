@@ -5,7 +5,7 @@ import java.util.List;
 import com.sss.domain.PurchaseVO;
 
 public interface PurchaseMapper {
-   public void insert(long m_no);
+   public void insert(PurchaseVO vo);
    public int delete(Long pc_no);
    public List<PurchaseVO> getList();
    public int updateTrue(long pc_no);

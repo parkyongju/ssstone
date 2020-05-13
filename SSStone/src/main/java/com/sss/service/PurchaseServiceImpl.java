@@ -40,8 +40,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 	}
 
 	public void register(long m_no) {		//상품 구매 컨트롤러
-		mapper.insert(m_no);				//m_no로 구매 번호 생성
-		Long pc_no = mapper.readByM_no(m_no);//구매 번호 불러옴
+		PurchaseVO membervo1 = new PurchaseVO();
+		membervo1.setM_no(m_no);
+		mapper.insert(membervo1);				//m_no로 구매 번호 생성
 		Long p_no = 0L;						//예비 p_no
 		ArrayList<Shopping_cartVO> cartlist = new ArrayList<>();
 		cartlist = (ArrayList<Shopping_cartVO>) cartMapper.listCart(m_no);
@@ -49,7 +50,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 			PurchaseMemberVO membervo = new PurchaseMemberVO();
 			p_no = cartlist.get(i).getP_no();	//카트에 있는 p_no 불러옴
 			membervo.setP_no(p_no);				//구매번호에 p_no 넣음
-			membervo.setPc_no(pc_no);			//구매 번호 설정
+			membervo.setPc_no(membervo1.getPc_no());
 			Shopping_cartVO cart = new Shopping_cartVO();
 			cart.setM_no(m_no);
 			cart.setP_no(p_no);

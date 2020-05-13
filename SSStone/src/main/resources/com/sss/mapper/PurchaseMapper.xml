@@ -5,10 +5,13 @@
 <mapper namespace="com.sss.mapper.PurchaseMapper">
    
    <!-- tbl_purchase 테이블에 정보를 추가해주는 sql -->
-   <select id="insert">
+   <insert id="insert">
+		<selectKey keyProperty="pc_no" order="BEFORE" resultType="long">
+			select seq_purchase.nextval from dual
+		</selectKey>
       insert into tbl_purchase (pc_no, m_no)
-      values(seq_purchase.nextval, #{m_no})
-   </select>
+      values(#{pc_no}, #{m_no})
+   </insert>
    
    <!-- 구매번호로 구매정보 삭제 -->
    <delete id="delete">
@@ -55,8 +58,7 @@
    
    <select id ="readByM_no" resultType="Long">
       <![CDATA[ 
-         select pc_no from (select /*+INDEX_DESC(tbl_purchase pk_pc_no) */
-         rownum rn, pc_no from tbl_purchase where m_no=#{m_no}) where rn=1
+         select max(pc_no) from tbl_purchase where m_no=#{m_no}
       ]]>
    </select>
    
