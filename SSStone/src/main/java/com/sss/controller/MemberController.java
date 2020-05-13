@@ -54,10 +54,9 @@ public class MemberController {
 
 	}
 
-	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
+	@PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no )")
 	@GetMapping("/mypage")
 	public void mypage(@RequestParam("m_no") Long m_no, Model model) {
-		List<MemberVO> vo = memberservice.mypage(92L);
 		model.addAttribute("mypage", memberservice.mypage(m_no));
 		model.addAttribute("member", memberservice.read(m_no));
 	}

@@ -281,12 +281,12 @@
                       str += "<div class='col-8'>"
                            + "<p class='font-size-sm font-weight-bold mb-6'>"
                            + "<a class='text-body' href='./product.html'><strong>"+list[i].p_name+"<strong></a><br>"
-                           + "<span class='text-muted'>"+numberWithCommas(list[i].p_price)+"원<strong class= 'pull-right text-muted' style='float:right;'>"+list[i].p_category1+" > "+list[i].p_category2+"</strong></span></p>"
+                           + "<span class='text-muted'>"+numberWithCommas(list[i].p_price)+"원 * "+list[i].s_amount+"개<strong class= 'pull-right text-muted' style='float:right;'>"+list[i].p_category1+" > "+list[i].p_category2+"</strong></span></p>"
                            + "<div class='d-flex align-items-center'>";
                       str  + "<a class='font-size-xs text-gray-400 ml-auto' href=''#'>"
                            + "<i class='fe fe-x'></i> Remove"
                            + "</a></div></div></div></li>";
-                      summoney+= list[i].p_price;
+                      summoney += list[i].p_price* list[i].s_amount;
                 }
                  shoppingcartList.html(str);
                  str="<strong>총 금액</strong> <strong class='ml-auto'>"+numberWithCommas(summoney)+"원</strong>";

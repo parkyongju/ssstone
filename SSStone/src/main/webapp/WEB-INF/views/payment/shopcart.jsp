@@ -157,7 +157,7 @@ $(document).ready(function() {
 							+ "</th>"
 							
 							+ "<th style='line-height:50px'>"
-							+ "<a href='#' data-fancybox> <img" 
+							+ "<a href='/product/product?p_no="+cart[i].p_no+"'> <img" 
 						 + " src='/display?fileName=" + cart[i].p_filepath + "/" + cart[i].p_uuid + "_" + cart[i].p_filename + "'"
 						 + "alt='...' class='card-img-top' style='width:110px; border:1px solid #D8D8D8'>"
 						 + "</a>"
