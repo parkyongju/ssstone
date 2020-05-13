@@ -80,7 +80,7 @@
                         </div>
                         <a href="/admin/member">
                             <div class="panel-footer">
-                                <span class="pull-left">고객관리 보러가기<br>&nbsp;</span>
+                                <span class="pull-left">총 회원 수 : ${totalMember}<br>&nbsp;</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

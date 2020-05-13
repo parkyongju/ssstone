@@ -17,6 +17,7 @@ public interface BoardMapper {
   public int delete(Long b_no);
   public int update(BoardVO board);
   public int getTotalCount(Criteria cri);
+  public List<BoardVO> readByM_no(Long m_no);
   
   public void updateReplyCnt(@Param("b_no") Long b_no, @Param("amount") int amount);
 }

@@ -49,52 +49,50 @@
 				<div class="panel panel-default">
 					<!-- /.panel-heading -->
 					<div class="panel-body">
-						<table class="table table-bordered table-hover text-center"
+						<table class="table table-hover"
 							style="text-align: center" id="">
-							<thead class="thead-dark" style="text-align: center; font-size:1.5rem">
+							<thead class="thead-dark" style="text-align: center; font-size:1.5em; " height="10">
 								<tr>
-									<th style="width: 13%;">번호</th>
-									<th>아이디</th>
+									<th style="width: 8%;">번호</th>
 									<th style="width: 55%;">제목</th>
-									<th style="width: 20%;">작성일</th>
+									<th style ="width : 10%">아이디</th>
+									<th style="width: 10%;">작성일</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${list}" var="board">
 									<!-- 일반 글일 때 -->
 									<c:if test="${board.b_info == 0 }"> 
-										<tr>
-											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
+										<tr height=30  style="padding: 2px;  font-size: 0.8em;">
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" style="padding: 5px;" >
 												<c:out value="${board.b_no }"></c:out>		
 											</td>
-											<td
-												onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
-												<c:out value="${board.m_email}" />
-											</td>
-											<td
-												onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" align="left" style="padding: 5px;">
 												<c:out value="${board.b_title}" />
 											</td>
-											<td
-												onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
-												<fmt:formatDate pattern="yyyy-MM-dd"
-													value="${board.b_regdate}" />
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" style="padding: 5px;">
+												<c:set value="${board.m_email}" var = "m_email"/>
+												<%-- ${fn:indexOf(m_email,'@')} --%>
+												${fn:substring(board.m_email, 0,fn:indexOf(board.m_email,"@")) }
+											</td>
+											<td style="padding: 2px;" onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" class="text-muted" style="font-size: 0.7em;">
+												<fmt:formatDate pattern="yyyy-MM-dd" value="${board.b_regdate}" />
 											</td>
 										</tr>
 									</c:if>
 									<!-- 공지사항 -->
 									<c:if test="${board.b_info != 0 }">		
-										<tr style='background-color: #e2bdbd;'>
-											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
+										<tr style='background: lightgray'>
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" style="padding: 5px;" >
 												<c:out value="${board.b_no }"></c:out>		
 											</td>
-											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
-												관리자
-											</td>
-											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" style="padding: 5px;" align="left">
 												<strong><c:out value="${board.b_title}" /></strong>
 											</td>
-											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'">
+											<td onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" style="padding: 5px;">
+												관리자
+											</td>
+											<td style="padding: 5px;" onClick=" location.href='/shop/getBoardList?b_no=${board.b_no}'" class="text-muted" style="font-size: 0.2em;">
 												<fmt:formatDate pattern="yyyy-MM-dd"
 													value="${board.b_regdate}" />
 											</td>

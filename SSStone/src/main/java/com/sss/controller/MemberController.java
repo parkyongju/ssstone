@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sss.domain.BoardVO;
 import com.sss.domain.MemberVO;
+import com.sss.service.BoardService;
 import com.sss.service.MemberService;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +32,7 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	private MemberService memberservice;
 	private PasswordEncoder pwencoder;
+	private BoardService boardservice;
 	JavaMailSender mailSender; // 메일 서비스를 사용하기 위해 의존성을 주입함.
 
 	@GetMapping("/account")
@@ -162,9 +166,16 @@ public class MemberController {
 
 		MemberVO vo = memberservice.read(m_no);
 
-		vo.setM_email("탈퇴한 회원" + (vo.getM_email()));
-		vo.setM_password(pwencoder.encode("1"));
+		vo.setM_email("탈퇴한 회원" );
+		vo.setM_password(pwencoder.encode("1234"));
 		memberservice.update(vo);
+		List<BoardVO> board = boardservice.readByM_no(m_no);
+		
+		for(int i=0; i<board.size(); i++)
+		{
+			boardservice.delete(board.get(i).getB_no());
+		}
+		
 
 		return "redirect:/logout";
 

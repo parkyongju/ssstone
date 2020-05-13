@@ -142,7 +142,7 @@
             <ul class="nav" id="side-menu">
               
                <li>
-                  <a href="/admin/index"><i class="fa far fa-folder fa-fw"></i>매출 현황</a>
+                  <a href="/admin/index"><i class="fa far fa-folder fa-fw"></i>관리 페이지</a>
                </li>
                
                <li>
@@ -171,11 +171,11 @@
               </li>
               
               <li>
-                 <a href="/admin/adminSignUp"><i class="fa far fa-folder fa-fw"></i>관리자 가입</a>
+                 <a href="/admin/manager"><i class="fa far fa-folder fa-fw"></i>관리자 정보</a>
               </li>
               
               <li>
-                 <a href="/admin/manager"><i class="fa far fa-folder fa-fw"></i>관리자 정보</a>
+                 <a href="/admin/adminSignUp"><i class="fa far fa-folder fa-fw"></i>관리자 가입</a>
               </li>
               
               <li>

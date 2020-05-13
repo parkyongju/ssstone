@@ -74,4 +74,10 @@ public class BoardServiceImpl implements BoardService {
 		mapper.insertInfo(board);
 	}
 
+	@Override
+	public List<BoardVO> readByM_no(Long m_no) {
+		mapper.readByM_no(m_no);
+		return null;
+	}
+
 }

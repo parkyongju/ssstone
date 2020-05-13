@@ -3,75 +3,81 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sss.mapper.BoardMapper">
-	
+
 	<!-- 게시글 리스트 -->
-   <select id="getList" resultType="com.sss.domain.BoardVO">
+	<select id="getList" resultType="com.sss.domain.BoardVO">
       <![CDATA[
       select * from tbl_board a inner join tbl_member b on a.m_no=b.m_no where a.b_no>0 
       ]]>
-   </select>
-   <!-- 새로운 첨부파일 추가 -->
-   <insert id="insert">
-      insert into tbl_board(b_no, b_title, b_content, m_no)
-      values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no})
-   </insert>
-   <insert id="insertInfo">
-      insert into tbl_board(b_no, b_title, b_content, m_no, b_info)
-      values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no}, seq_info.nextval)
-   </insert>
+	</select>
+	<!-- 새로운 첨부파일 추가 -->
+	<insert id="insert">
+		insert into tbl_board(b_no, b_title, b_content, m_no)
+		values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no})
+	</insert>
+	<insert id="insertInfo">
+		insert into tbl_board(b_no, b_title, b_content, m_no, b_info)
+		values(seq_board.nextval, #{b_title}, #{b_content}, #{m_no},
+		seq_info.nextval)
+	</insert>
 
-   <insert id="insertSelectKey">
-      <selectKey keyProperty="b_no" order="BEFORE" resultType="long">
-         select seq_board.nextval from dual
-      </selectKey>
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="b_no" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
 
-      insert into tbl_board(b_no, b_title, b_content, m_no)
-      values(#{b_no}, #{b_title}, #{b_content}, #{m_no})
-   </insert>
+		insert into tbl_board(b_no, b_title, b_content, m_no)
+		values(#{b_no}, #{b_title}, #{b_content}, #{m_no})
+	</insert>
 
-   <!-- 첨부파일 목록 -->
-   <select id="read" resultType="com.sss.domain.BoardVO">
-      select * from tbl_board a inner join tbl_member b on a.m_no=b.m_no where b_no = #{b_no}
-   </select>
+	<!-- 첨부파일 목록 -->
+	<select id="read" resultType="com.sss.domain.BoardVO">
+		select * from tbl_board a inner join tbl_member b on a.m_no=b.m_no where
+		b_no = #{b_no}
+	</select>
 
-   <!-- 첨부파일 레코드 삭제 -->
-   <delete id="delete">
-      delete from tbl_board where b_no=#{b_no}
-   </delete>
+	<select id="readByM_no" resultType="com.sss.domain.BoardVO">
+		select * from tbl_board a inner join tbl_member b on a.m_no=b.m_no where a.m_no = #{m_no}
+	</select>
 
-   <!-- 게시물 내용 수정 -->
-   <update id="update">
-      update tbl_board set
-      b_title=#{b_title},
-      b_content=#{b_content},
-      m_no= #{m_no},
-      b_updatedate=sysdate
-      where b_no=#{b_no}
-   </update>
+	<!-- 첨부파일 레코드 삭제 -->
+	<delete id="delete">
+		delete from tbl_board where b_no=#{b_no}
+	</delete>
+
+	<!-- 게시물 내용 수정 -->
+	<update id="update">
+		update tbl_board set
+		b_title=#{b_title},
+		b_content=#{b_content},
+		m_no= #{m_no},
+		b_updatedate=sysdate
+		where b_no=#{b_no}
+	</update>
 
 	<!-- 게시글 검색 -->
-   <sql id="criteria">
-      <trim prefix="(" suffix=") AND " prefixOverrides="OR">
-         <foreach collection="typeArr" item='type'>
-            <trim prefix="OR">
-               <choose>
-                  <when test="type == 'T'.toString()">
-                     b_title like'%'||#{keyword}||'%'
-                  </when>
-                  <when test="type == 'C'.toString()">
-                     b_content like'%'||#{keyword}||'%'
-                  </when>
-                  <when test="type == 'W'.toString()">
-                     m_no like'%'||#{keyword}||'%'
-                  </when>
-               </choose>
-            </trim>
-         </foreach>
-      </trim>
-   </sql>
-	
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="typeArr" item='type'>
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							b_title like'%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							b_content like'%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							m_no like'%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
 	<!-- 페이지 처리 -->
-   <select id="getListWithPaging" resultType="com.sss.domain.BoardVO">
+	<select id="getListWithPaging" resultType="com.sss.domain.BoardVO">
       <![CDATA[
       select
          a.b_no, a.b_title, a.b_content, a.m_no, a.b_regdate, a.b_updatedate, b.m_email, b_info
@@ -82,26 +88,26 @@
 	              from tbl_board 
 	              where
       ]]>
-      <include refid="criteria"></include>
+		<include refid="criteria"></include>
       <![CDATA[   
          rownum <= #{pageNum} * #{amount}
             ) ) a left join tbl_member b on a.m_no = b.m_no
          where rn > ( #{pageNum} - 1 ) * #{amount} order by a.b_info desc, rn
       ]]>
-   </select>
-	
+	</select>
+
 	<!-- 게시글 총 개수 -->
-   <select id="getTotalCount" resultType="int">
-      select count(*) from tbl_board
-      where
-      <include refid="criteria"></include>
-      b_no > 0
-   </select>
-	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_board
+		where
+		<include refid="criteria"></include>
+		b_no > 0
+	</select>
+
 	<!-- 리플 수정 -->
-   <update id="updateReplyCnt">
-      update tbl_board set b_content = b_content + #{amount} where b_no = #{b_no}
-   </update>
+	<update id="updateReplyCnt">
+		update tbl_board set b_content = b_content + #{amount} where b_no = #{b_no}
+	</update>
 
 
 </mapper>

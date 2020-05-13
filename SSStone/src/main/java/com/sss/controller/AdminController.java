@@ -72,6 +72,7 @@ public class AdminController {
 		model.addAttribute("priceSalesToday", purchaseservice.priceSalesToday());
 		model.addAttribute("countTodayAccountMember", memberservice.countTodayAccountMember());
 		model.addAttribute("countTodayWithdrawalMember", memberservice.countTodayWithdrawalMember());
+		model.addAttribute("totalMember", memberservice.getMemberTotal());
 	}
 
 	@GetMapping("/productList")
