@@ -27,7 +27,7 @@ public class BoardCriteria {
    private Criteria cri;
    
    public BoardCriteria(){
-      this(1,15);
+      this(1,30);
    }
    public BoardCriteria(int pageNum, int amount)
    {

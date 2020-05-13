@@ -259,11 +259,11 @@
                 console.log(list);
                    if (list == null
                          || list.length == 0) {
-                      str += "<li><div class='row align-items-center'>"
+                      str += "<li><div class=' align-items-center'>"
                           + "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"
                          + "<i class='fe fe-x' aria-hidden='true'></i>"
                          + "</button><div class='modal-header line-height-fixed font-size-lg'><strong class='mx-auto'>Cart</strong>"
-                          + "</div><div class='modal-body flex-grow-0 my-auto'><h6 class='mb-7 text-center'>장바구니가 비었습니다 😞</h6>"
+                          + "</div><div class='modal-body flex-grow-0 my-auto'><h6 class='mb-6 text-center'>장바구니가 비었습니다 😞</h6>"
                           + "<a class='btn btn-block btn-outline-dark' href='/product/shop'>쇼핑 하러 가기</a></div></li>";
                       shoppingcartList.html(str);
                       str1 += "<a id = 'noitem' class='btn btn-block btn-dark' href='#'>결제하기</a>"	

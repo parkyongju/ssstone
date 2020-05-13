@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +39,7 @@ public class PaymentController {
    private MemberService memberService;
    private PurchaseService purchseservice;
    
+   @PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
    @GetMapping("/checkout")
    public void checkout(@RequestParam Long m_no, Model model) {
       log.info("checkout");
@@ -53,6 +55,7 @@ public class PaymentController {
       return "redirect:/shop/main";
    }
 
+   @PreAuthorize("isAuthenticated() and (principal.member.m_no == #m_no or hasRole('ROLE_MANAGER') )")
    @GetMapping("/shopcart")//페이지 들어가기
    public void shopcart(@RequestParam("m_no") Long m_no) {
    }

@@ -149,9 +149,11 @@
                     </div>
 
                     <!-- Text -->
+                    <sec:authorize access="isAnonymous()">
                     <p>
                       <a class="text-reset text-decoration-underline" data-toggle="modal" href="/member/account" title="회원가입" onclick="self.location='/member/account'">회원가입을 원하세요?</a>
                     </p>
+                    </sec:authorize>
 
                     <!-- Share -->
                     <p class="mb-0">

@@ -74,7 +74,7 @@
 						 <div class="card card-sm">
 							<div class="card-body bg-light" style="margin-bottom: 20px;" align="center">
 								
-								<div class="row" style="margin-bottom: 15px;" >	
+								<div class="align-items-center" style="margin-bottom: 15px;" >	
 										<h4 class="heading-xs" style="line-height: 200px auto;">&nbsp;&nbsp;구매한 상품이 없습니다.</h4>
 								 </div>				
 							</div>
