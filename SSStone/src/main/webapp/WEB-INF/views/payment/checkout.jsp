@@ -10,7 +10,7 @@
    href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
    rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.11.0/css/font-awesome.min.css">
-   
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
    <!-- BREADCRUMB -->
     <nav class="py-3" style="font-family: 'Do Hyeon', sans-serif; margin-left:180px">
       <div class="container">
@@ -179,13 +179,21 @@
               </li>
              </c:forEach>
             </ul>
-
+			<div class="card mb-9 bg-light">
+              <div class="card-body">
+                <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                  <li class="list-group-item d-flex font-size-lg font-weight-bold">
+                    <span>배송비</span><span class="ml-auto"><fmt:formatNumber value="${2500}" pattern="#,###" />원</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <!-- 상품 합계금액 -->
             <div class="card mb-9 bg-light">
               <div class="card-body">
                 <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                   <li class="list-group-item d-flex font-size-lg font-weight-bold">
-                    <span>총 금액</span><span class="ml-auto"><fmt:formatNumber value="${sumMoney}" pattern="#,###" />원</span>
+                    <span>총 금액</span><span class="ml-auto"><fmt:formatNumber value="${sumMoney+ 2500}" pattern="#,###" />원</span>
                   </li>
                 </ul>
               </div>
@@ -282,7 +290,7 @@
                     </label>
                   </div>
                 </div>
-                <div class="list-group-item collapse py-0" id="checkoutPaymentCardCollapse3">
+                <div class="list-group-item collapse" id="checkoutPaymentCardCollapse3">
                   <!-- Form -->
                   <div class="form-row py-5">
                   · 결제정보가 상점에 남지 않으며, 보안 적용된 결제창이 새로 뜹니다.<br>
@@ -359,23 +367,44 @@
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
-
-$(".box button").attr("disabled", true);
-$("#U_checkAgreement1").on('click',function(){
-    var chk = $('input:checkbox[id="U_checkAgreement1"]').is(":checked");
-    if(chk==true){
-        $(".box button").removeAttr('disabled');
-        $(".box").removeClass("on");
-    }else{
-        $(".box button").attr("disabled", true);
-        $(".box").addClass("on");
-    }
-});
-   $(document).ready(function(){
-   
-   $("#home").on("click", function(){
-   		document.location.href="/shop/main";
-   });
+$(document).ready(function(){
+	$(".box button").attr("disabled", true);
+	
+	$("#U_checkAgreement1").on('click',function(){
+		var chk = $('input:checkbox[id="U_checkAgreement1"]').is(":checked");
+		if(chk==true){
+			$(".box button").removeAttr('disabled');
+			$(".box").removeClass("on");
+		}
+		else{
+			$(".box button").attr("disabled", true);
+			$(".box").addClass("on");
+		}
+	});
+	$("input[type=radio]").on("change",function(e){
+		var chk1 = $('input[id="checkoutPaymentCard1"]').is(":checked");
+		var chk2 = $('input[id="checkoutPaymentCard2"]').is(":checked");
+		var chk3 = $('input[id="checkoutPaymentCard3"]').is(":checked");
+		var chk4 = $('input[id="checkoutPaymentCard4"]').is(":checked");
+		
+		if(chk1==false){
+			$("#checkoutPaymentCardCollapse1").collapse('hide');
+		}
+		if(chk2==false){
+			$("#checkoutPaymentCardCollapse2").collapse('hide');
+		}
+		if(chk3==false){
+			$("#checkoutPaymentCardCollapse3").collapse('hide');
+		}
+		if(chk4==false){
+			$("#checkoutPaymentCardCollapse4").collapse('hide');
+		}
+		
+	});
+	   
+	$("#home").on("click", function(){
+		document.location.href="/shop/main";
+	});
 });
 </script>
 <%@ include file="../includes/footer.jsp" %>
