@@ -156,7 +156,7 @@ public class MemberController {
 	public void withdrawal(@RequestParam("m_no") Long m_no, Model model) {
 		model.addAttribute("member", memberservice.read(m_no));
 	}
-	@PreAuthorize("isAuthenticated() and (principal.username == #m_email or hasRole('ROLE_MANAGER') )")
+	
 	@PostMapping("/withdrawal")
 	public String updateWithdrawal(Long m_no, Model model) {
 
@@ -166,7 +166,7 @@ public class MemberController {
 		vo.setM_password(pwencoder.encode("1"));
 		memberservice.update(vo);
 
-		return "redirect:/shop/main";
+		return "redirect:/logout";
 
 	}
 
