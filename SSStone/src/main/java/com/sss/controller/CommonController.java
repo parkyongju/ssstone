@@ -28,8 +28,9 @@ public class CommonController {
 			model.addAttribute("logout", "Logout!!!!!!!!!!!!!!");
 		}
 	}
-	@GetMapping("/customLogout")
+	@GetMapping("/logout")
 	public void logoutGET(){
-		log.info("custom logout");
+		log.info("logout");
 	}
+	
 }
