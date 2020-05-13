@@ -100,7 +100,15 @@
 													<td><c:out value="${product.p_no}"/></td>
 													<td><fmt:formatDate value="${product.pc_date}" pattern="yyyy/MM/dd"/></td>
 													<td><c:out value="${product.p_name}"/></td>
-													<td><fmt:formatNumber value="${product.purchaseAmount}" pattern="#,###"/>원</td>
+													<td>
+														<c:if test="${empty product.purchaseAmount}">
+															0원
+														</c:if>
+														<c:if test="${not empty product.purchaseAmount}">
+															<fmt:formatNumber value="${product.purchaseAmount}" pattern="#,###"/>원
+														</c:if>
+													
+													</td>
 												</tr>
 											</c:forEach>	
 											</tbody>
