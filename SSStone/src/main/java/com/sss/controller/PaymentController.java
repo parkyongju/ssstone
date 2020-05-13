@@ -68,9 +68,6 @@ public class PaymentController {
    {
      Map<String, Integer> map = new HashMap<>();
       Shopping_cartVO cart = new Shopping_cartVO();
-      System.out.println(p_no);
-      System.out.println(m_no);
-      System.out.println(s_count);
       cart.setP_no(Long.parseLong(p_no));
       cart.setM_no(Long.parseLong(m_no));
       cart.setS_amount(Long.parseLong(s_count));
