@@ -17,10 +17,10 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
               <li class="breadcrumb-item">
-                <a class="text-gray-400" href="index.html">Home</a>
+                <a class="text-gray-400" href="/shop/main">Home</a>
               </li>
               <li class="breadcrumb-item active">
-                FAQ
+                <a class="text-gray-400" href="/shop/faq">FAQ</a>
               </li>
             </ol>
 
