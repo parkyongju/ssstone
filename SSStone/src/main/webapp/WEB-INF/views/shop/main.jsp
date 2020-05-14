@@ -20,7 +20,7 @@
               <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-1">
 
                 <!-- Heading -->
-                <h1>이쁜 악세사리</h1>
+                <h1>당신의 품격</h1>
 
                 <!-- Heading -->
                 <h2 class="display-1 text-primary">SSStone</h2>
@@ -39,14 +39,13 @@
         <div class="w-100 bg-cover" style="background-image: url(/resources/img/covers/배너.jpg);">
           <div class="container d-flex flex-column">
             <div class="row align-items-center py-12" style="min-height: 550px;">
-              <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-n1">
+              <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-md-n1" style="margin-left: 20px;">
 
                 <!-- Heading -->
-                <h1 class="mb-5">Summer Collection</h1>
+                <h1 class="mb-5 ">Summer Collection</h1>
 
                 <!-- Text -->
-                <p class="mb-8 font-size-lg text-gray-500">
-                     뜨거운 여름 태양보다<br> 빛나는 스톤들이 왔다!                </p>
+                <p class="mb-8 font-size-lg text-gray-500" >  뜨거운 여름 태양보다<br> 빛나는 스톤들이 왔다!                </p>
 
                 <!-- Button -->
                 <a class="btn btn-dark" href="/product/shop">
