@@ -15,7 +15,7 @@
          <div class="col-12">
    
             <!-- Heading -->
-            <h3 class="text-center text-white">남녀노소 모두가 원하는 악세사리!!! 지금 득템하세요~~!!♥</h3>
+            <h3 class="text-center text-white">당신의 품격이 되어드리겠습니다.</h3>
    
             <!-- Breadcrumb -->
             <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
