@@ -81,12 +81,12 @@
 										<table style="width:100%; text-align:center; font-size: 40px;" class="table">
 											<thead class="thead-dark">
 											 <tr>
-												<th>상품 선택</th>
-												<th>상품 이미지</th>
-												<th>상품 정보</th>
-												<th>상품 금액</th>
-												<th>상품 수량</th>
-												<th>배송비</th>
+												<th style="width: 10%; padding: 10px;">상품 선택</th>
+												<th style="width: 20%; padding: 10px;">상품 이미지</th>
+												<th style="width: 30%; padding: 10px;">상품 정보</th>
+												<th style="width: 20%; padding: 10px;">상품 금액</th>
+												<th style="width: 10%; padding: 10px;">상품 수량</th>
+												<th style="width: 30%; padding: 10px;">배송비</th>
 											 </tr> 
 											</thead>
 											<tbody style="border-bottom:1px solid #dcdcda;" id="pc_list">
@@ -148,7 +148,7 @@ $(document).ready(function() {
 				sum += eachsumPrice;
 				var center = 8 * cart.length;
 				str+= "<tr>"
-							+ "<th class='checkBox'>"
+							+ "<th class='checkBox' style='padding=1px;'>"
 							+ "<input type='checkbox' name='chBox' class='chBox' data-cartNum="+ cart[i].s_no +" style='height:65px;/>"
 							+ "</th>"
 							
@@ -168,7 +168,7 @@ $(document).ready(function() {
 						 + "</th>"
 						 
 						 + "<th style='line-height:50px'>"
-						+ numberWithCommas(eachsumPrice)	+ "원"
+						+ numberWithCommas(cart[i].p_price)	+ "원"
 						+	"</th>"
 						
 						 + "<th style='line-height:50px'>"
@@ -181,7 +181,7 @@ $(document).ready(function() {
 						 + "</th>";
 						 if(i==0)
 						 {
-							 str += "<th style = 'line-height:"+center+"; ' rowspan='"+ cart.length + "'>2,500원";
+							 str += "<th style = 'line-height:"+center+"; ' rowspan='"+ cart.length + "'>2,500";
 							 str += "</th>";
 						 }
 						 str += "</tr>"

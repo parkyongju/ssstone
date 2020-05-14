@@ -41,7 +41,7 @@
           <div class="col-12">
             <!-- Text -->
             <div class="text-center text-white">
-              <span class="heading-xxs letter-spacing-xl" style="margin-left:100px">
+              <span class="heading-xxs letter-spacing-xl" style="margin-left:120px">
                 ⚡️ Super Shining Stone ⚡️
               </span>
             </div>

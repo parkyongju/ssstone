@@ -31,7 +31,7 @@
 
 
 <!-- FILTERS -->
-<section class="py-4 border-bottom" style="font-family: 'Do Hyeon', sans-serif;">
+<section class="py-4 border-bottom" style="padding: 1px; font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
       <div class="row align-items-center">
          <div class="col-12 col-md">
@@ -51,7 +51,7 @@
                onclick="self.location='/product/shop?p_category1=반지&p_category2='">반지</a>
                <a class="nav-link ${ pageMaker.productcriteria.p_category1 eq '헤어용품' ? "active" : "" }" data-toggle="tab" href="/product/shop?p_category1=헤어&p_category2=" 
                onclick="self.location='/product/shop?p_category1=헤어&p_category2='">헤어용품</a>
-               <a class="nav-link" data-toggle="tab" href="/shop/comingsoon"
+               <a class="nav-link" data-toggle="tab" href="/shop/comingsoon" style=""
                  title="준비중" onclick="self.location='/shop/comingsoon'">Commingsoon</a>
             </nav>
 
