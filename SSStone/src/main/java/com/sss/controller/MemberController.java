@@ -170,13 +170,10 @@ public class MemberController {
 		vo.setM_password(pwencoder.encode("1234"));
 		memberservice.update(vo);
 		List<BoardVO> board = boardservice.readByM_no(m_no);
-		
-		for(int i=0; i<board.size(); i++)
-		{
-			boardservice.delete(board.get(i).getB_no());
-		}
-		
-
+//		for(BoardVO i : board)
+//		{
+//			boardservice.delete(i.getB_no());
+//		}
 		return "redirect:/logout";
 
 	}

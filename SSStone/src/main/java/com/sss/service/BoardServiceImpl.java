@@ -2,6 +2,7 @@ package com.sss.service;
 
 import java.util.List;
 
+import org.omg.CORBA.BAD_INV_ORDER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,11 +45,14 @@ public class BoardServiceImpl implements BoardService {
 		return updateResult;
 	}
 
-	@Transactional
 	@Override
 	public boolean delete(Long b_no) {
 		log.info("remove......." + b_no);
-		return mapper.delete(b_no) == 1;
+		BoardVO vo = mapper.read(b_no);
+		vo.setB_title("삭제된 글 입니다");
+		vo.setB_content("삭제된 글입니다.");
+		vo.setM_no(1L);
+		return mapper.update(vo) == 1;
 	}
 
 	@Override
