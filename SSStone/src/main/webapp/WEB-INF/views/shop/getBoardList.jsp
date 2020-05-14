@@ -182,12 +182,13 @@ $(document).ready(function() {
          }
          for (var i = 0, len = list.length || 0; i < len; i++) {
             str += "<li class='left clearfix' >";
+            var m_email = list[i].m_email.substring(0, list[i].m_email.indexOf("@"));
             if(list[i].r_depth != 0 )//대댓글일때
             {
                str += "<i class='fe fe-corner-down-right'> </i>";
                str += " <div style='margin-left:5%; background-color=gray;' > <div class='primary-font header'>"
                + "<label style='color:grey;'>작성자  </label> "
-               + list[i].m_email;                              
+               + m_email;                              
          str += " <small class='pull-right text-muted'>"
                + replyService
                      .displayTime(list[i].r_regdate)
@@ -208,7 +209,7 @@ $(document).ready(function() {
             {
                str += "<div class='panel panel-default'> <div class='primary-font header panel-heading'>"
                + "<label style='color:grey;'>작성자  </label> "
-               + list[i].m_email;
+               + m_email;
          str += " <small class='pull-right text-muted'>"
                + replyService
                      .displayTime(list[i].r_regdate)
