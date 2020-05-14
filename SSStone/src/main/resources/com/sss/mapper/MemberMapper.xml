@@ -197,7 +197,7 @@
               left outer join tbl_member m 
                  on pc.m_no=m.m_no
          where pc.pc_deliverystatus='false'
-         and m.m_no=#{m_no}
+         and m.m_no=#{m_no} order by pc_no desc
    ]]>   
    </select>
    
@@ -227,7 +227,7 @@
               left outer join tbl_member m 
                  on pc.m_no=m.m_no
          where pc.pc_deliverystatus='true'
-         and m.m_no=#{m_no}
+         and m.m_no=#{m_no} order by pc_no desc
    ]]>   
    </select>
    <!-- 배송 후 구매 정보 -->
