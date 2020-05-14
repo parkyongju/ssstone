@@ -50,7 +50,7 @@
 	</delete>
 
 	<update id="update">
-		update tbl_reply set r_content = #{r_content},
+		update tbl_reply set r_content = #{r_content}, m_no=#{m_no},
 		r_updatedate = sysdate where
 		r_no= #{r_no}
 	</update>

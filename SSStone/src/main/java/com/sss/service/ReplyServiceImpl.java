@@ -63,6 +63,10 @@ public class ReplyServiceImpl implements ReplyService {
 
    @Override
    public int modify(ReplyVO vo) {
+	   ReplyVO origin = new ReplyVO();
+	   origin = mapper.read(vo.getR_no());
+	   ReplyVO change = vo;
+	   change.setM_no(origin.getM_no());
       log.info("modify........" + vo);
       return mapper.update(vo);
    }
@@ -73,7 +77,7 @@ public class ReplyServiceImpl implements ReplyService {
       log.info("remove....." + r_no);
       ReplyVO vo = mapper.read(r_no);
       vo.setR_content("삭제된 내용 입니다.");
-      vo.setM_no(0L);
+      vo.setM_no(1L);
 //      boardMapper.updateReplyCnt(vo.getB_no(), -1);
       return mapper.update(vo);
    }

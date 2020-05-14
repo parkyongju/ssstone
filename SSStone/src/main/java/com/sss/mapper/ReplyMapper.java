@@ -9,7 +9,7 @@ import com.sss.domain.ReplyVO;
 
 public interface ReplyMapper {
    public int insert(ReplyVO vo);
-   public ReplyVO read(Long b_no);
+   public ReplyVO read(Long r_no);
    public int delete(Long r_no);
    public int update(ReplyVO r_content);
    
