@@ -42,7 +42,7 @@
                     <c:forEach items="${productmain }" var ="mainimg">
                      <a class="card mb-4" href="#" data-fancybox> <img
                         src='/display?fileName=<c:out value="${mainimg.p_filepath}"/>/<c:out value="${mainimg.p_uuid}"/>_<c:out value="${mainimg.p_filename }"/>'
-                        alt="..." class="card-img-top" width="160%" height="160%" style="border:1px solid #D8D8D8">
+                        alt="..." class="card-img-top" width="160px" height="500px" style="border:1px solid #D8D8D8">
                      </a>
                   </c:forEach>
                     </div>
