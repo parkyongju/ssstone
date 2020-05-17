@@ -64,7 +64,7 @@
 <!-- 상품 페이지 -->
 <section class="py-6" style="font-family: 'Do Hyeon', sans-serif;">
    <div class="container">
-      <div class="row" style="margin-top: 70px;">
+      <div class="row" style="margin-top: 3px;">
       	 <c:set var="i" value="0" />
          <c:set var="j" value="4" />
             <ul style="padding:0px 1px 0px 1px;">
@@ -76,7 +76,7 @@
                   <!-- Card -->
                   <div class="move card mb-7" data-toggle="card-collapse" href= '<c:out value="${product.p_no }"/>' >
                     <!-- Image -->
-                    <div style="width: 250px;">    
+                    <div style="width: 250px; height: 280px;">    
                        <a href="/product/product?p_no=<c:out value='${product.p_no }'/>" class="card-img-top" >
                           <c:if test="${product.p_stock > 0 }">
                           <img
@@ -116,7 +116,6 @@
                </c:if>
                <c:set var="i" value="${i+1 }"/>
              </c:forEach>
-          
      </ul>
      
      </div>
